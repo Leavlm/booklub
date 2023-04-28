@@ -17,9 +17,24 @@
 
 .header__search {
     padding-left: .5rem;
+
 }
 
 .header__nav {
     padding-right: .5rem;
     padding-top: .2rem;
+}
+
+.header__img {
+    width: 3rem;
+}
+
+@media screen and (min-width: 1280px) {
+    .header__lst {
+        height: 5rem;
+    }
+
+    .header__img{
+        width: 4rem;
+    }
 }
