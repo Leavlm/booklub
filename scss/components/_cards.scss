@@ -1,0 +1,24 @@
+/* CARDS  */
+
+.card {
+    width: calc(50% - 1rem);
+    padding-bottom: 1rem;
+}
+
+.card__lnk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__ttl {
+    margin-top: .65rem;
+    color: $green;
+    font-size: 1.2rem;
+
+}
+
+.card__txt {
+    color: $green;
+    font-size: 1rem;
+}

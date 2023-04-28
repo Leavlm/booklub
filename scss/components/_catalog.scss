@@ -1,0 +1,21 @@
+/* CATALOG  */
+.catalog{
+    background-color: $taupe;
+}
+
+.catalog__title {
+    display: flex;
+    justify-content: center;
+    color: $green;
+    padding: 2rem 0;
+    background-color: $beige;
+}
+
+.catalog__lst {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    padding-top: 3.5rem
+}

@@ -1,0 +1,22 @@
+/* FOOTER  */
+
+.footer {
+    color: $brown;
+}
+
+.footer__lst {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+
+
+.footer__socials {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+    position: absolute;
+    right: 1rem;
+}

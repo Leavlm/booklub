@@ -1,0 +1,25 @@
+/* HEADER  */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header__lst {
+    background-color: $brown;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__search {
+    padding-left: .5rem;
+}
+
+.header__nav {
+    padding-right: .5rem;
+    padding-top: .2rem;
+}

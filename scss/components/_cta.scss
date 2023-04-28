@@ -1,0 +1,37 @@
+/* CTA  */
+
+.cta {
+    display: flex;
+}
+
+.cta__position{
+    justify-content: center;
+}
+
+.cta__wrap{
+    padding-bottom: 2rem;
+}
+
+
+.cta:link {
+    text-decoration: none;
+}
+
+.cta__txt {
+    background-color: $orange;
+    padding: .8rem 1rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: $white;
+}
+
+.cta__txt--little{
+    background-color: $orange;
+    padding: .8rem 1rem;
+    border-radius: .5rem;
+    font-weight: 400;
+    font-size: .8rem;
+    color: $white;
+}
+

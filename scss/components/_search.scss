@@ -1,0 +1,32 @@
+/* SEARCH  */
+
+.search__wrap {
+    padding: 1rem;
+}
+
+.search__label {
+    display: block;
+    color: $green;
+    padding-bottom: .2rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+
+}
+
+.search__input {
+    border-radius: .5rem;
+    padding: .5rem;
+    border: none;
+    font-family: sans-serif;
+}
+
+.search__btn {
+    background-color: $orange;
+    color: $beige;
+    font-size: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    letter-spacing: .02rem;
+    margin-left: .5rem;
+}

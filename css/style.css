@@ -1,0 +1,296 @@
+a:link {
+  text-decoration: none;
+  color: var(--brown);
+}
+
+a:visited {
+  color: var(--brown);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--beige);
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  font-size: 15px;
+}
+
+/* TEXTE */
+.txt {
+  font-family: "Merriweather";
+}
+
+/* SUGGESTIONS */
+.suggestions {
+  background-color: #C8B4A1;
+  height: 250px;
+}
+
+.suggestions__ttl {
+  margin-left: 1.6rem;
+  padding-top: 1rem;
+  font-weight: 600;
+}
+
+/* SEARCH  */
+.search__wrap {
+  padding: 1rem;
+}
+
+.search__label {
+  display: block;
+  color: #123F34;
+  padding-bottom: 0.2rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.search__input {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  font-family: sans-serif;
+}
+
+.search__btn {
+  background-color: #D04826;
+  color: #E4DDC9;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  letter-spacing: 0.02rem;
+  margin-left: 0.5rem;
+}
+
+/* RATING */
+.rating__wrap {
+  margin: 5rem 7.6rem 2.6rem 7.6rem;
+  position: relative;
+}
+
+.rating__img {
+  position: relative;
+}
+
+.rating__icn {
+  position: absolute;
+  right: -2rem;
+  top: -2rem;
+}
+
+/* NAVBAR  */
+.nav {
+  background-color: #654A3B;
+  position: relative;
+}
+
+.nav__itm {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.nav__icn {
+  background-color: #654A3B;
+  position: absolute;
+  padding: 0.5rem;
+  right: 0.5rem;
+  top: -3.5rem;
+}
+
+/* INTRO  */
+.intro {
+  display: flex;
+  flex-direction: column;
+  background-image: url(/img/background.png);
+  height: calc(50vh - 2rem);
+  background-size: cover;
+}
+
+.intro__wrap {
+  padding-top: 11.5rem;
+  padding-left: 2rem;
+}
+
+.intro__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.intro__txt {
+  font-family: "Merriweather";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* HEADER  */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header__lst {
+  background-color: #654A3B;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__search {
+  padding-left: 0.5rem;
+}
+
+.header__nav {
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+}
+
+/* FOOTER  */
+.footer {
+  color: #654A3B;
+}
+
+.footer__lst {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  position: absolute;
+  right: 1rem;
+}
+
+/* DESCRIPTION */
+.description {
+  margin: 2.6rem 1.6rem 1.6rem 1.6rem;
+}
+
+.description__wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.description__ttl {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* CTA  */
+.cta {
+  display: flex;
+}
+
+.cta__position {
+  justify-content: center;
+}
+
+.cta__wrap {
+  padding-bottom: 2rem;
+}
+
+.cta:link {
+  text-decoration: none;
+}
+
+.cta__txt {
+  background-color: #D04826;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.cta__txt--little {
+  background-color: #D04826;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+/* CATALOG  */
+.catalog {
+  background-color: #C8B4A1;
+}
+
+.catalog__title {
+  display: flex;
+  justify-content: center;
+  color: #123F34;
+  padding: 2rem 0;
+  background-color: #E4DDC9;
+}
+
+.catalog__lst {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  padding-top: 3.5rem;
+}
+
+/* CARDS  */
+.card {
+  width: calc(50% - 1rem);
+  padding-bottom: 1rem;
+}
+
+.card__lnk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__ttl {
+  margin-top: 0.65rem;
+  color: #123F34;
+  font-size: 1.2rem;
+}
+
+.card__txt {
+  color: #123F34;
+  font-size: 1rem;
+}/*# sourceMappingURL=style.css.map */

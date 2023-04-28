@@ -1,0 +1,39 @@
+// reset 
+
+a:link {
+    text-decoration: none;
+    color: var(--brown);
+}
+
+a:visited {
+    color: var(--brown);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--beige);
+}
+
+ul {
+    list-style: none;
+}

@@ -1,0 +1,25 @@
+/* NAVBAR  */
+
+.nav {
+    background-color: $brown;
+    position: relative;
+}
+
+
+.nav__itm {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $white;
+    text-align: center;
+    padding: 1rem;
+
+}
+
+.nav__icn {
+    background-color: $brown;
+    position: absolute;
+    padding: .5rem;
+    right: 0.5rem;
+    top: -3.5rem;
+}
+
