@@ -2,19 +2,25 @@
 
 .search__wrap {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
 }
 
 .search__label {
     display: block;
     color: $green;
-    padding-bottom: .2rem;
+    padding-bottom: .5rem;
     font-weight: 600;
     font-size: 1.2rem;
+    text-align: center;
 }
 
 .search__input {
     border-radius: .5rem;
     padding: .5rem;
+    margin-bottom: 1rem;
     border: none;
     background-color: $taupe;
     font-family: sans-serif;
