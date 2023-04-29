@@ -1,8 +1,9 @@
 /* CARDS  */
 
-.card {
+.card__wrap {
     width: calc(50% - 1rem);
     padding-bottom: 1rem;
+    background-color: $taupe;
 }
 
 .card__lnk {
@@ -24,11 +25,11 @@
 }
 
 .card__img {
-    width: 5rem;
+    width: 6rem;
 
 }
 @media screen and (min-width: 780px){
-    .card{
+    .card__wrap{
         width: calc(25% - 1rem);
     }
 
@@ -40,7 +41,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-    .card{
+    .card__wrap{
         width: calc(25% - 3rem);
     }
 

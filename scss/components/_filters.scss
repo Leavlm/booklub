@@ -1,0 +1,25 @@
+// filters 
+
+.filters{
+    display: flex;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+    color: $green;
+    background-color: $taupe;
+}
+
+.filters__wrap{
+    display: flex;
+    margin-left: 1rem;
+    gap: .5rem;
+}
+
+.filters__input{
+}
+
+.filters__txt{
+    color: $green;
+    font-size: .8rem;
+}
+

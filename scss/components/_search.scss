@@ -10,20 +10,24 @@
     padding-bottom: .2rem;
     font-weight: 600;
     font-size: 1.2rem;
-
 }
 
 .search__input {
     border-radius: .5rem;
     padding: .5rem;
     border: none;
+    background-color: $taupe;
     font-family: sans-serif;
+}
+
+::placeholder{
+    color: #fff;
 }
 
 .search__btn {
     background-color: $orange;
-    color: $beige;
-    font-size: 1rem;
+    color: #fff;
+    font-size: .8rem;
     padding: .5rem;
     border-radius: .5rem;
     border: none;
