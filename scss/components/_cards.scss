@@ -22,3 +22,20 @@
     color: $green;
     font-size: 1rem;
 }
+
+.card__img {
+    width: 5rem;
+
+}
+@media screen and (min-width: 780px){
+    .card{
+        width: calc(25% - 1rem);
+    }
+
+    .card__img {
+        width: 10rem;
+        height: 15rem;
+
+}
+}
+

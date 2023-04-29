@@ -139,8 +139,8 @@ ul {
   padding-bottom: 2rem;
 }
 
-.intro__title {
-  font-size: 2rem;
+.intro__ttl {
+  font-size: 3rem;
   font-weight: 800;
   color: #fff;
 }
@@ -150,7 +150,7 @@ ul {
   font-weight: 400;
   font-size: 1rem;
   color: #fff;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0 0 1rem 0;
 }
 
 @media screen and (min-width: 780px) {
@@ -161,6 +161,12 @@ ul {
   .intro__wrap {
     padding-left: 4rem;
     padding-bottom: 4rem;
+  }
+  .intro__ttl {
+    font-size: 4rem;
+  }
+  .intro__txt {
+    font-size: 1.2rem;
   }
 }
 /* HEADER  */
@@ -203,6 +209,7 @@ ul {
 /* FOOTER  */
 .footer {
   color: #654A3B;
+  background-color: #E4DDC9;
 }
 
 .footer__lst {
@@ -259,7 +266,7 @@ ul {
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
 }
 
@@ -272,6 +279,15 @@ ul {
   color: #fff;
 }
 
+@media screen and (min-width: 780px) {
+  .cta__txt {
+    font-size: 1.2rem;
+  }
+  .cta__txt--little {
+    margin-top: 3rem;
+    font-size: 1rem;
+  }
+}
 /* CATALOG  */
 .catalog {
   background-color: #C8B4A1;
@@ -294,6 +310,11 @@ ul {
   padding-top: 3.5rem;
 }
 
+@media screen and (min-width: 780px) {
+  .catalog__lst {
+    gap: 5rem;
+  }
+}
 /* CARDS  */
 .card {
   width: calc(50% - 1rem);
@@ -315,4 +336,18 @@ ul {
 .card__txt {
   color: #123F34;
   font-size: 1rem;
+}
+
+.card__img {
+  width: 5rem;
+}
+
+@media screen and (min-width: 780px) {
+  .card {
+    width: calc(25% - 1rem);
+  }
+  .card__img {
+    width: 10rem;
+    height: 15rem;
+  }
 }/*# sourceMappingURL=style.css.map */

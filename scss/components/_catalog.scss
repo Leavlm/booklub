@@ -19,3 +19,9 @@
     padding: 1rem;
     padding-top: 3.5rem
 }
+
+@media screen and (min-width: 780px){
+    .catalog__lst{
+        gap: 5rem
+    }
+}

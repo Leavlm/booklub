@@ -1,4 +1,3 @@
-
 /* INTRO  */
 
 .intro {
@@ -15,8 +14,8 @@
     padding-bottom: 2rem;
 }
 
-.intro__title {
-    font-size: 2rem;
+.intro__ttl {
+    font-size: 3rem;
     font-weight: 800;
     color: $white;
 }
@@ -26,17 +25,25 @@
     font-weight: 400;
     font-size: 1rem;
     color: $white;
-    margin: .5rem 0 1rem 0;
+    margin: 0 0 1rem 0;
 }
 
-@media screen and (min-width: 780px){
-    .intro{
+@media screen and (min-width: 780px) {
+    .intro {
         background-image: url(/img/background-lg.png);
         background-position: center;
     }
 
-    .intro__wrap{
+    .intro__wrap {
         padding-left: 4rem;
         padding-bottom: 4rem;
+    }
+
+    .intro__ttl {
+        font-size: 4rem;
+    }
+
+    .intro__txt {
+        font-size: 1.2rem;
     }
 }

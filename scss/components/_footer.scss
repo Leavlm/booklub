@@ -2,6 +2,7 @@
 
 .footer {
     color: $brown;
+    background-color: $beige;
 }
 
 .footer__lst {
@@ -10,8 +11,6 @@
     align-items: flex-start;
     padding: 1rem;
 }
-
-
 
 .footer__socials {
     display: flex;

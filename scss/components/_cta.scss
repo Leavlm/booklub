@@ -22,7 +22,7 @@
     padding: .8rem 1rem;
     border-radius: .5rem;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: $white;
 }
 
@@ -35,3 +35,13 @@
     color: $white;
 }
 
+@media screen and (min-width: 780px){
+    .cta__txt{
+        font-size: 1.2rem;
+    }
+
+    .cta__txt--little{
+        margin-top: 3rem;
+        font-size: 1rem;
+    }
+}
