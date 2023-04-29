@@ -99,9 +99,20 @@ ul {
   border-radius: 0.5rem;
   border: none;
   letter-spacing: 0.02rem;
-  margin-left: 0.5rem;
 }
 
+@media screen and (min-width: 769px) {
+  .search__wrap {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin: 0;
+  }
+  .search__label {
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+}
 /* RATING */
 .rating__wrap {
   margin: 5rem 7.6rem 2.6rem 7.6rem;
@@ -168,7 +179,7 @@ ul {
   margin: 0 0 1rem 0;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 769px) {
   .intro {
     background-image: url(/img/background-lg.png);
     background-position: center;
@@ -294,7 +305,7 @@ ul {
   color: #fff;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 769px) {
   .cta__txt {
     font-size: 1.2rem;
   }
@@ -330,16 +341,22 @@ ul {
   padding-top: 0.5rem;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 769px) {
   .catalog__lst {
     gap: 5rem;
     padding-top: 5rem;
+  }
+  .catalog__lst--spacing {
+    padding-top: 0.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .catalog__lst {
     gap: 3rem;
     padding-top: 4rem;
+  }
+  .catalog__lst--spacing {
+    padding-top: 0.5rem;
   }
 }
 /* CARDS  */
@@ -370,7 +387,7 @@ ul {
   width: 6rem;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 769px) {
   .card__wrap {
     width: calc(25% - 1rem);
   }

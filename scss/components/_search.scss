@@ -26,7 +26,7 @@
     font-family: sans-serif;
 }
 
-::placeholder{
+::placeholder {
     color: #fff;
 }
 
@@ -38,5 +38,19 @@
     border-radius: .5rem;
     border: none;
     letter-spacing: .02rem;
-    margin-left: .5rem;
+}
+
+@media screen and (min-width: 769px) {
+    .search__wrap {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        margin: 0;
+    }
+
+    .search__label {
+        font-size: 1.5rem;
+        padding-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+
 }
