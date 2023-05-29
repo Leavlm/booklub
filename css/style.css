@@ -132,7 +132,9 @@ ul {
 /* NAVBAR  */
 .nav {
   background-color: #654A3B;
-  position: relative;
+  position: absolute;
+  right: 0px;
+  width: 30vw;
 }
 
 .nav__itm {
@@ -149,6 +151,10 @@ ul {
   padding: 0.5rem;
   right: 0.5rem;
   top: -3.5rem;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 /* INTRO  */
@@ -189,10 +195,11 @@ ul {
     padding-bottom: 4rem;
   }
   .intro__ttl {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
   .intro__txt {
-    font-size: 1.2rem;
+    font-size: 2rem;
+    line-height: 3rem;
   }
 }
 /* HEADER  */
@@ -307,11 +314,11 @@ ul {
 
 @media screen and (min-width: 769px) {
   .cta__txt {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .cta__txt--little {
     margin-top: 3rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 /* CATALOG  */

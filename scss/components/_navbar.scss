@@ -2,7 +2,9 @@
 
 .nav {
     background-color: $brown;
-    position: relative;
+    position: absolute;
+    right: 0px;
+    width: 30vw;
 }
 
 
@@ -21,5 +23,9 @@
     padding: .5rem;
     right: 0.5rem;
     top: -3.5rem;
+}
+
+.hide{
+    visibility: hidden;
 }
 
