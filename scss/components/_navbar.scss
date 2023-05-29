@@ -4,16 +4,16 @@
     background-color: $brown;
     position: absolute;
     right: 0px;
-    width: 30vw;
+    width: 50vw;
+    z-index: 20;
 }
-
 
 .nav__itm {
     font-size: 1.2rem;
     font-weight: 700;
     color: $white;
     text-align: center;
-    padding: 1rem;
+    padding: 1.1rem;
 
 }
 
