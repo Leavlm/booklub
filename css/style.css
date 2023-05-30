@@ -181,7 +181,7 @@ ul {
 .intro__txt {
   font-family: "Merriweather";
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #fff;
   margin: 0 0 1rem 0;
 }
@@ -190,7 +190,6 @@ ul {
   .intro {
     background-image: url(/img/background-lg.png);
     background-position: center;
-    height: 26rem;
   }
   .intro__wrap {
     padding-left: 4rem;
@@ -358,6 +357,9 @@ ul {
   .catalog__lst--spacing {
     padding-top: 0.5rem;
   }
+  .catalog__title {
+    font-size: 2rem;
+  }
 }
 @media screen and (min-width: 1280px) {
   .catalog__lst {
@@ -390,6 +392,7 @@ ul {
 .card__txt {
   color: #123F34;
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .card__img {
@@ -403,6 +406,12 @@ ul {
   .card__img {
     width: 10rem;
     height: 15rem;
+  }
+  .card__ttl {
+    font-size: 1.7rem;
+  }
+  .card__txt {
+    font-size: 1.5rem;
   }
 }
 @media screen and (min-width: 1280px) {

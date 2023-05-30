@@ -22,7 +22,7 @@
 .intro__txt {
     font-family: 'Merriweather';
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: $white;
     margin: 0 0 1rem 0;
 }
@@ -31,7 +31,7 @@
     .intro {
         background-image: url(/img/background-lg.png);
         background-position: center;
-        height: 26rem;
+        // height: 26rem;
     }
 
     .intro__wrap {
