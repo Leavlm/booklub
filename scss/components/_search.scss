@@ -1,11 +1,12 @@
 /* SEARCH  */
 
 .search__wrap {
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
+    background-color: $beige;
+    // margin: 1rem;
 }
 
 .search__label {
