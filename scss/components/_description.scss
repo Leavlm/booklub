@@ -5,8 +5,8 @@
 }
 
 .description__wrap{
-    display: flex ;
-    align-items: flex-end;
+    // display: flex ;
+    // align-items: center;
     gap: 1rem;
     margin-bottom: .4rem;
 
@@ -15,4 +15,13 @@
 .description__ttl{
     font-size: 1.6rem;
     font-weight: 700;
+    text-align: center;
+}
+
+.description__icn{
+    display: flex;
+    margin: 0 auto;
+}
+.description__txt{
+    padding: 0 2rem 0 2rem;
 }

@@ -18,25 +18,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <ul class="header__lst">
-            <li class="header__search">
-                <a href="recherche.html">
-                    <img src="img/loupe.png" alt="icône de loupe">
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="img/petit-logo-blc.png" alt="icône de logo">
-                </a>
-            </li>
-            <li class="header__nav">
-                <a href="">
-                    <img src="img/menu-burger.png" alt="icône de menu">
-                </a>
-            </li>
-        </ul>
-    </header>
+<?php require "header.php";
+    ?>
 
 
     <main>
@@ -69,17 +52,5 @@
 
 
 
-<footer class="footer">
-    <div class="footer__socials">
-        <a href="http://www.tiktok.com"><img src="/img/logo-tiktok.png" alt="logo Tiktok"></a>
-        <a href="http://www.instagram.com"><img src="/img/logo-insta.png" alt="logo Instagram"></a>
-    </div>
-    <ul class="footer__lst">
-        <li class="footer__itm"><a href="/contact.html">Contactez-nous</a></li>
-        <li class="footer__itm"><a href="/faq.html">F.A.Q</li></a>
-        <li class="footer__itm"><a href="/conditions.html">Conditions d'utilisation</li></a>
-        <li class="footer__itm"><a href="/cookies.html">Politique de cookies</li></a>
-        <li class="footer__itm"><a href="/nouvelleref.html">Ajouter une référence</li></a>
-    </ul>
-</footer>
+<?php require"footer.php" ?>
 </html>

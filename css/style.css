@@ -121,12 +121,11 @@ ul {
 
 .rating__img {
   position: relative;
+  margin: 0 auto;
 }
 
 .rating__icn {
   position: absolute;
-  right: -2rem;
-  top: -2rem;
 }
 
 /* NAVBAR  */
@@ -267,8 +266,6 @@ ul {
 }
 
 .description__wrap {
-  display: flex;
-  align-items: flex-end;
   gap: 1rem;
   margin-bottom: 0.4rem;
 }
@@ -276,6 +273,16 @@ ul {
 .description__ttl {
   font-size: 1.6rem;
   font-weight: 700;
+  text-align: center;
+}
+
+.description__icn {
+  display: flex;
+  margin: 0 auto;
+}
+
+.description__txt {
+  padding: 0 2rem 0 2rem;
 }
 
 /* CTA  */
