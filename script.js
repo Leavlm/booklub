@@ -10,3 +10,6 @@ const croix = document.getElementById('nav__close');
 croix.addEventListener('click', function(){
     nav.classList.toggle('hide')
 })
+
+
+// Aller chercher dans la BDD les genres & caractéristiques correspondant aux livres. 
