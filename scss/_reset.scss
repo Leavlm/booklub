@@ -31,7 +31,8 @@ h6 {
 body {
     font-family: 'Merriweather', serif;
     font-family: 'Poppins', sans-serif;
-    background-color: var(--beige);
+    background-color: $beige;
+    ;
 }
 
 ul {

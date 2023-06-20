@@ -31,12 +31,18 @@
 
             <article class="description">
                 <div class="description__wrap">
+                    <img class="description__icn" src="img/pouce-bas" alt="pouce vers le bas">
                     <img class="description__icn" src="img/coeur.png" alt="coeur cliquable">
-                    <h1 class="description__ttl">Titre du livre</h1>
+                    <img class="description__icn" src="img/pouce-haut" alt="pouce vers le haut">
                 </div>
+                    <h1 class="description__ttl">Titre du livre</h1>
                 <p class="txt description__txt">Lorem ipsum dolor sit amet consectetur. Non etiam arcu donec augue ornare pulvinar nunc. Pellentesque
                     cum
                     nisl vitae rutrum faucibus sit. Proin convallis lectus adipiscing enim viverra lorem aliquam.</p>
+            </article>
+            <article class="seller">
+                <h2 class="seller__ttl">Exemplaires disponibles</h2>
+
             </article>
 
         </section>

@@ -2,18 +2,21 @@
 
 .description{
     margin: 2.6rem 1.6rem 1.6rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem
 }
 
 .description__wrap{
-    // display: flex ;
-    // align-items: center;
-    gap: 1rem;
+    display: flex ;
+    align-items: center;
+    gap: 2rem;
     margin-bottom: .4rem;
 
 }
 
 .description__ttl{
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
 }
@@ -21,7 +24,10 @@
 .description__icn{
     display: flex;
     margin: 0 auto;
+    width: 4rem;
 }
 .description__txt{
-    padding: 0 2rem 0 2rem;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    text-align: center;
 }

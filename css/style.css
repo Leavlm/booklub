@@ -28,7 +28,7 @@ h6 {
 body {
   font-family: "Merriweather", serif;
   font-family: "Poppins", sans-serif;
-  background-color: var(--beige);
+  background-color: #E4DDC9;
 }
 
 ul {
@@ -115,17 +115,22 @@ ul {
 }
 /* RATING */
 .rating__wrap {
-  margin: 5rem 7.6rem 2.6rem 7.6rem;
+  margin: 5rem 7.6rem;
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 
 .rating__img {
   position: relative;
-  margin: 0 auto;
+  width: 15rem;
 }
 
 .rating__icn {
   position: absolute;
+  right: -2rem;
+  top: -2rem;
+  width: 5rem;
 }
 
 /* NAVBAR  */
@@ -263,15 +268,20 @@ ul {
 /* DESCRIPTION */
 .description {
   margin: 2.6rem 1.6rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .description__wrap {
-  gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
   margin-bottom: 0.4rem;
 }
 
 .description__ttl {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
 }
@@ -279,10 +289,13 @@ ul {
 .description__icn {
   display: flex;
   margin: 0 auto;
+  width: 4rem;
 }
 
 .description__txt {
-  padding: 0 2rem 0 2rem;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 /* CTA  */
@@ -444,4 +457,8 @@ ul {
 .filters__txt {
   color: #123F34;
   font-size: 0.8rem;
+}
+
+.seller__ttl {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

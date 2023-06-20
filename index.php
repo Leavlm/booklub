@@ -26,7 +26,7 @@
             <article class="intro__wrap">
                 <h1 class="intro__ttl">Booklub</h1>
                 <p class="intro__txt">Vous en avez marre de chercher <br>votre prochain livre ? <br></p>
-                <a class="cta" href="">
+                <a class="cta" href="choose-product.php">
                     <p class="cta__txt">Aidez moi à choisir</p>
                 </a>
             </article>
