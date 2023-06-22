@@ -66,7 +66,7 @@
 
         <section class="catalog">
             <ul class="catalog__lst catalog__lst--spacing">
-                <li class="card__wrap">
+                <!-- <li class="card__wrap">
                     <a class="card__lnk" href="">
                         <picture>
                             <source srcset="/img/book-blackwater-lg.jpg" media="(min-width: 769px)">
@@ -145,7 +145,7 @@
                         <h3 class="card__ttl">Agatha Raisin 21</h3>
                         <p class="card__txt">M.C Beaton</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </section>
 
