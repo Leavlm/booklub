@@ -1,3 +1,5 @@
+// Nav bar on mobile device
+
 const burger = document.getElementById('header');
 const nav = document.getElementById('nav');
 
@@ -12,6 +14,7 @@ croix.addEventListener('click', function(){
 });
 
 
+// Searchbar on the research page (local)
 
 const searchInput = document.querySelector('.search__input');
 const catalogList = document.querySelector('.catalog__lst');
@@ -51,48 +54,12 @@ const displayBooks = (books) => {
 
 loadBooks();
 
-// searchInput.addEventListener('input', (e) => {
-//     const value = e.target.value
-//     console.log(value)
-// })
 
-//     fetch('list.json').then(res => res.json()).then(data => {
-//         book = data.map(user =>{
-//             const card = bookCardTemplate.content.cloneNode(true).children[0];
-//             const bookTitle = document.querySelector("[data-header]");
-//             const bookAuthor = document.querySelector("[data-body]");
-//             bookTitle.innerHTML = user.title; 
-//             bookAuthor.innerHTML = user.author;
-//             bookCardContainer.append(card)
-    
-//     })
-//     });
+// TEST
+
+const googleApi = fetch('https://www.googleapis.com/books/v1/volumes?q=search+terms');
+const apiStringified = googleApi.json();
+console.log(apiStringified);
 
 
-// async function searchBook(query){
-//     if (query.length >= 3) {
-//         const response = await fetch('booklub/list.json');
-//         const bookList = await response.json();
-//         if(Array.isArray(bookList)){
-//             const suggestions = bookList.map((book) => )
-//         }
-//     }
-// }
 
-// async function searchCities(query) {
-//     if (query.length >= 3) {
-//         const response = await fetch(
-//             `https://api.weatherapi.com/v1/search.json?key=dfb545a573604021be494635230205&q=${query}`
-//         );
-//         const cities = await response.json();
-//         if (Array.isArray(cities)) {
-//             const suggestions = cities
-//                 .map(
-//                     (city) =>
-//                         `<button data-location="${city.name}, ${city.region}, ${city.country}">${city.name} (${city.region}), ${city.country}</button>`
-//                 )
-//                 .join("");
-//             suggestionsList.innerHTML = suggestions;
-//             const cityButtons = document.querySelectorAll(
-//                 "#suggestions button"
-//             );
