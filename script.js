@@ -20,6 +20,8 @@ const searchInput = document.querySelector('.search__input');
 const catalogList = document.querySelector('.catalog__lst');
 let booksDetails = [];
 
+// When something is typed in the searchbar, look for the value in the searchbar in the filtered book array
+
 searchInput.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
     const filteredBooks = booksDetails.filter((book) => {
@@ -37,11 +39,17 @@ const loadBooks = async () => {
     }
 }
 
+// When there's a match between the searchbar and the filtered array, display the book
+
 const displayBooks = (books) => {
     const htmlString= books.map((book) => {
         return `
         <li class="card__wrap">
                     <a class="card__lnk" href="">
+                    <picture>
+                    <source srcset="${book.coverL}" media="(min-width: 769px)">
+                    <img src="${book.coverS}" class="card__img" alt="couverture de livre">
+                </picture>
                         <h3 class="card__ttl">${book.title}</h3>
                         <p class="card__txt">${book.author}</p>
                     </a>
@@ -55,11 +63,8 @@ const displayBooks = (books) => {
 loadBooks();
 
 
-// TEST
 
-const googleApi = fetch('https://www.googleapis.com/books/v1/volumes?q=search+terms');
-const apiStringified = googleApi.json();
-console.log(apiStringified);
+
 
 
 

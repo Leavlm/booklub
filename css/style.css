@@ -166,7 +166,7 @@ ul {
 .intro {
   display: flex;
   flex-direction: column;
-  background-image: url(/img/background.png);
+  background-image: url(img/background.png);
   background-size: cover;
 }
 
@@ -192,7 +192,7 @@ ul {
 
 @media screen and (min-width: 769px) {
   .intro {
-    background-image: url(/img/background-lg.png);
+    background-image: url("img/background-lg.png");
     background-position: center;
   }
   .intro__wrap {
@@ -461,4 +461,16 @@ ul {
 
 .seller__ttl {
   text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.form__btn {
+  margin-top: 1rem;
 }/*# sourceMappingURL=style.css.map */
