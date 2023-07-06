@@ -22,7 +22,7 @@ function getMsg(array $array): string
 
 function verifyToken(){
     if(!array_key_exists('token', $_SESSION) || !array_key_exists('token', $_REQUEST) || $_SESSION['token'] !== $_REQUEST['token'] ){
-        header('location: new-book.php?msg=wrongToken');
+        header('location: new-book.php?msg=wrongToken');    
         exit;
     }
 }

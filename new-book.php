@@ -12,9 +12,9 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
 ?>
 <main>
-    <form action="add.php" method="post" class="form">
+    <form action="" method="" class="form form-js">
         <label for="title">Titre du livre</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" value="">
 
         <label for="author">Auteur</label>
         <input type="text" id="author" name="author">
