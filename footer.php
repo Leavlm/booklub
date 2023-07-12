@@ -1,7 +1,7 @@
 <footer class="footer">
         <div class="footer__socials">
-            <a href="http://www.tiktok.com"><img src="/img/logo-tiktok.png" alt="logo Tiktok"></a>
-            <a href="http://www.instagram.com"><img src="/img/logo-insta.png" alt="logo Instagram"></a>
+            <a href="http://www.tiktok.com"><img src="img/logo-tiktok.png" alt="logo Tiktok"></a>
+            <a href="http://www.instagram.com"><img src="img/logo-insta.png" alt="logo Instagram"></a>
         </div>
         <ul class="footer__lst">
             <li class="footer__itm"><a href="/contact.html">Contactez-nous</a></li>

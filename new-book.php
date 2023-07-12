@@ -31,5 +31,5 @@ echo getMsg($msgArray);
 </main>
 
 
-<script src="js/submit.js"></script>
+<script type="module" src="js/submit.js"></script>
 </body>

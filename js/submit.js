@@ -19,8 +19,7 @@ form.addEventListener('submit', e =>{
 
 })
 
-
-async function callApi(method, data){
+export async function callApi(method, data){
     try{
         const response = await fetch("api.php", {
             method: method,
@@ -37,6 +36,7 @@ async function callApi(method, data){
     }
 
 }
+
 
 function addBook(bookTitle, bookAuthor, pageNb){
     const data = {
