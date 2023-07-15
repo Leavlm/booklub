@@ -17,16 +17,17 @@ if ($data['action'] === 'addBook' && $_SERVER['REQUEST_METHOD'] === 'PUT') {
         'bookAuthor' => $bookAuthor
     ]);
 
-    if ($isOk2){
+    if ($isOk2) {
         $id_author = $dbCo->lastInsertId();
 
 
-    $query = $dbCo->prepare("INSERT INTO `book` (title_book, nb_pages, id_author) VALUES (:bookTitle, :pageNb, :idAuthor)");
-    $isOk = $query->execute([
-        'bookTitle' => $bookTitle,
-        'pageNb' => $pageNb,
-        'idAuthor' => $id_author
-    ]);}
+        $query = $dbCo->prepare("INSERT INTO `book` (title_book, nb_pages, id_author) VALUES (:bookTitle, :pageNb, :id_author)");
+        $isOk = $query->execute([
+            'bookTitle' => $bookTitle,
+            'pageNb' => $pageNb,
+            'id_author' => $id_author
+        ]);
+    }
 
     echo json_encode([
         'result' => $isOk && $isOk2 && $query->rowCount() > 0,
@@ -42,11 +43,11 @@ if ($data['action'] === 'addBook' && $_SERVER['REQUEST_METHOD'] === 'PUT') {
 //-------------------------------------------
 
 
-if($data['action'] === 'search' && $_SERVER['REQUEST_METHOD'] === 'POST'){
+if ($data['action'] === 'search' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $request = trim(strip_tags($data['request']));
     $query = $dbCo->prepare("SELECT `title_book`, `author_name` FROM `book` JOIN `author` WHERE `title_book` LIKE :request OR `author_name` LIKE :request ");
-    $isOk = $query->execute([   
-        'request' => "%$request%"   
+    $isOk = $query->execute([
+        'request' => "%$request%"
     ]);
     $searchstrings = $query->fetchAll();
     echo json_encode([
@@ -55,5 +56,4 @@ if($data['action'] === 'search' && $_SERVER['REQUEST_METHOD'] === 'POST'){
     ]);
 
     exit;
-
 }
