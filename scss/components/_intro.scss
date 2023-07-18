@@ -3,7 +3,7 @@
 .intro {
     display: flex;
     flex-direction: column;
-    background-image: url(img/background.png);
+    background-image: url("../../img/bg.png");
     background-size: cover;
 }
 
@@ -29,7 +29,7 @@
 
 @media screen and (min-width: 769px) {
     .intro {
-        background-image: url('img/background-lg.png');
+        background-image: url('../../img/background-lg.png');
         background-position: center;
         // height: 26rem;
     }

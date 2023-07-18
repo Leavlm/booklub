@@ -3,7 +3,13 @@
 const form = document.querySelector('.form-js');
 const inputTtl = document.querySelector('#title');
 const inputAuthor = document.querySelector('#author');
-const inputPages = document.querySelector('#pages');
+const inputPages = document.querySelector('#pages');4
+const inputs = document.querySelectorAll('.input-js')
+
+
+
+
+
 
 //listening to the submit event to prevent default behavior 
 
@@ -15,6 +21,9 @@ form.addEventListener('submit', e =>{
             console.error('Erreur lors de l\'ajout')
             return;
         }
+        inputs.value = "";
+        displayMessage('Votre livre a été ajouté !', 5000);
+
     })
 
 })
@@ -43,7 +52,20 @@ function addBook(bookTitle, bookAuthor, pageNb){
         action: 'addBook',
         bookTitle: bookTitle,
         bookAuthor: bookAuthor,
-        pageNb: pageNb
+        pageNb: pageNb,
     };
     return callApi('PUT', data)
-}
+} 
+
+function displayMessage(message, duration){
+    const messageElement = document.getElementById('message');
+    // Display the message
+    messageElement.style.display = 'block';
+    messageElement.textContent = message;
+
+    // Hide the message after the specified duration
+    setTimeout(function() {
+      messageElement.style.display = 'none';
+    }, duration);
+  }
+

@@ -3,6 +3,7 @@
 header('content-type:application/json');
 
 require 'includes/_database.php';
+require 'includes/_functions.php';
 
 
 $data = json_decode(file_get_contents('php://input'), true);
@@ -35,6 +36,9 @@ if ($data['action'] === 'addBook' && $_SERVER['REQUEST_METHOD'] === 'PUT') {
         'pageNb' => $data['pageNb'],
         'bookAuthor' => $data['bookAuthor']
     ]);
+
+    // header('location: new-book.php?msg=' . ($isOK ? 'ok' : 'ko'));
+    header('refresh');
     exit;
 }
 
