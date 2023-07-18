@@ -45,7 +45,10 @@ if ($data['action'] === 'addBook' && $_SERVER['REQUEST_METHOD'] === 'PUT') {
 
 if ($data['action'] === 'search' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $request = trim(strip_tags($data['request']));
-    $query = $dbCo->prepare("SELECT `title_book`, `author_name` FROM `book` JOIN `author` WHERE `title_book` LIKE :request OR `author_name` LIKE :request ");
+    $query = $dbCo->prepare("SELECT `title_book`, `author_name` 
+                            FROM `book` 
+                            JOIN `author` ON `book`.`id_author` = `author`.`id_author`
+                            WHERE `title_book` LIKE :request OR `author_name` LIKE :request");
     $isOk = $query->execute([
         'request' => "%$request%"
     ]);

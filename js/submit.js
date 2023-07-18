@@ -5,7 +5,7 @@ const inputTtl = document.querySelector('#title');
 const inputAuthor = document.querySelector('#author');
 const inputPages = document.querySelector('#pages');
 
-//listening to the submit event to prefent default behavior 
+//listening to the submit event to prevent default behavior 
 
 form.addEventListener('submit', e =>{
     e.preventDefault();

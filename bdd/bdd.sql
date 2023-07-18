@@ -1,3 +1,5 @@
+CREATE DATABASE booklub;
+
 CREATE TABLE author(
     id_author INT(5) NOT NULL AUTO_INCREMENT,
     author_name VARCHAR(50) NOT NULL,

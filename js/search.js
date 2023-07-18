@@ -17,7 +17,7 @@ croix.addEventListener('click', function () {
 });
 
 //------------------------------------------
-// Searchbar on the research page (local)
+// Searchbar on the research page
 //------------------------------------------
 
 
@@ -28,7 +28,7 @@ const catalogList = document.querySelector('.catalog__lst');
 /**
  * 
  * @param {string} method  method used to fetch the api
- * @param {object} data will be converted the result to json
+ * @param {object} data will be converted to json
  * @returns the result fetched from the api in json format
  */
 async function callApi(method, data){
@@ -56,18 +56,10 @@ searchInput.addEventListener('keyup', async (e) => {
         action: 'search',
         request: searchString
     });
-    // console.log(response['books']);
-    displayBooks(response['books']); // Appeler la fonction d'affichage avec les données reçues de l'API
+    displayBooks(response['books']); 
 });
 
-// searchInput.addEventListener('keyup', (e) => {
-//     const searchString = e.target.value.toLowerCase();
-//     callApi('post', {
-//         action: 'search',
-//         request: searchString
-//     });
-//     // displayBooks(searchString);
-// })
+
 
 
 
