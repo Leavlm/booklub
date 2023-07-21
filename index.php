@@ -3,12 +3,12 @@ require "includes/_header.php";
 require "includes/_database.php";
 require "includes/_functions.php";
 
-$query = $dbCo->prepare("SELECT `title_book`, `author_name`
+$query = $dbCo->prepare("SELECT `title_book`, `author_name`, `image_url`
                         FROM `book`
-                        JOIN `author` ON `book`.`id_author` = `author`.`id_author`");
+                        LEFT JOIN `author` ON `book`.`id_author` = `author`.`id_author`");
 $query->execute();
 $books = $query->fetchAll();
-
+var_dump($books);
 ?>
 
 <main>
@@ -24,8 +24,9 @@ $books = $query->fetchAll();
 
     <section>
         <article class="catalog">
-            <h2 class="catalog__title">Coups de coeur de l'équipe</h2>
+            <h2 class="catalog__title">Notre catalogue</h2>
             <ul class="catalog__lst">
+    <?= getCatalog($books)?>
 
                 <!-- <li class="card__wrap">
                     <a class="card__lnk" href="">

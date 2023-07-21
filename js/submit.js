@@ -13,49 +13,49 @@ const inputs = document.querySelectorAll('.input-js')
 
 //listening to the submit event to prevent default behavior 
 
-form.addEventListener('submit', e =>{
-    e.preventDefault();
-    addBook(inputTtl.value, inputAuthor.value, inputPages.value)
-    .then(apiResponse => {
-        if(!apiResponse.result){
-            console.error('Erreur lors de l\'ajout')
-            return;
-        }
-        inputs.value = "";
-        displayMessage('Votre livre a été ajouté !', 5000);
+// form.addEventListener('submit', e =>{
+//     e.preventDefault();
+//     addBook(inputTtl.value, inputAuthor.value, inputPages.value)
+//     .then(apiResponse => {
+//         if(!apiResponse.result){
+//             console.error('Erreur lors de l\'ajout')
+//             return;
+//         }
+//         inputs.value = "";
+//         displayMessage('Votre livre a été ajouté !', 5000);
 
-    })
+//     })
 
-})
+// })
 
-export async function callApi(method, data){
-    try{
-        const response = await fetch("api.php", {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }) 
-        return response.json();
+// export async function callApi(method, data){
+//     try{
+//         const response = await fetch("api.php", {
+//             method: method,
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(data)
+//         }) 
+//         return response.json();
 
-    }
-    catch(error){
-        console.error('error')
-    }
+//     }
+//     catch(error){
+//         console.error('error')
+//     }
 
-}
+// }
 
 
-function addBook(bookTitle, bookAuthor, pageNb){
-    const data = {
-        action: 'addBook',
-        bookTitle: bookTitle,
-        bookAuthor: bookAuthor,
-        pageNb: pageNb,
-    };
-    return callApi('PUT', data)
-} 
+// function addBook(bookTitle, bookAuthor, pageNb){
+//     const data = {
+//         action: 'addBook',
+//         bookTitle: bookTitle,
+//         bookAuthor: bookAuthor,
+//         pageNb: pageNb,
+//     };
+//     return callApi('PUT', data)
+// } 
 
 function displayMessage(message, duration){
     const messageElement = document.getElementById('message');
