@@ -1,6 +1,6 @@
 /* CATALOG  */
 .catalog{
-    background-color: $taupe;
+    background-color: $beige;
 }
 
 .catalog__title {
@@ -9,6 +9,7 @@
     color: $green;
     padding: 2rem 0;
     background-color: $beige;
+    font-weight: 700;
 }
 
 .catalog__lst {
@@ -17,8 +18,8 @@
     justify-content: center;
     gap: 2rem;
     padding: 1rem;
-    padding-top: 3.5rem;
-    background-color: $taupe;
+    padding-top: 1rem;
+    background-color: $beige;
 }
 
 .catalog__lst--spacing{
@@ -27,8 +28,8 @@
 
 @media screen and (min-width: 769px){
     .catalog__lst{
-        gap: 5rem;
-        padding-top: 5rem;
+        gap: 3rem;
+        padding-top: 1rem;
         
     }
     .catalog__lst--spacing{
@@ -43,7 +44,7 @@
 @media screen and (min-width: 1280px){
     .catalog__lst{
         gap: 3rem;
-        padding-top: 4rem;
+        padding-top: 1rem;
     }
     .catalog__lst--spacing{
         padding-top: .5rem;

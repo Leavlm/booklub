@@ -67,12 +67,15 @@ ul {
 }
 
 /* SEARCH  */
-.search__wrap {
+.search {
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #E4DDC9;
+}
+.search__img {
+  height: 10rem;
 }
 
 .search__label {
@@ -354,7 +357,7 @@ ul {
 }
 /* CATALOG  */
 .catalog {
-  background-color: #C8B4A1;
+  background-color: #E4DDC9;
 }
 
 .catalog__title {
@@ -363,6 +366,7 @@ ul {
   color: #123F34;
   padding: 2rem 0;
   background-color: #E4DDC9;
+  font-weight: 700;
 }
 
 .catalog__lst {
@@ -371,8 +375,8 @@ ul {
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
-  padding-top: 3.5rem;
-  background-color: #C8B4A1;
+  padding-top: 1rem;
+  background-color: #E4DDC9;
 }
 
 .catalog__lst--spacing {
@@ -381,8 +385,8 @@ ul {
 
 @media screen and (min-width: 769px) {
   .catalog__lst {
-    gap: 5rem;
-    padding-top: 5rem;
+    gap: 3rem;
+    padding-top: 1rem;
   }
   .catalog__lst--spacing {
     padding-top: 0.5rem;
@@ -394,7 +398,7 @@ ul {
 @media screen and (min-width: 1280px) {
   .catalog__lst {
     gap: 3rem;
-    padding-top: 4rem;
+    padding-top: 1rem;
   }
   .catalog__lst--spacing {
     padding-top: 0.5rem;
@@ -405,43 +409,53 @@ ul {
   width: calc(50% - 1rem);
   padding-bottom: 1rem;
   background-color: #C8B4A1;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .card__lnk {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .card__ttl {
-  margin-top: 0.65rem;
   color: #123F34;
   font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 1rem 0 1rem;
 }
 
 .card__txt {
   color: #123F34;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
+  text-align: center;
 }
 
 .card__img {
   width: 6rem;
+  margin-top: 1.5rem;
 }
 
 @media screen and (min-width: 769px) {
   .card__wrap {
     width: calc(25% - 1rem);
+    border-radius: 1rem;
   }
   .card__img {
     width: 10rem;
     height: 15rem;
   }
   .card__ttl {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
   .card__txt {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 1280px) {

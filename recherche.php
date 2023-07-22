@@ -3,7 +3,7 @@ require "includes/_header.php";
 ?>
 
 <main>
-    <form action="" method="" class="search__wrap search-form-js">
+    <form action="" method="" class="search search-form-js">
         <label class="search__label" for="recherche">Vous cherchez un livre ?</label>
         <input class="search__input" type="search" id="recherche" name="keywords" placeholder="Les misérables">
     </form>

@@ -1,4 +1,22 @@
-// import { callApi } from "./submit";
+  // -------------------------------
+  // LIMITING NB OF LETTER IN CARDS
+  // -------------------------------
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    const h3Elements = document.querySelectorAll(".limited-characters-js");
+
+    h3Elements.forEach(function(h3) {
+      const maxCharacters = 40; 
+      const text = h3.textContent;
+
+      if (text.length > maxCharacters) {
+        h3.textContent = text.substring(0, maxCharacters) + "...";
+      }
+    });
+  });
+
+
+
 
 
 // Nav bar on mobile device
@@ -67,7 +85,8 @@ function displayBooks(books){
     const htmlString = books.map((book) => {
         return `
         <li class="card__wrap">
-        <a class="card__lnk" href="">
+        <a class="card__lnk" href="product-page.php?id=${book.id_book}">
+        <img class="card__img" src="${book.image_url}">
         <h3 class="card__ttl">${book.title_book}</h3>
         <p class="card__txt">${book.author_name}</p>
                 </a>

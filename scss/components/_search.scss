@@ -1,12 +1,15 @@
 /* SEARCH  */
 
-.search__wrap {
+.search {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: $beige;
     // margin: 1rem;
+    &__img{
+        height: 10rem;
+    }
 }
 
 .search__label {

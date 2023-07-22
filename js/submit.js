@@ -1,24 +1,24 @@
 //calling the API in async
 
-const form = document.querySelector('.form-js');
-const inputTtl = document.querySelector('#title');
-const inputAuthor = document.querySelector('#author');
-const inputPages = document.querySelector('#pages');4
-const inputs = document.querySelectorAll('.input-js')
+// const form = document.querySelector('.form-js');
+// const inputTtl = document.querySelector('#title');
+// const inputAuthor = document.querySelector('#author');
+// const inputPages = document.querySelector('#pages');4
+// const inputs = document.querySelectorAll('.input-js')
 
 
 
-function displayMessage(message, duration){
-    const messageElement = document.getElementById('message');
-    // Display the message
-    messageElement.style.display = 'block';
-    messageElement.textContent = message;
+// function displayMessage(message, duration){
+//     const messageElement = document.getElementById('message');
+//     // Display the message
+//     messageElement.style.display = 'block';
+//     messageElement.textContent = message;
 
-    // Hide the message after the specified duration
-    setTimeout(function() {
-      messageElement.style.display = 'none';
-    }, duration);
-  }
+//     // Hide the message after the specified duration
+//     setTimeout(function() {
+//       messageElement.style.display = 'none';
+//     }, duration);
+//   }
 
 
 

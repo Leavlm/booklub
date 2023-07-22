@@ -12,14 +12,14 @@ function getCatalog(array $array): string
         $html .= '<li class="card__wrap">
                     <a class="card__lnk" href="http://localhost/booklub/product-page.php?id=' . $book['id_book'] . '">
                     <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
-                    <h3 class="card__ttl">' . $book['title_book'] . '</h3>
-                    <p class="card__txt">' . $book['author_name'] . '</p>
+                    <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
                     </a>
                     </li>';
-    }
-    return $html;
-}
-
+                }
+                return $html;
+            }
+            
+            // <p class="card__txt">' . $book['author_name'] . '</p>
 // <picture>
 // <source srcset="' . $book['image_url'] . '" media="(min-width: 769px)">
 // </picture>
