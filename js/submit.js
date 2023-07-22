@@ -8,11 +8,26 @@ const inputs = document.querySelectorAll('.input-js')
 
 
 
+function displayMessage(message, duration){
+    const messageElement = document.getElementById('message');
+    // Display the message
+    messageElement.style.display = 'block';
+    messageElement.textContent = message;
+
+    // Hide the message after the specified duration
+    setTimeout(function() {
+      messageElement.style.display = 'none';
+    }, duration);
+  }
 
 
 
-//listening to the submit event to prevent default behavior 
+  
 
+  // -----------------ABORTED--------
+  // TESTING ADDING A BOOK IN ASYNC 
+  // -----------------ABORTED--------
+  //listening to the submit event to prevent default behavior 
 // form.addEventListener('submit', e =>{
 //     e.preventDefault();
 //     addBook(inputTtl.value, inputAuthor.value, inputPages.value)
@@ -56,16 +71,3 @@ const inputs = document.querySelectorAll('.input-js')
 //     };
 //     return callApi('PUT', data)
 // } 
-
-function displayMessage(message, duration){
-    const messageElement = document.getElementById('message');
-    // Display the message
-    messageElement.style.display = 'block';
-    messageElement.textContent = message;
-
-    // Hide the message after the specified duration
-    setTimeout(function() {
-      messageElement.style.display = 'none';
-    }, duration);
-  }
-

@@ -2,10 +2,24 @@
 .suggestions{
     background-color: $taupe;
     height: 250px;
-}
 
-.suggestions__ttl{
+
+    &__ttl{
     margin-left: 1.6rem;
     padding-top: 1rem;
     font-weight: 600;
+}
+
+    &__lst{
+        display: flex;
+        gap: 2rem;
+        width: 100%;
+        margin: 1rem 0 0 1.6rem;
+    }
+    
+    &__img{
+        display: flex;
+    height: 10rem;
+    list-style: none;
+    }
 }

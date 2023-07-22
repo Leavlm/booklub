@@ -1,10 +1,10 @@
 
-<?php include "includes/_head.php" ?>
+<?php include "includes/_head.php";
+require "includes/_header.php";
+require "includes/_database.php";
+require "includes/_functions.php"; ?>
 
 
-<body>
-<?php require "header.php";
-    ?>
 
 
     <main>

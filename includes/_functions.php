@@ -10,22 +10,32 @@ function getCatalog(array $array): string
     $html = '';
     foreach ($array as $book) {
         $html .= '<li class="card__wrap">
-                    <a class="card__lnk" href="">
+                    <a class="card__lnk" href="http://localhost/booklub/product-page.php?id=' . $book['id_book'] . '">
                     <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
                     <h3 class="card__ttl">' . $book['title_book'] . '</h3>
                     <p class="card__txt">' . $book['author_name'] . '</p>
                     </a>
                     </li>';
-                }
-                return $html;
-            }
-            
-            // <picture>
-            // <source srcset="' . $book['image_url'] . '" media="(min-width: 769px)">
-            // </picture>
+    }
+    return $html;
+}
+
+// <picture>
+// <source srcset="' . $book['image_url'] . '" media="(min-width: 769px)">
+// </picture>
 
 
 
+
+
+function getSuggestions(array $array): string
+{
+    $html = '<ul class="suggestions__lst">';
+    foreach ($array as $book){
+        $html .= '<li class="suggestions__img"><img  src="'.$book['image_url'].'"></li>';
+    }
+    return $html .= '</ul>';
+}
 // -----------------------------
 //   GET VALIDATION OR FAIL MSG 
 // -----------------------------
@@ -35,7 +45,8 @@ $msgArray = [
     'ok' => 'Vôtre livre a bien été ajouté ! 🥳',
     'ko' => 'Vôtre livre n\'a pas pu être ajouté ! 😱',
     'wrongToken' => 'Le token est erroné ! 😱',
-    'invalidImg' => 'Le format de votre image n\'est pas pris en charge'
+    'invalidImg' => 'Le format de votre image n\'est pas pris en charge',
+    'invalidId' => 'Le livre que vous avez demandé n\'est pas disponible'
 ];
 
 

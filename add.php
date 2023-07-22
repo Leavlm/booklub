@@ -10,26 +10,33 @@ verifyToken();
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //insert author in author table
-    $query = $dbCo->prepare("INSERT INTO author (author_name) VALUES (:author)");
-    $isOk2 = $query->execute([
-        "author" => strip_tags($_POST['author'])
-    ]);
 
-
-    $authorId = $dbCo->lastInsertId();
-    //associating author from author table to book table by id_author
-    $query = $dbCo->prepare("SELECT * FROM author WHERE id_author = :authorId");
-    $query->execute(["authorId" => $authorId]);
+    $authorName = strip_tags($_POST['author']);
+    $query = $dbCo->prepare("SELECT id_author FROM author WHERE author_name = :authorName");
+    $isOk2 = $query->execute(["authorName" => $authorName]);
     $author = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($author) {
+        // If the author already exist, take the same id 
+        $authorId = $author['id_author'];
+    } else {
+        // If he doesn't exist, you can add him
+        $query = $dbCo->prepare("INSERT INTO author (author_name) VALUES (:author)");
+        $isOk2 = $query->execute([
+            "author" => $authorName
+        ]);
+
+        $authorId = $dbCo->lastInsertId();
+    }
 
     if ($isOk2 && ($author && $author['id_author'] == $authorId)) {
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-                // Vérifier le type d'image
-                $allowedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG);
+                // Verify image type
+                $allowedTypes = [IMAGETYPE_JPEG, IMAGETYPE_PNG];
             
                 $imageFileInfo = @getimagesize($_FILES['image']['tmp_name']);
                 if (!$imageFileInfo || !in_array($imageFileInfo[2], $allowedTypes)) {
-                    // Type d'image non autorisé, rediriger avec un message d'erreur
+                    // Unauthorized img type, redirection with error msg
                     header('location: new-book.php?msg=invalidImg');
                     exit;
                 }
@@ -50,12 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
 
 
-            $query = $dbCo->prepare("INSERT INTO book (title_book, nb_pages, id_author, image_url)  VALUES(:title, :pages, :authorId, :imageUrl)");
+            $query = $dbCo->prepare("INSERT INTO book (title_book, nb_pages, id_author, image_url, release_date, synopsis)  VALUES(:title, :pages, :authorId, :imageUrl, :date, :synopsis)");
             $isOk1 = $query->execute([
                 "title" => strip_tags($_POST['title']),
                 "pages" => intval(strip_tags($_POST['pages'])),
                 "authorId" => $authorId,
-                "imageUrl" => $imageUrl
+                "imageUrl" => $imageUrl,
+                "date" => strip_tags($_POST['date']),
+                "synopsis" => htmlspecialchars($_POST['synopsis'])
             ]);
 
             $isOk = $isOk1 && $isOk2;
