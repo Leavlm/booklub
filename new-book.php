@@ -1,10 +1,9 @@
 <?php 
 include "includes/_head.php";
+include "includes/_header.php";
 include "includes/_functions.php";
-?>
 
-<body>
-<?php include "includes/_header.php";
+
 
 // session_start();
 
@@ -40,5 +39,5 @@ echo getMsg($msgArray);
 </main>
 
 
-<script type="module" src="js/submit.js"></script>
+<script type="module" src="js/search.js"></script>
 </body>

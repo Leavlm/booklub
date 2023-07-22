@@ -17,7 +17,7 @@
         <nav class="nav hide" id="nav">
             <img class="nav__icn" src="img/croix.png" id='nav__close' alt="icone de croix">
             <ul class="nav_lst">
-                <li class="nav__itm">Accueil</li>
+                <li class="nav__itm"><a href="index.php">Accueil</a></li>
                 <li class="nav__itm">Ma bibliothèque</li>
                 <li class="nav__itm">Profil</li>
                 <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>

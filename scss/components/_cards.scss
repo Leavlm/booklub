@@ -1,12 +1,14 @@
 /* CARDS  */
 
 .card__wrap {
-    width: calc(50% - 1rem);
+    width: calc(33% - 2rem);
     padding-bottom: 1rem;
     background-color: $taupe;
     display: flex;
     gap: 2rem;
     justify-content: center;
+    border-radius: 1rem;
+
 }
 
 .card__lnk {
@@ -35,6 +37,7 @@
 
 .card__img {
     width: 6rem;
+    height: 10rem;
     margin-top: 1.5rem;
 
 }
@@ -60,7 +63,7 @@
 
 @media screen and (min-width: 1280px) {
     .card__wrap{
-        width: calc(25% - 3rem);
+        width: calc(25% - 6rem);
     }
 
     

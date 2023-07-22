@@ -148,10 +148,9 @@ ul {
 
 /* NAVBAR  */
 .nav {
-  background-color: #654A3B;
+  background-color: #E4DDC9;
   position: absolute;
   right: 0px;
-  width: 50vw;
   z-index: 20;
 }
 
@@ -406,12 +405,13 @@ ul {
 }
 /* CARDS  */
 .card__wrap {
-  width: calc(50% - 1rem);
+  width: calc(33% - 2rem);
   padding-bottom: 1rem;
   background-color: #C8B4A1;
   display: flex;
   gap: 2rem;
   justify-content: center;
+  border-radius: 1rem;
 }
 
 .card__lnk {
@@ -439,6 +439,7 @@ ul {
 
 .card__img {
   width: 6rem;
+  height: 10rem;
   margin-top: 1.5rem;
 }
 
@@ -460,7 +461,7 @@ ul {
 }
 @media screen and (min-width: 1280px) {
   .card__wrap {
-    width: calc(25% - 3rem);
+    width: calc(25% - 6rem);
   }
 }
 .filters {
