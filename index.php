@@ -45,7 +45,7 @@ $books = $query->fetchAll();
     </section>
 </main>
 
-<?php require "footer.php" ?>
+<?php require "includes/_footer.php" ?>
 <script src="js/search.js"></script>
 </body>
 

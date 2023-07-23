@@ -63,6 +63,7 @@ $books = $query2->fetchAll();
 
 
 
-<?php require "footer.php" ?>
+<?php require "includes/_footer.php" ?>
+
 
 </html>
