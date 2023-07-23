@@ -54,10 +54,14 @@ function getMsg(array $array): string
 {
     $msg = $_GET['msg'] ?? '';
     if (array_key_exists($msg, $array)) {
-        return $array[$msg];
+        return '<div class="alert alert-dark text-center" role="alert">
+        '.$array[$msg].'
+      </div>';
     }
     return '';
 };
+
+
 
 //---------------
 //   VERIFY TOKEN 

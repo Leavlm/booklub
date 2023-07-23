@@ -489,9 +489,16 @@ ul {
   width: 50%;
   margin: 0 auto;
   padding: 1rem;
+  justify-content: space-between;
+  background-color: #d0d0d0;
+  border-radius: 0 0 1rem 1rem;
 }
 .form__btn {
-  margin-top: 1rem;
+  width: 5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 1rem auto;
+  border: none;
 }
 .form__label {
   font-weight: 500;
@@ -505,4 +512,19 @@ ul {
 .form__wrap--inline {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+.form__ttl {
+  display: flex;
+  justify-content: center;
+  color: #0C0C0C;
+  padding: 2rem 0;
+  font-weight: 700;
+  width: 50%;
+  margin: 2rem auto 0 auto;
+  background-color: #d0d0d0;
+  border-radius: 1rem 1rem 0 0;
+}
+.form__input {
+  width: 75%;
 }/*# sourceMappingURL=style.css.map */
