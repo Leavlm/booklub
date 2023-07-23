@@ -1,31 +1,40 @@
 /* NAVBAR  */
 
 .nav {
-    background-color: $beige;
+    background-color: $primary;
     position: absolute;
     right: 0px;
-    // width: 50vw;
     z-index: 20;
+
+    &__lst {
+        border-radius: 0 0 2rem 2rem;
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.25);
+
+    }
+
+    &__lst:last-child{
+        border-radius: 0 0 2rem 2rem;
+    }
+
+    &__itm {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $black;
+        text-align: center;
+        padding: 1.1rem;
+
+    }
+
+
+    &__icn {
+        background-color: $primary;
+        position: absolute;
+        padding: .5rem;
+        right: 0.5rem;
+        top: -3.5rem;
+    }
 }
 
-.nav__itm {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: $white;
-    text-align: center;
-    padding: 1.1rem;
-
-}
-
-.nav__icn {
-    background-color: $brown;
-    position: absolute;
-    padding: .5rem;
-    right: 0.5rem;
-    top: -3.5rem;
-}
-
-.hide{
+.hide {
     visibility: hidden;
 }
-

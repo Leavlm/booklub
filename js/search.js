@@ -1,19 +1,19 @@
-  // -------------------------------
-  // LIMITING NB OF LETTER IN CARDS
-  // -------------------------------
-  
-  document.addEventListener("DOMContentLoaded", function() {
+// -------------------------------
+// LIMITING NB OF LETTER IN CARDS
+// -------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
     const h3Elements = document.querySelectorAll(".limited-characters-js");
 
-    h3Elements.forEach(function(h3) {
-      const maxCharacters = 40; 
-      const text = h3.textContent;
+    h3Elements.forEach(function (h3) {
+        const maxCharacters = 40;
+        const text = h3.textContent;
 
-      if (text.length > maxCharacters) {
-        h3.textContent = text.substring(0, maxCharacters) + "...";
-      }
+        if (text.length > maxCharacters) {
+            h3.textContent = text.substring(0, maxCharacters) + "...";
+        }
     });
-  });
+});
 
 
 
@@ -49,19 +49,19 @@ const catalogList = document.querySelector('.catalog__lst');
  * @param {object} data will be converted to json
  * @returns the result fetched from the api in json format
  */
-async function callApi(method, data){
-    try{
+async function callApi(method, data) {
+    try {
         const response = await fetch("api.php", {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        }) 
+        })
         return response.json();
-        
+
     }
-    catch(error){
+    catch (error) {
         console.error('error')
     }
 
@@ -74,14 +74,13 @@ searchInput.addEventListener('keyup', async (e) => {
         action: 'search',
         request: searchString
     });
-    displayBooks(response['books']); 
+    displayBooks(response['books']);
 });
 
 
 
 
-
-function displayBooks(books){
+function displayBooks(books) {
     const htmlString = books.map((book) => {
         return `
         <li class="card__wrap">
@@ -92,9 +91,9 @@ function displayBooks(books){
                 </a>
                 </li>
                 `;
-            })
-            .join('');
-                catalogList.innerHTML = htmlString;
+    })
+        .join('');
+    catalogList.innerHTML = htmlString;
 }
 
 

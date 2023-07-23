@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $beige;
+    background-color: $primary
     // margin: 1rem;
     &__img{
         height: 10rem;
@@ -14,7 +14,7 @@
 
 .search__label {
     display: block;
-    color: $green;
+    color: $somberPop;
     padding-bottom: .5rem;
     font-weight: 600;
     font-size: 1.2rem;
@@ -26,7 +26,7 @@
     padding: .5rem;
     margin-bottom: 1rem;
     border: none;
-    background-color: $taupe;
+    background-color: $secondary;
     font-family: sans-serif;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .search__btn {
-    background-color: $orange;
+    background-color: $lightPop;
     color: #fff;
     font-size: .8rem;
     padding: .5rem;

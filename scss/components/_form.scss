@@ -1,11 +1,23 @@
-.form{
+.form {
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: center;
     margin: 0 auto;
-    padding: 1rem ;
-    &__btn{
+    padding: 1rem;
+
+    &__btn {
         margin-top: 1rem;
+    }
+
+    &__label {
+        font-weight: 500;
+
+    }
+
+    &__wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 }

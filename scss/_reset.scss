@@ -2,11 +2,11 @@
 
 a:link {
     text-decoration: none;
-    color: var(--brown);
+    color: var(--primary);
 }
 
 a:visited {
-    color: var(--brown);
+    color: var(--primary);
 }
 
 
@@ -31,7 +31,7 @@ h6 {
 body {
     font-family: 'Merriweather', serif;
     font-family: 'Poppins', sans-serif;
-    background-color: $beige;
+    background-color: $primary;
     ;
 }
 
