@@ -48,6 +48,7 @@ ul {
 .suggestions {
   background-color: #8f8f8f;
   height: 250px;
+  overflow: scroll;
 }
 .suggestions__ttl {
   margin-left: 1.6rem;

@@ -2,6 +2,8 @@
 .suggestions{
     background-color: $secondary;
     height: 250px;
+    overflow: scroll;
+
 
 
     &__ttl{
