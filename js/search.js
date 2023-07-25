@@ -68,14 +68,25 @@ async function callApi(method, data) {
 }
 
 
+let prevSearchString = '';
+
 searchInput.addEventListener('keyup', async (e) => {
     const searchString = e.target.value.toLowerCase();
-    const response = await callApi('post', {
-        action: 'search',
-        request: searchString
-    });
-    displayBooks(response['books']);
+    if (searchString !== prevSearchString) {
+        const response = await callApi('post', {
+            action: 'search',
+            request: searchString
+        });
+        displayBooks(response['books']);
+    }
+    prevSearchString = searchString;
+    if (searchString === '') {
+        displayBooks([]);
+    }
 });
+
+
+
 
 
 
