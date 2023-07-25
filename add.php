@@ -65,45 +65,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $selectedGenres = []; // ou définir un comportement par défaut
             }
 
+
+            $genreName = $_POST['genre'];
+            if (is_array($genreName)) {
+                // Tableau pour stocker les résultats
+                $genreResults = [];
+
+                // Parcourir les éléments de $genreName
+                foreach ($genreName as $genre) {
+                    // Préparer la requête
+                    $queryGenre = $dbCo->prepare("SELECT id_genre FROM genre WHERE name_genre = :nameGenre");
+
+                    // Exécuter la requête avec le nom de genre actuel
+                    $isOkGenre = $queryGenre->execute(["nameGenre" => $genre]);
+
+                    // Récupérer les résultats pour le genre actuel
+                    $genres = $queryGenre->fetch(PDO::FETCH_ASSOC);
+
+                    if ($genres) {
+                        $genreId = $genres['id_genre'];
+                    }
+
+                    $query = $dbCo->prepare("INSERT INTO book (title_book, nb_pages, id_author, image_url, release_date, synopsis)  VALUES(:title, :pages, :authorId, :imageUrl, :date, :synopsis)");
+                    $isOk1 = $query->execute([
+                        "title" => strip_tags($_POST['title']),
+                        "pages" => intval(strip_tags($_POST['pages'])),
+                        "authorId" => $authorId,
+                        "imageUrl" => $imageUrl,
+                        "date" => strip_tags($_POST['date']),
+                        "synopsis" => htmlspecialchars($_POST['synopsis'])
+                    ]);
+                    
+                    if ($isOk1) {
+                        $bookId = $dbCo->lastInsertId();
+                        $queryInsertOwn = $dbCo->prepare("INSERT INTO own (id_book, id_genre) VALUES (:idBook, :idGenre)");
+                        $isOwnInserted = $queryInsertOwn->execute(["idBook" => $bookId, "idGenre" => $genreId]);
+                    }
+
+                    $isOk = $isOk1 && $isOk2;
+                    header('location: new-book.php?msg=' . ($isOk ? 'ok' : 'ko'));
+                    exit;
+                    // Ajouter les résultats au tableau de résultats
+                    // $genreResults[] = $genres;
+                }
+                
+            }
+
+
+
+
+
+
+            // $queryGenre = $dbCo->prepare("SELECT id_genre FROM genre WHERE name_genre = :nameGenre");
+            // $isOkGenre = $queryGenre->execute(["nameGenre" => $genreName]);
+            // $genres = $queryGenre->fetch(PDO::FETCH_ASSOC);
+            // var_dump($genres);
+
             //Je récupère la valeur dans $_post genre
-            $nameGenre = strip_tags($_POST['genre']);
+            // $nameGenre = $_POST['genre'];
 
-            //Je sélectionne l'id découlant du genre reçu dans le formulaire
-            $queryGenresSelected = $dbCo->prepare("SELECT `genre`.`id_genre`
-                                                        FROM `genre` 
-                                                        JOIN `own` ON `genre`.`id_genre` = `own`.`id_genre`
-                                                        JOIN `book` ON `own`.`id_book` = `book`.`id_book`
-                                                        WHERE `name_genre` = :nameGenre");
-            $isOkGenreName = $queryGenresSelected->execute(["nameGenre" => $nameGenre]);
-            //Récupérer les id des genres cochés
-            $genres = $queryGenresSelected->fetchAll();
-
-
-
-            var_dump($genres);
-
-            // foreach ($selectedGenres as $selectedGenre){
-            // $queryGenreInsert = $dbCo->prepare("INSERT INTO own (id_genre) VALUES (:idGenre)");
-            // $isOkGenreInsert = $queryGenreInsert->execute([
-            //     "genre" => $selectedGenre
+            // //Je sélectionne l'id découlant du genre reçu dans le formulaire
+            // $queryGenresSelected = $dbCo->prepare("SELECT `genre`.`id_genre`
+            //                                             FROM `genre` 
+            //                                             WHERE `name_genre` = :nameGenre");
+            // $isOkGenreName = $queryGenresSelected->execute([
+            //     "nameGenre" => $nameGenre
             // ]);
-            // }
+            // //Récupérer les id des genres cochés
+            // $genres = $queryGenresSelected->fetch();
+            // var_dump($genres);
 
 
-            $query = $dbCo->prepare("INSERT INTO book (title_book, nb_pages, id_author, image_url, release_date, synopsis)  VALUES(:title, :pages, :authorId, :imageUrl, :date, :synopsis)");
-            $isOk1 = $query->execute([
-                "title" => strip_tags($_POST['title']),
-                "pages" => intval(strip_tags($_POST['pages'])),
-                "authorId" => $authorId,
-                "imageUrl" => $imageUrl,
-                "date" => strip_tags($_POST['date']),
-                "synopsis" => htmlspecialchars($_POST['synopsis'])
-            ]);
 
-            $isOk = $isOk1 && $isOk2;
-            var_dump($_REQUEST);
-            // header('location: new-book.php?msg=' . ($isOk ? 'ok' : 'ko'));
-            // exit;
+
+
+
+            // $queryGenresAssociated = $dbCo->prepare("INSERT INTO own (id_genre, id_book) VALUES(:idGenre, :idBook)");
+            // $isOkGenresAssociated = $queryGenresAssociated->execute([
+            //     "idGenre" => $genres,
+            //     "idBook" => $dbCo->lastInsertId()
+            // ]);
+
+
+
         }
     }
 }

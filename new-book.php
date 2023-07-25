@@ -50,13 +50,13 @@ echo getMsg($msgArray);
             <div class="form__wrap">
                 <label>Genre :</label>
                 <div class="form__label">
-                    <input type="checkbox" id="genre_roman" name="genre[]" value="Roman (Fiction)">
+                    <input type="checkbox" id="genre_roman" name="genre[]" value="Roman (fiction)">
                     <label for="genre_roman">Roman (Fiction)</label>
                 </div>
 
                 <div class="form__label">
-                    <input type="checkbox" id="genre_policier" name="genre[]" value="Policier / Thriller">
-                    <label for="genre_policier">Policier / Thriller</label>
+                    <input type="checkbox" id="genre_policier" name="genre[]" value="Policier/Thriller">
+                    <label for="genre_policier">Policier/Thriller</label>
                 </div>
 
                 <div class="form__label">
@@ -80,8 +80,8 @@ echo getMsg($msgArray);
                 </div>
 
                 <div class="form__label">
-                    <input type="checkbox" id="genre_jeunesse" name="genre[]" value="Jeunesse / Jeunes adultes">
-                    <label for="genre_jeunesse">Jeunesse / Jeunes adultes</label>
+                    <input type="checkbox" id="genre_jeunesse" name="genre[]" value="Jeunesse">
+                    <label for="genre_jeunesse">Jeunesse</label>
                 </div>
 
                 <div class="form__label">
