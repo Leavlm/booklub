@@ -398,7 +398,7 @@ ul {
 }
 /* CARDS  */
 .card__wrap {
-  width: calc(33% - 2rem);
+  width: calc(50% - 2rem);
   padding-bottom: 1rem;
   background-color: #fff;
   display: flex;
@@ -518,7 +518,7 @@ ul {
   display: flex;
   justify-content: center;
   color: #0C0C0C;
-  padding: 2rem 0;
+  padding: 2rem 0 0rem 0;
   font-weight: 700;
   width: 50%;
   margin: 2rem auto 0 auto;
@@ -526,5 +526,16 @@ ul {
   border-radius: 1rem 1rem 0 0;
 }
 .form__input {
-  width: 75%;
+  width: calc(100% - 1rem);
+}
+.form__wrap--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form__wrap {
+  margin-bottom: 20px;
+}
+.form__textarea {
+  width: calc(100% - 1rem);
 }/*# sourceMappingURL=style.css.map */

@@ -42,8 +42,8 @@ function getSuggestions(array $array): string
 
 
 $msgArray = [
-    'ok' => 'Vôtre livre a bien été ajouté ! 🥳',
-    'ko' => 'Vôtre livre n\'a pas pu être ajouté ! 😱',
+    'ok' => 'Votre livre a bien été ajouté ! 🥳',
+    'ko' => 'Votre livre n\'a pas pu être ajouté ! 😱',
     'wrongToken' => 'Le token est erroné ! 😱',
     'invalidImg' => 'Le format de votre image n\'est pas pris en charge',
     'invalidId' => 'Le livre que vous avez demandé n\'est pas disponible'

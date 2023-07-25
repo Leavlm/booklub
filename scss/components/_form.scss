@@ -7,7 +7,7 @@
     justify-content: space-between;
     background-color: $grey;
     border-radius: 0 0 1rem 1rem;
-    
+
     &__btn {
         width: 5rem;
         padding: .5rem;
@@ -21,7 +21,7 @@
 
     }
 
-    &__wrap{
+    &__wrap {
         display: flex;
         flex-direction: column;
         margin: 1rem auto;
@@ -29,17 +29,17 @@
 
     }
 
-    &__wrap--inline{
+    &__wrap--inline {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    &__ttl{
+    &__ttl {
         display: flex;
         justify-content: center;
         color: $black;
-        padding: 2rem 0;
+        padding: 2rem 0 0rem 0;
         font-weight: 700;
         width: 50%;
         margin: 2rem auto 0 auto;
@@ -47,9 +47,22 @@
         border-radius: 1rem 1rem 0 0;
     }
 
-    &__input{
-        width: 75%;
+    &__input {
+        width: calc(100% - 1rem);
     }
 
+    &__wrap--grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    &__wrap {
+        margin-bottom: 20px;
+    }
+
+    &__textarea {
+        width: calc(100% - 1rem);   
+    }
 
 }
