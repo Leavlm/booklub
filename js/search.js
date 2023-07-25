@@ -91,21 +91,21 @@ searchInput.addEventListener('keyup', async (e) => {
 
 
 
-function displayBooks(books) {
-    const htmlString = books.map((book) => {
-        return `
-        <li class="card__wrap">
-        <a class="card__lnk" href="product-page.php?id=${book.id_book}">
-        <img class="card__img" src="${book.image_url}">
-        <h3 class="card__ttl">${book.title_book}</h3>
-        <p class="card__txt">${book.author_name}</p>
-                </a>
-                </li>
-                `;
-    })
-        .join('');
-    catalogList.innerHTML = htmlString;
-}
+    function displayBooks(books) {
+        const htmlString = books.map((book) => {
+            return `
+            <li class="card__wrap">
+            <a class="card__lnk" href="product-page.php?id=${book.id_book}">
+            <img class="card__img" src="${book.image_url}">
+            <h3 class="card__ttl">${book.title_book}</h3>
+            <p class="card__txt">${book.author_name}</p>
+                    </a>
+                    </li>
+                    `;
+        })
+            .join('');
+        catalogList.innerHTML = htmlString;
+    }
 
 
 
