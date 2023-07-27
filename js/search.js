@@ -118,7 +118,13 @@ function displayBooks(books) {
 
     catalog.innerHTML = '';
     catalog.appendChild(ulElement);
-    console.log(searchInput.value)
+    if (books.length == 0 && searchInput.value !== ""){
+        ulElement.innerHTML = '<p>Aucun livre trouvé.</p>';
+        const cta = document.createElement('div');
+        catalog.appendChild(cta);
+        cta.classList.add('cta', 'cta__position');
+        cta.innerHTML =  '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
+    }
     if (searchInput.value === ""){
         catalog.removeChild(catalog.firstChild)
     }

@@ -322,6 +322,8 @@ ul {
 
 .cta__position {
   justify-content: center;
+  margin: 0 auto;
+  padding-top: 1rem;
 }
 
 .cta__wrap {
