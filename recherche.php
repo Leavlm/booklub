@@ -7,7 +7,7 @@ require "includes/_header.php";
         <label class="search__label" for="recherche">Vous cherchez un livre ?</label>
         <input class="search__input" type="search" id="recherche" name="keywords" placeholder="Les misérables">
     </form>
-    
+
     <!-- <div class="dropdown filters">
         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Filters
@@ -39,12 +39,12 @@ require "includes/_header.php";
                     </a></li>
                 </ul>
             </div> -->
-            
-            
-            <section class="catalog">
-                <ul class="catalog__lst catalog__lst--spacing">
 
-        </ul>
+
+    <section class="catalog">
+        <!-- <ul class="catalog__lst catalog__lst--spacing">
+
+        </ul> -->
     </section>
 
 </main>

@@ -36,6 +36,9 @@ if ($data['action'] === 'search' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
+// ---------------
+// ADDING A BOOK
+// ---------------
 
 // if ($data['action'] === 'addBook' && $_SERVER['REQUEST_METHOD'] === 'PUT') {
 //     $bookTitle = trim(strip_tags($data['bookTitle']));

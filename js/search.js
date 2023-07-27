@@ -18,8 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+//----------------------------
+// DYNAMIC NAVBAR
+//----------------------------
 
-// Nav bar on mobile device
+
+
 
 const burger = document.getElementById('header');
 const nav = document.getElementById('nav');
@@ -34,17 +38,19 @@ croix.addEventListener('click', function () {
     nav.classList.toggle('hide')
 });
 
+
+
 //------------------------------------------
-// Searchbar on the research page
+// SEARCHBAR ON SEARCH PAGE
 //------------------------------------------
 
 
 const searchInput = document.querySelector('.search__input');
 const catalogList = document.querySelector('.catalog__lst');
-
+const catalog = document.querySelector('.catalog')
 
 /**
- * 
+ * Async function fetching data in the API
  * @param {string} method  method used to fetch the api
  * @param {object} data will be converted to json
  * @returns the result fetched from the api in json format
@@ -68,18 +74,15 @@ async function callApi(method, data) {
 }
 
 
-let prevSearchString = '';
+// Searching in the API if there's a match with the searchString
 
 searchInput.addEventListener('keyup', async (e) => {
     const searchString = e.target.value.toLowerCase();
-    if (searchString !== prevSearchString) {
-        const response = await callApi('post', {
-            action: 'search',
-            request: searchString
-        });
-        displayBooks(response['books']);
-    }
-    prevSearchString = searchString;
+    const response = await callApi('post', {
+        action: 'search',
+        request: searchString
+    });
+    displayBooks(response['books']);
     if (searchString === '') {
         displayBooks([]);
     }
@@ -88,12 +91,16 @@ searchInput.addEventListener('keyup', async (e) => {
 
 
 
+/**
+ * Function displaying books 
+ * @param {array} books array containing every book present in the db
+ * @returns a string containing the book
+ */
 
 
-
-    function displayBooks(books) {
-        const htmlString = books.map((book) => {
-            return `
+function displayBooks(books) {
+    const htmlString = books.map((book) => {
+        return `
             <li class="card__wrap">
             <a class="card__lnk" href="product-page.php?id=${book.id_book}">
             <img class="card__img" src="${book.image_url}">
@@ -102,10 +109,21 @@ searchInput.addEventListener('keyup', async (e) => {
                     </a>
                     </li>
                     `;
-        })
-            .join('');
-        catalogList.innerHTML = htmlString;
+    })
+        .join('');
+
+    const ulElement = document.createElement('ul');
+    ulElement.classList.add('catalog__lst', 'catalog__lst--spacing');
+    ulElement.innerHTML = htmlString;
+
+    catalog.innerHTML = '';
+    catalog.appendChild(ulElement);
+    console.log(searchInput.value)
+    if (searchInput.value === ""){
+        catalog.removeChild(catalog.firstChild)
     }
+
+}
 
 
 
