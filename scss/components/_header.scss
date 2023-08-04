@@ -16,13 +16,13 @@
     &__lst {
         display: flex;
         flex-direction: row;
-        // height: 4rem;
         justify-content: space-between;
         align-items: center;
     }
 
     &__img {
-        width: 3rem;
+        width: 4rem;
+        padding-left: 1rem;
     }
 }
 
@@ -58,7 +58,7 @@
         }
 
         &__img {
-            width: 3rem;
+            width: 4rem;
         }
 
         &__icn{
