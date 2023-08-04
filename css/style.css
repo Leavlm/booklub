@@ -43,6 +43,22 @@ ul {
 .txt {
   font-family: "Merriweather";
 }
+.txt__ttl {
+  font-weight: 500;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.txt__little {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.txt__spacing {
+  padding: 1rem;
+}
+.txt__link {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
 
 /* SUGGESTIONS */
 .suggestions {
@@ -174,17 +190,16 @@ ul {
   .nav {
     background-color: #d0d0d0;
     position: absolute;
-    right: -100px;
     z-index: 20;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     padding-top: 1rem;
-    transition: right 0.5s ease;
   }
   .nav__lst {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    width: 100vw;
   }
   .nav__lst:last-child {
     border-radius: 0 0 2rem 2rem;
@@ -207,7 +222,6 @@ ul {
     display: flex;
   }
   .hide {
-    right: -100px;
     visibility: hidden;
   }
   .show {
@@ -416,6 +430,7 @@ ul {
   font-weight: 600;
   font-size: 1rem;
   color: #fff;
+  border: none;
 }
 
 .cta__txt--little {
@@ -425,6 +440,7 @@ ul {
   font-weight: 400;
   font-size: 0.8rem;
   color: #fff;
+  border: none;
 }
 
 @media screen and (min-width: 769px) {
@@ -616,4 +632,7 @@ ul {
 }
 .form__textarea {
   width: calc(100% - 1rem);
+}
+.form__spacing {
+  padding: 5rem 5rem 2rem 5rem;
 }/*# sourceMappingURL=style.css.map */

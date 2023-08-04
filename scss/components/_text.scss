@@ -1,4 +1,25 @@
 /* TEXTE */
 .txt{
     font-family: 'Merriweather';
+    
+    &__ttl{
+        font-weight: 500;
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    &__little{
+        font-size: .8rem;
+        text-align: center;
+    }
+
+    &__spacing{
+        padding: 1rem;
+    }
+
+    &__link{
+        text-decoration: underline !important;
+        text-underline-offset: 2px;
+    }
 }
+

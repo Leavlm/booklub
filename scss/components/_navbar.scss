@@ -23,7 +23,7 @@
     padding: .5rem;
 }
 
-.nav__wrap{
+.nav__wrap {
     display: flex;
     padding-right: 1rem;
 }
@@ -33,17 +33,16 @@
     .nav {
         background-color: $grey;
         position: absolute;
-        right: -100px;
         z-index: 20;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         padding-top: 1rem;
-        transition: right .5s ease;
-        
+
         &__lst {
             display: flex;
             flex-direction: column;
             margin: 0 auto;
+            width: 100vw;
 
         }
 
@@ -75,11 +74,10 @@
     }
 
     .hide {
-        right: -100px;
         visibility: hidden;
     }
 
-    .show{
+    .show {
         right: 0;
     }
 }
