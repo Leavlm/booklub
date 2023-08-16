@@ -411,7 +411,7 @@ ul {
 
 .cta__position {
   justify-content: center;
-  margin: 0 auto;
+  margin: 1rem auto;
   padding-top: 1rem;
 }
 
@@ -634,5 +634,5 @@ ul {
   width: calc(100% - 1rem);
 }
 .form__spacing {
-  padding: 5rem 5rem 2rem 5rem;
+  padding: 5rem 5rem 0rem 5rem;
 }/*# sourceMappingURL=style.css.map */

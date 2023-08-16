@@ -51,7 +51,8 @@ $msgArray = [
     'invalidAddedUser' => 'L\'utilisateur n\'a pas pu être créé',
     'connexion' => 'Vous êtes connecté',
     'connexionFailed' => 'Impossible de se connecter',
-    'userNotFound' => 'L\'utilisateur n\'existe pas'
+    'userNotFound' => 'L\'utilisateur n\'existe pas',
+    'userAlreadyExists' => 'Vous possédez déjà un compte'
 ];
 
 

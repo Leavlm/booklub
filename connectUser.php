@@ -15,6 +15,8 @@ verifyToken();
         $query->execute();
         $user = $query->fetch(PDO::FETCH_ASSOC);
         $hachedPwd = $user['password'];
+
+        
     
         if ($user && password_verify($password, $user['password'])) {
             session_start();

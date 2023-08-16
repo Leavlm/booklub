@@ -19,7 +19,7 @@ echo getMsg($msgArray);
             <label for="floatingPassword">Mot de passe</label>
         </div>
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-        <button class="cta cta__position cta__txt">Connexion</button>
+        <button class="cta cta__position cta__txt cta__position--margin">Connexion</button>
 </form>
 
     <p class="txt__little txt__spacing">Vous n'avez pas de compte ? <a href="inscription.php" class="txt__link">Inscrivez-vous</a></p>
