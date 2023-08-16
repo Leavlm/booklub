@@ -21,8 +21,8 @@ verifyToken();
         if ($user && password_verify($password, $user['password'])) {
             session_start();
             $_SESSION['user_id'] = $user['id_users'];
-            header('Location: connexion.php?msg=connexion'); // Redirect to dashboard after successful login
-            exit;
+            header('Location: index.php?msg=connexion'); 
+            exit;   
         } else {
             header('Location: connexion.php?msg=userNotFound');
             exit;
