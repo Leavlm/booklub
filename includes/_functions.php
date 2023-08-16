@@ -46,7 +46,12 @@ $msgArray = [
     'ko' => 'Votre livre n\'a pas pu être ajouté ! 😱',
     'wrongToken' => 'Le token est erroné ! 😱',
     'invalidImg' => 'Le format de votre image n\'est pas pris en charge',
-    'invalidId' => 'Le livre que vous avez demandé n\'est pas disponible'
+    'invalidId' => 'Le livre que vous avez demandé n\'est pas disponible',
+    'userAdded' => 'L\'utilisateur a été créé',
+    'invalidAddedUser' => 'L\'utilisateur n\'a pas pu être créé',
+    'connexion' => 'Vous êtes connecté',
+    'connexionFailed' => 'Impossible de se connecter',
+    'userNotFound' => 'L\'utilisateur n\'existe pas'
 ];
 
 
@@ -70,7 +75,7 @@ function getMsg(array $array): string
 function verifyToken()
 {
     if (!array_key_exists('token', $_SESSION) || !array_key_exists('token', $_REQUEST) || $_SESSION['token'] !== $_REQUEST['token']) {
-        header('location: new-book.php?msg=wrongToken');
+        header('location: index.php?msg=wrongToken');
         exit;
     }
 }
