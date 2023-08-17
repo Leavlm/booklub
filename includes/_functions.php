@@ -52,7 +52,8 @@ $msgArray = [
     'connexion' => 'Vous êtes connecté',
     'connexionFailed' => 'Impossible de se connecter',
     'userNotFound' => 'L\'utilisateur n\'existe pas',
-    'userAlreadyExists' => 'Vous possédez déjà un compte'
+    'userAlreadyExists' => 'Vous possédez déjà un compte',
+    'logout' => 'Vous êtes déconnecté'
 ];
 
 

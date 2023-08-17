@@ -11,26 +11,27 @@ $query = $dbCo->prepare("SELECT `title_book`, `author_name`, `image_url`, `book`
 $query->execute();
 $books = $query->fetchAll();
 
-if(isset($_SESSION['id_users'])) {
-    // Récupérer les informations de l'utilisateur depuis la base de données (exemple)
-    $query = $dbCo->prepare("SELECT firstname, lastname FROM users WHERE id_users = :id_users");
-    $query->execute(['id_users' => $_SESSION['id_users']]);
-    $user = $query->fetch(PDO::FETCH_ASSOC);
-    var_dump($_SESSION['id_users']);
-    exit;
+// if(isset($_SESSION['id_users'])) {
+//     // Récupérer les informations de l'utilisateur depuis la base de données (exemple)
+//     $query = $dbCo->prepare("SELECT firstname, lastname FROM users WHERE id_users = :id_users");
+//     $query->execute(['id_users' => $_SESSION['id_users']]);
+//     $user = $query->fetch(PDO::FETCH_ASSOC);
+//     var_dump($_SESSION['id_users']);
+//     exit;
 
     // Afficher le contenu personnalisé
 //     echo "Bonjour, {$user['firstname']} {$user['lastname']}! Voici votre contenu personnalisé.";
 // } else {
 //     // L'utilisateur n'est pas connecté, afficher un message différent
 //     echo "Bienvenue, visiteur! Veuillez vous connecter pour accéder au contenu personnalisé.";
-}
+// }
 
 
 ?>
 
 <main>
-    <?=getMsg($msgArray);?>
+    <?=getMsg($msgArray);
+    var_dump($_SESSION)?>
     <section class="intro">
         <article class="intro__wrap">
             <h1 class="intro__ttl">Booklub</h1>

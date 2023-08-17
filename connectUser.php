@@ -19,7 +19,6 @@ verifyToken();
         
     
         if ($user && password_verify($password, $user['password'])) {
-            session_start();
             $_SESSION['user_id'] = $user['id_users'];
             header('Location: index.php?msg=connexion'); 
             exit;   

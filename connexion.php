@@ -1,7 +1,7 @@
 <?php include "includes/_head.php";
 require "includes/_header.php";
 require "includes/_database.php";
-require "includes/_functions.php"; 
+require "includes/_functions.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 
 echo getMsg($msgArray);
@@ -20,7 +20,7 @@ echo getMsg($msgArray);
         </div>
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta cta__position cta__txt cta__position--margin">Connexion</button>
-</form>
+    </form>
 
     <p class="txt__little txt__spacing">Vous n'avez pas de compte ? <a href="inscription.php" class="txt__link">Inscrivez-vous</a></p>
 </main>

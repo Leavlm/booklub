@@ -8,6 +8,10 @@
     background-color: $grey;
     border-radius: 0 0 1rem 1rem;
 
+    &__radius{
+        border-radius: 1rem;
+    }
+
     &__btn {
         width: 5rem;
         padding: .5rem;
@@ -26,7 +30,6 @@
         flex-direction: column;
         margin: 1rem auto;
         gap: .5rem;
-
     }
 
     &__wrap--inline {

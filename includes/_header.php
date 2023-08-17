@@ -15,9 +15,11 @@
             <li class="nav__itm"><a href="index.php">Accueil</a></li>
             <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>
             <li class="nav__itm">Boite à livres</li>
+            <li class="nav_itm cta__txt--little"><a href="connexion.php">Connexion</a></li>
+
             <div class="nav__wrap">
                 <li class="nav__itm"> 
-                    <a href="connexion.php"> 
+                    <a href="profile.php"> 
                         <i class="fa-solid fa-user header__icn"></i>
                     </a>
                 </li>

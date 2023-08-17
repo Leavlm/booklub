@@ -55,6 +55,11 @@ ul {
 .txt__spacing {
   padding: 1rem;
 }
+.txt__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .txt__link {
   text-decoration: underline !important;
   text-underline-offset: 2px;
@@ -354,6 +359,7 @@ ul {
 .footer {
   color: #0C0C0C;
   background-color: #fcfbfb;
+  margin-top: 3rem;
 }
 
 .footer__lst {
@@ -448,7 +454,6 @@ ul {
     font-size: 1.5rem;
   }
   .cta__txt--little {
-    margin-top: 3rem;
     font-size: 1.2rem;
   }
 }
@@ -587,6 +592,9 @@ ul {
   background-color: #d0d0d0;
   border-radius: 0 0 1rem 1rem;
 }
+.form__radius {
+  border-radius: 1rem;
+}
 .form__btn {
   width: 5rem;
   padding: 0.5rem;
@@ -635,4 +643,8 @@ ul {
 }
 .form__spacing {
   padding: 5rem 5rem 0rem 5rem;
+}
+
+.btn__spacing {
+  margin: 0.2rem;
 }/*# sourceMappingURL=style.css.map */
