@@ -17,7 +17,7 @@
             <li class="nav__itm"><a href="index.php">Accueil</a></li>
             <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>
             <li class="nav__itm">Boite à livres</li>
-            <li class="cta__txt--little"><a href="connexion.php">Connexion</a></li>
+            <li class="cta__txt--little"> <?php if(empty($_SESSION)){ ?><a href="connexion.php">Connexion</a> <?php } else if (!empty($_SESSION)){?><a href="logout.php">Déconnexion</a><?php } ?></li>
 
             <?php if (!empty($_SESSION)) { ?><div class="nav__wrap">
                 <li class="nav__itm"> 
