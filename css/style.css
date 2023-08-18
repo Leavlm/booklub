@@ -620,7 +620,7 @@ ul {
   display: flex;
   justify-content: center;
   color: #0C0C0C;
-  padding: 2rem 0 0rem 0;
+  padding: 2rem 0 2rem 0;
   font-weight: 700;
   width: 50%;
   margin: 2rem auto 0 auto;

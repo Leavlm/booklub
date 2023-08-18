@@ -16,7 +16,11 @@ include "includes/_functions.php";
             <input type="text" class="form-control" id="floatingLastname" placeholder="Auteur" name="author">
             <label for="floatingLastname">Auteur</label>
         </div>
-
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingPrice" placeholder="Prix" name="price">
+            <label for="floatingPrice">Prix</label>
+        </div>
+        
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta cta__position cta__txt">Mettre en vente</button>
     </form>
