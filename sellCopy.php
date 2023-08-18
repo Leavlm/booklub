@@ -1,8 +1,20 @@
 <?php
-include "includes/_head.php";
-include "includes/_header.php";
 require "includes/_database.php";
 include "includes/_functions.php";
+include "includes/_head.php";
+include "includes/_header.php";
+
+$query = $dbCo->prepare("INSERT INTO `copy` (`state`, `price`, `adding_date`)  VALUES(:state, :price, :date)");
+$isOk1 = $query->execute([
+    "state" => strip_tags($_POST['state']),
+    "price" => intval(strip_tags($_POST['price'])),
+    "date" => date('y-m-d')
+]);
+
+$titleReceived = strip_tags($_POST['title']);
+    $q = $dbCo->prepare("SELECT id_book FROM book WHERE title = :title");
+    $isOk2 = $q->execute(["title" => $title]);
+    $title = $q->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <main>

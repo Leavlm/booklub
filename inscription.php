@@ -1,7 +1,8 @@
-<?php include "includes/_head.php";
-require "includes/_header.php";
+<?php 
 require "includes/_database.php";
 require "includes/_functions.php"; 
+include "includes/_head.php";
+require "includes/_header.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 ?>
 

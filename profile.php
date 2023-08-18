@@ -1,8 +1,8 @@
 <?php
-include "includes/_head.php";
-include "includes/_header.php";
 require "includes/_database.php";
 include "includes/_functions.php";
+include "includes/_head.php";
+include "includes/_header.php";
 
 ?>
 <?php if (!empty($_SESSION)) {
@@ -12,8 +12,7 @@ include "includes/_functions.php";
     ]);
     $user = $query->fetch();
 
-
-    var_dump(isset($_SESSION)); ?>
+?>
 
     <h2 class="txt__ttl txt__spacing">Vos ventes</h2>
     <button class="cta cta__position cta__txt--little cta__position--margin"><a href="sellCopy.php">Vendre un livre</a></button>
