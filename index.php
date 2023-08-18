@@ -1,7 +1,7 @@
-<?php include "includes/_head.php";
-require "includes/_header.php";
+<?php require "includes/_functions.php";
 require "includes/_database.php";
-require "includes/_functions.php";
+include "includes/_head.php";
+require "includes/_header.php";
 
 $query = $dbCo->prepare("SELECT `title_book`, `author_name`, `image_url`, `book`.`id_book`
                         FROM `book`

@@ -40,7 +40,7 @@ include "includes/_functions.php";
 <?php } else if (empty($_SESSION)) { ?>
     
 
-    <p>Connectez vous pour accéder à votre profil</p>
+    <p class="txt__center txt__spacing">Connectez vous pour accéder à votre profil</p>
 
 
 <?php } ?>

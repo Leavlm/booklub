@@ -1,3 +1,5 @@
+
+
 <header class="header">
     <ul class="header__lst">
         <li class="header__logo">
@@ -15,14 +17,14 @@
             <li class="nav__itm"><a href="index.php">Accueil</a></li>
             <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>
             <li class="nav__itm">Boite à livres</li>
-            <li class="nav__itm cta__txt--little"><a href="connexion.php">Connexion</a></li>
+            <li class="cta__txt--little"><a href="connexion.php">Connexion</a></li>
 
-            <div class="nav__wrap">
+            <?php if (!empty($_SESSION)) { ?><div class="nav__wrap">
                 <li class="nav__itm"> 
                     <a href="profile.php"> 
                         <i class="fa-solid fa-user header__icn"></i>
                     </a>
-                </li>
+                </li> <?php } ?>
                 <li class="nav__itm">
                     <a href="recherche.php">
                         <i class="fa-solid fa-magnifying-glass header__icn"></i>
