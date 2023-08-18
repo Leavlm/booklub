@@ -53,7 +53,9 @@ $msgArray = [
     'connexionFailed' => 'Impossible de se connecter',
     'userNotFound' => 'L\'utilisateur n\'existe pas',
     'userAlreadyExists' => 'Vous possédez déjà un compte',
-    'logout' => 'Vous êtes déconnecté'
+    'logout' => 'Vous êtes déconnecté',
+    'bookInStore' => 'Votre livre est désormais en vente',
+    'bookNotInStore' => 'Votre livre n\'a pas pu être mis en vente'
 ];
 
 

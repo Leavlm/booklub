@@ -4,21 +4,13 @@ include "includes/_functions.php";
 include "includes/_head.php";
 include "includes/_header.php";
 
-$query = $dbCo->prepare("INSERT INTO `copy` (`state`, `price`, `adding_date`)  VALUES(:state, :price, :date)");
-$isOk1 = $query->execute([
-    "state" => strip_tags($_POST['state']),
-    "price" => intval(strip_tags($_POST['price'])),
-    "date" => date('y-m-d')
-]);
-
-$titleReceived = strip_tags($_POST['title']);
-    $q = $dbCo->prepare("SELECT id_book FROM book WHERE title = :title");
-    $isOk2 = $q->execute(["title" => $title]);
-    $title = $q->fetch(PDO::FETCH_ASSOC);
+$_SESSION['token'] = md5(uniqid(mt_rand(), true));
+echo getMsg($msgArray);
+?>
 ?>
 
 <main>
-    <form class="form__spacing" action="sellCopy.php" method="POST">
+    <form class="form__spacing" action="sell.php" method="POST">
         <h2 class="txt__ttl">Vendez votre livre</h2>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingFirstname" placeholder="Titre" name="title">
@@ -32,7 +24,17 @@ $titleReceived = strip_tags($_POST['title']);
             <input type="number" class="form-control" id="floatingPrice" placeholder="Prix" name="price">
             <label for="floatingPrice">Prix</label>
         </div>
-        
+
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" aria-label="Sélectionnez l'état" name="state">
+                <option selected>Sélectionnez l'état</option>
+                <option value="Parfait">Parfait</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Nul">Nul</option>
+            </select>
+            <label for="floatingSelect">Etat du livre</label>
+        </div>
+
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta cta__position cta__txt">Mettre en vente</button>
     </form>
@@ -74,22 +76,22 @@ $titleReceived = strip_tags($_POST['title']);
 
             <input type="checkbox" class="btn-check" id="btn-check-2" autocomplete="off" value="Policier/Thriller" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-2">Policier/Thriller</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-3" autocomplete="off" value="Science-fiction" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-3">Science-fiction</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-4" autocomplete="off" value="Fantasy" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-4">Fantasy</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-5" autocomplete="off" value="Historique" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-5">Historique</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-6" autocomplete="off" value="Horreur" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-6">Horreur</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-7" autocomplete="off" value="Jeunesse" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-7">Jeunesse</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-8" autocomplete="off" value="Non-fiction" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-8">Non-fiction</label>
 
@@ -105,6 +107,6 @@ $titleReceived = strip_tags($_POST['title']);
             <input class="form-control" type="file" id="formFile" name="image" accept="image/*" placeholder="Couverture">
         </div>
 
-            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-            <button class="cta__txt--little form__btn">Ajouter</button>
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+        <button class="cta__txt--little form__btn">Ajouter</button>
     </form>

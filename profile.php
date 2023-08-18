@@ -3,18 +3,25 @@ require "includes/_database.php";
 include "includes/_functions.php";
 include "includes/_head.php";
 include "includes/_header.php";
+$_SESSION['token'] = md5(uniqid(mt_rand(), true));
+echo getMsg($msgArray);
 
-?>
-<?php if (!empty($_SESSION)) {
-    $query = $dbCo->prepare("SELECT id_users, email, password, firstname, lastname FROM users WHERE id_users = :id_users");
+if (!empty($_SESSION)) {
+    $query = $dbCo->prepare("SELECT `users`.`id_users`, `email`, `password`, `firstname`, `lastname`, `title_book`, `image_url` 
+                            FROM `users` 
+                            JOIN `copy` ON `copy`.`id_users` = `users`.`id_users`
+                            JOIN `book` ON `book`.`id_book` = `copy`.`id_book`
+                            WHERE `users`.`id_users` = :id_users");
     $query->execute([
         'id_users' => $_SESSION['user_id']
     ]);
     $user = $query->fetch();
+    $result = $query->fetchAll();
 
 ?>
 
     <h2 class="txt__ttl txt__spacing">Vos ventes</h2>
+    <?php getCatalog($result)?>
     <button class="cta cta__position cta__txt--little cta__position--margin"><a href="sellCopy.php">Vendre un livre</a></button>
 
     <form class="form__spacing" method="POST" action="">
@@ -37,7 +44,7 @@ include "includes/_header.php";
     </form>
 
 <?php } else if (empty($_SESSION)) { ?>
-    
+
 
     <p class="txt__center txt__spacing">Connectez vous pour accéder à votre profil</p>
 
