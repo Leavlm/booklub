@@ -1,3 +1,30 @@
+
+//------------------------------------------
+// TOGGLE DARK MODE
+//------------------------------------------
+
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const iconElement = document.querySelector('.toggle-icon-js');
+const logoElement = document.querySelector('.logo-js');
+
+darkModeToggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark');
+        document.querySelector('.header').classList.toggle('dark');
+        if (document.body.className === 'dark'){
+            iconElement.classList.remove('fa-moon');
+            iconElement.classList.add('fa-sun');
+            logoElement.setAttribute('src', 'img/logo-lg.png')
+            
+        }
+        else{
+            iconElement.classList.remove('fa-sun');
+            iconElement.classList.add('fa-moon');
+            logoElement.setAttribute('src', 'img/petit-logo-blk.png')
+        }
+})
+
+
+
 // -------------------------------
 // LIMITING NB OF LETTER IN CARDS
 // -------------------------------

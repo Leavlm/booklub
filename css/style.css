@@ -28,7 +28,6 @@ h6 {
 body {
   font-family: "Merriweather", serif;
   font-family: "Poppins", sans-serif;
-  background-color: #fcfbfb;
 }
 
 ul {
@@ -167,12 +166,17 @@ ul {
 }
 
 /* NAVBAR  */
+.nav {
+  background-color: #fcfbfb;
+}
+
 .nav__lst {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
   font-size: 1.2rem;
+  background-color: #fcfbfb !important;
 }
 
 .nav__itm:hover {
@@ -193,7 +197,6 @@ ul {
 
 @media screen and (max-width: 768px) {
   .nav {
-    background-color: #d0d0d0;
     position: absolute;
     z-index: 20;
     width: 100vw;
@@ -205,6 +208,7 @@ ul {
     flex-direction: column;
     margin: 0 auto;
     width: 100vw;
+    background-color: #fcfbfb;
   }
   .nav__lst:last-child {
     border-radius: 0 0 2rem 2rem;
@@ -250,14 +254,12 @@ ul {
 .intro__ttl {
   font-size: 3rem;
   font-weight: 800;
-  color: #0C0C0C;
 }
 
 .intro__txt {
   font-family: "Merriweather";
   font-weight: 400;
   font-size: 1.2rem;
-  color: #0C0C0C;
   margin: 0 0 1rem 0;
 }
 
@@ -315,7 +317,6 @@ ul {
     display: block;
   }
   .header__lst {
-    background-color: #fcfbfb;
     height: 5rem;
     display: flex;
     flex-direction: row;
@@ -337,6 +338,11 @@ ul {
   }
   .header__logo {
     margin: 0 auto;
+  }
+  .header__switch {
+    position: absolute;
+    left: 2rem;
+    font-size: 1.2rem;
   }
   .header__nav > .header__icn {
     position: absolute;
@@ -541,8 +547,9 @@ ul {
     border-radius: 1rem;
   }
   .card__img {
-    width: 12rem;
-    height: 15rem;
+    aspect-ratio: 2/3;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .card__ttl {
     justify-content: center;
@@ -647,4 +654,9 @@ ul {
 
 .btn__spacing {
   margin: 0.2rem;
+}
+
+.dark {
+  background-color: #303030;
+  color: #fcfbfb;
 }/*# sourceMappingURL=style.css.map */

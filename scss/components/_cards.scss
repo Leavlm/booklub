@@ -48,8 +48,8 @@
     }
 
     .card__img {
-        width: 12rem;
-        height: 15rem;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
 
 }
     .card__ttl{

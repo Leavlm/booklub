@@ -1,11 +1,13 @@
-
-
 <header class="header">
     <ul class="header__lst">
         <li class="header__logo">
             <a href="index.php">
-                <img class="header__img" src="img/petit-logo-blk.png" alt="icône de logo">
+                <img class="header__img logo-js" src="img/petit-logo-blk.png" alt="icône de logo">
             </a>
+        </li>
+        <li class="form-check form-switch header__switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle">
+            <label class="form-check-label " for="dark-mode-toggle"><i class="fa-solid fa-moon toggle-icon-js"></i></label>
         </li>
         <li class="header__nav hidden" id="header">
             <i class="fa-solid fa-bars header__icn"></i>
@@ -16,21 +18,21 @@
         <ul class="nav__lst">
             <li class="nav__itm"><a href="index.php">Accueil</a></li>
             <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>
-            <li class="nav__itm">Boite à livres</li>
-            <li class="cta__txt--little"> <?php if(empty($_SESSION)){ ?><a href="connexion.php">Connexion</a> <?php } else if (!empty($_SESSION)){?><a href="logout.php">Déconnexion</a><?php } ?></li>
+            <!-- <li class="nav__itm">Boite à livres</li> -->
+            <li class="cta__txt--little"> <?php if (empty($_SESSION)) { ?><a href="connexion.php">Connexion</a> <?php } else if (!empty($_SESSION)) { ?><a href="logout.php">Déconnexion</a><?php } ?></li>
 
             <?php if (!empty($_SESSION)) { ?><div class="nav__wrap">
-                <li class="nav__itm"> 
-                    <a href="profile.php"> 
-                        <i class="fa-solid fa-user header__icn"></i>
-                    </a>
-                </li> <?php } ?>
+                    <li class="nav__itm">
+                        <a href="profile.php">
+                            <i class="fa-solid fa-user header__icn"></i>
+                        </a>
+                    </li> <?php } ?>
                 <li class="nav__itm">
                     <a href="recherche.php">
                         <i class="fa-solid fa-magnifying-glass header__icn"></i>
                     </a>
                 </li>
-            </div>
+                </div>
         </ul>
     </nav>
 </header>

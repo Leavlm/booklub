@@ -39,7 +39,7 @@
         display: block;
 
         &__lst {
-            background-color: $primary;
+            // background-color: $primary;
             height: 5rem;
             display: flex;
             flex-direction: row;
@@ -68,6 +68,14 @@
         &__logo{
             margin: 0 auto;
         }
+
+        &__switch{
+            position: absolute;
+            left: 2rem;
+            font-size: 1.2rem;
+            
+        }
+        
 
 
     }
