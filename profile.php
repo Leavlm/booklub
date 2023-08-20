@@ -6,7 +6,10 @@ include "includes/_header.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
 
-if (!empty($_SESSION)) {
+// var_dump(array_key_exists('user_id', $_SESSION));
+// exit;
+
+if (array_key_exists('user_id', $_SESSION)) {
     $query = $dbCo->prepare("SELECT `users`.`id_users`, `email`, `password`, `firstname`, `lastname`, `title_book`, `image_url` 
                             FROM `users` 
                             JOIN `copy` ON `copy`.`id_users` = `users`.`id_users`
@@ -43,7 +46,7 @@ if (!empty($_SESSION)) {
         <a class="txt__little txt__center txt__link" href="logout.php">Déconnexion</a>
     </form>
 
-<?php } else if (empty($_SESSION)) { ?>
+<?php } else if (!array_key_exists('user_id', $_SESSION)) { ?>
 
 
     <p class="txt__center txt__spacing">Connectez vous pour accéder à votre profil</p>

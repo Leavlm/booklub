@@ -166,17 +166,12 @@ ul {
 }
 
 /* NAVBAR  */
-.nav {
-  background-color: #fcfbfb;
-}
-
 .nav__lst {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
   font-size: 1.2rem;
-  background-color: #fcfbfb !important;
 }
 
 .nav__itm:hover {
@@ -208,7 +203,6 @@ ul {
     flex-direction: column;
     margin: 0 auto;
     width: 100vw;
-    background-color: #fcfbfb;
   }
   .nav__lst:last-child {
     border-radius: 0 0 2rem 2rem;
@@ -221,7 +215,6 @@ ul {
     padding: 1.1rem;
   }
   .nav__icn {
-    background-color: #fcfbfb;
     position: absolute;
     right: 1rem;
     top: -4.5rem;
@@ -363,8 +356,6 @@ ul {
 }
 /* FOOTER  */
 .footer {
-  color: #0C0C0C;
-  background-color: #fcfbfb;
   margin-top: 3rem;
 }
 
@@ -467,11 +458,8 @@ ul {
 .catalog__title {
   display: flex;
   justify-content: center;
-  color: #0C0C0C;
   padding: 2rem 0;
   font-weight: 700;
-  background-color: #d0d0d0;
-  border-radius: 5rem 5rem 0 0;
 }
 .catalog__lst {
   display: flex;
@@ -480,7 +468,6 @@ ul {
   gap: 2rem;
   padding: 1rem;
   padding-top: 1rem;
-  background-color: #d0d0d0;
 }
 .catalog__lst--spacing {
   padding-top: 0.5rem;
@@ -505,7 +492,6 @@ ul {
 .card__wrap {
   width: calc(50% - 2rem);
   padding-bottom: 1rem;
-  background-color: #fff;
   display: flex;
   gap: 2rem;
   justify-content: center;
@@ -520,7 +506,6 @@ ul {
 }
 
 .card__ttl {
-  color: #123F34;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
@@ -529,7 +514,6 @@ ul {
 }
 
 .card__txt {
-  color: #123F34;
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
@@ -659,4 +643,31 @@ ul {
 .dark {
   background-color: #303030;
   color: #fcfbfb;
+}
+
+.light {
+  background-color: #0C0C0C;
+  color: #fcfbfb;
+}
+
+.dark__catalog {
+  color: #fcfbfb;
+  background-color: #0C0C0C;
+  border-radius: 5rem 5rem 0 0;
+}
+
+.light__catalog {
+  color: #0C0C0C;
+  background-color: #d0d0d0;
+  border-radius: 5rem 5rem 0 0;
+}
+
+.dark__card {
+  color: #fcfbfb;
+  background-color: #303030;
+}
+
+.light__card {
+  color: #303030;
+  background-color: #fcfbfb;
 }/*# sourceMappingURL=style.css.map */

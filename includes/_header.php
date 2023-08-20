@@ -1,3 +1,7 @@
+<?php require "includes/_functions.php";
+
+?>
+
 <header class="header">
     <ul class="header__lst">
         <li class="header__logo">
@@ -13,15 +17,15 @@
             <i class="fa-solid fa-bars header__icn"></i>
         </li>
     </ul>
-    <nav class="nav hide" id="nav">
+    <nav class="nav hide light__nav" id="nav">
         <i class="hidden fa-solid fa-xmark header__icn nav__icn " id="nav__close"></i>
-        <ul class="nav__lst">
+        <ul class="nav__lst light__nav">
             <li class="nav__itm"><a href="index.php">Accueil</a></li>
             <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>
             <!-- <li class="nav__itm">Boite à livres</li> -->
-            <li class="cta__txt--little"> <?php if (empty($_SESSION)) { ?><a href="connexion.php">Connexion</a> <?php } else if (!empty($_SESSION)) { ?><a href="logout.php">Déconnexion</a><?php } ?></li>
+            <li class="cta__txt--little"> <?php if (!array_key_exists('user_id', $_SESSION)) { ?><a href="connexion.php">Connexion</a> <?php } else if (isset($_SESSION) && array_key_exists('user_id', $_SESSION)) { ?><a href="logout.php">Déconnexion</a><?php } ?></li>
 
-            <?php if (!empty($_SESSION)) { ?><div class="nav__wrap">
+            <?php if (array_key_exists('user_id', $_SESSION) && isset($_SESSION)) { ?><div class="nav__wrap">
                     <li class="nav__itm">
                         <a href="profile.php">
                             <i class="fa-solid fa-user header__icn"></i>

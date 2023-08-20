@@ -9,7 +9,7 @@ function getCatalog(array $array): string
 {
     $html = '';
     foreach ($array as $book) {
-        $html .= '<li class="card__wrap">
+        $html .= '<li class="card__wrap card-js light__card">
                     <a class="card__lnk" href="http://localhost/booklub/product-page.php?id=' . $book['id_book'] . '">
                     <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
                     <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>

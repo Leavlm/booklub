@@ -1,4 +1,4 @@
-<?php require "includes/_functions.php";
+<?php 
 require "includes/_database.php";
 include "includes/_head.php";
 require "includes/_header.php";
@@ -42,8 +42,8 @@ $books = $query->fetchAll();
         </article>
     </section>
 
-    <section>
-        <article class="catalog">
+    <section class="catalog-parent-js">
+        <article class="catalog catalog-js light__catalog">
             <h2 class="catalog__title">Notre catalogue</h2>
             <ul class="catalog__lst">
     <?= getCatalog($books)?>

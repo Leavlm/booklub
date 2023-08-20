@@ -1,8 +1,5 @@
 /* NAVBAR  */
 
-.nav{
-    background-color: $primary;
-}
 
 .nav__lst {
     display: flex;
@@ -10,7 +7,6 @@
     align-items: center;
     gap: 2rem;
     font-size: 1.2rem;
-    background-color: $primary !important;
 }
 
 .nav__itm:hover {
@@ -35,7 +31,6 @@
 @media screen and (max-width: 768px) {
 
     .nav {
-        // background-color: $grey !important;
         position: absolute;
         z-index: 20;
         width: 100vw;
@@ -47,7 +42,6 @@
             flex-direction: column;
             margin: 0 auto;
             width: 100vw;
-            background-color: $primary;
 
         }
 
@@ -66,7 +60,7 @@
 
 
         &__icn {
-            background-color: $primary;
+            // background-color: $primary;
             position: absolute;
             right: 1rem;
             top: -4.5rem;

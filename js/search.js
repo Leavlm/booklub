@@ -6,22 +6,30 @@
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const iconElement = document.querySelector('.toggle-icon-js');
 const logoElement = document.querySelector('.logo-js');
+const catalogElements = document.querySelectorAll('.catalog-js');
+const cardElements = document.querySelectorAll('.card-js');
 
 darkModeToggle.addEventListener('change', () => {
-        document.body.classList.toggle('dark');
-        document.querySelector('.header').classList.toggle('dark');
-        if (document.body.className === 'dark'){
-            iconElement.classList.remove('fa-moon');
-            iconElement.classList.add('fa-sun');
-            logoElement.setAttribute('src', 'img/logo-lg.png')
-            
-        }
-        else{
-            iconElement.classList.remove('fa-sun');
-            iconElement.classList.add('fa-moon');
-            logoElement.setAttribute('src', 'img/petit-logo-blk.png')
-        }
-})
+    document.body.classList.toggle('dark');
+    document.querySelector('.header').classList.toggle('dark');
+    
+    const isDarkMode = document.body.classList.contains('dark');
+
+    iconElement.classList.toggle('fa-moon', !isDarkMode);
+    iconElement.classList.toggle('fa-sun', isDarkMode);
+    
+    logoElement.setAttribute('src', isDarkMode ? 'img/logo-lg.png' : 'img/petit-logo-blk.png');
+
+    catalogElements.forEach(element => {
+        element.classList.toggle('dark__catalog', isDarkMode);
+        element.classList.toggle('light__catalog', !isDarkMode);
+    });
+
+    cardElements.forEach(element => {
+        element.classList.toggle('dark__card', isDarkMode);
+        element.classList.toggle('light__card', !isDarkMode);
+    });
+});
 
 
 
