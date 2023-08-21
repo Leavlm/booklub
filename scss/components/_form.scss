@@ -5,8 +5,8 @@
     margin: 0 auto;
     padding: 1rem;
     justify-content: space-between;
-    background-color: $grey;
-    border-radius: 0 0 1rem 1rem;
+    // background-color: $grey;
+    // border-radius: 0 0 1rem 1rem;
 
     &__radius{
         border-radius: 1rem;
@@ -41,12 +41,12 @@
     &__ttl {
         display: flex;
         justify-content: center;
-        color: $black;
+        // color: $black;
         padding: 2rem 0 2rem 0;
         font-weight: 700;
         width: 50%;
         margin: 2rem auto 0 auto;
-        background-color: $grey;
+        // background-color: $grey;
         border-radius: 1rem 1rem 0 0;
     }
 

@@ -3,9 +3,6 @@ include "includes/_head.php";
 include "includes/_header.php";
 
 
-
-// session_start();
-
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
 ?>
@@ -38,7 +35,7 @@ echo getMsg($msgArray);
         </div>
 
 
-        <label>Genre :</label>
+        <label class="label-js">Genre :</label>
         <div>
 
             <input type="checkbox" class="btn-check" id="btn-check-1" autocomplete="off" value="Roman (fiction)" name="genre[]">
@@ -73,7 +70,7 @@ echo getMsg($msgArray);
         </div>
 
         <div class="mb-3 pt-3">
-            <label for="formFile" class="form-label">Sélectionnez une couverture:</label>
+            <label for="formFile" class="form-label label-js">Sélectionnez une couverture:</label>
             <input class="form-control" type="file" id="formFile" name="image" accept="image/*" placeholder="Couverture">
         </div>
 
@@ -174,5 +171,4 @@ echo getMsg($msgArray);
 </main>
 
 <?php require "includes/_footer.php" ?>
-<script type="module" src="js/search.js"></script>
 </body>

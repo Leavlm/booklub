@@ -8,6 +8,8 @@ const iconElement = document.querySelector('.toggle-icon-js');
 const logoElement = document.querySelector('.logo-js');
 const catalogElements = document.querySelectorAll('.catalog-js');
 const cardElements = document.querySelectorAll('.card-js');
+const formElement = document.querySelector('.form-js');
+const labelElements = document.querySelectorAll('.label-js');
 
 darkModeToggle.addEventListener('change', () => {
     document.body.classList.toggle('dark');
@@ -18,6 +20,9 @@ darkModeToggle.addEventListener('change', () => {
     iconElement.classList.toggle('fa-moon', !isDarkMode);
     iconElement.classList.toggle('fa-sun', isDarkMode);
     
+    formElement.classList.toggle('light__form', !isDarkMode);
+    formElement.classList.toggle('dark__form', isDarkMode);
+
     logoElement.setAttribute('src', isDarkMode ? 'img/logo-lg.png' : 'img/petit-logo-blk.png');
 
     catalogElements.forEach(element => {
@@ -29,6 +34,10 @@ darkModeToggle.addEventListener('change', () => {
         element.classList.toggle('dark__card', isDarkMode);
         element.classList.toggle('light__card', !isDarkMode);
     });
+
+    labelElements.forEach(element => {
+        element.classList.toggle('dark__label', isDarkMode);
+    })
 });
 
 
