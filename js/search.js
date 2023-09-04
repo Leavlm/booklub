@@ -4,6 +4,7 @@
 //------------------------------------------
 
 const darkModeToggle = document.getElementById('dark-mode-toggle');
+const isDarkMode = document.body.classList.contains('dark');
 const iconElement = document.querySelector('.toggle-icon-js');
 const logoElement = document.querySelector('.logo-js');
 const catalogElements = document.querySelectorAll('.catalog-js');
@@ -11,18 +12,23 @@ const cardElements = document.querySelectorAll('.card-js');
 const formElement = document.querySelector('.form-js');
 const labelElements = document.querySelectorAll('.label-js');
 
-darkModeToggle.addEventListener('change', () => {
-    document.body.classList.toggle('dark');
-    document.querySelector('.header').classList.toggle('dark');
-    
-    const isDarkMode = document.body.classList.contains('dark');
+//Stocking dark mode into localstorage
+function setDarkModePreference(isDarkMode) {
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Function to load the dark mode preference from local storage
+function loadDarkModePreference() {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    darkModeToggle.checked = isDarkMode;
+    toggleDarkMode(isDarkMode); // Apply dark mode based on the stored preference
+}
+
+function toggleDarkMode(isDarkMode) {
+    document.body.classList.toggle('dark', isDarkMode);
+    document.querySelector('.header').classList.toggle('dark', isDarkMode);
 
     iconElement.classList.toggle('fa-moon', !isDarkMode);
-    iconElement.classList.toggle('fa-sun', isDarkMode);
-    
-    formElement.classList.toggle('light__form', !isDarkMode);
-    formElement.classList.toggle('dark__form', isDarkMode);
-
     logoElement.setAttribute('src', isDarkMode ? 'img/logo-lg.png' : 'img/petit-logo-blk.png');
 
     catalogElements.forEach(element => {
@@ -37,9 +43,27 @@ darkModeToggle.addEventListener('change', () => {
 
     labelElements.forEach(element => {
         element.classList.toggle('dark__label', isDarkMode);
-    })
+        element.classList.toggle('light__label', !isDarkMode);
+    });
+
+    if (formElement){
+        formElement.classList.toggle('light__form', !isDarkMode);
+        formElement.classList.toggle('dark__form', isDarkMode);
+
+    }
+}
+
+// Add event listener for the dark mode toggle
+darkModeToggle.addEventListener('change', () => {
+    const isDarkMode = darkModeToggle.checked;
+    setDarkModePreference(isDarkMode);
+    toggleDarkMode(isDarkMode);
 });
 
+// Load the dark mode preference when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadDarkModePreference();
+});
 
 
 // -------------------------------
@@ -123,17 +147,19 @@ async function callApi(method, data) {
 
 // Searching in the API if there's a match with the searchString
 
-searchInput.addEventListener('keyup', async (e) => {
-    const searchString = e.target.value.toLowerCase();
-    const response = await callApi('post', {
-        action: 'search',
-        request: searchString
+if (searchInput){
+    searchInput.addEventListener('keyup', async (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const response = await callApi('post', {
+            action: 'search',
+            request: searchString
+        });
+        displayBooks(response['books']);
+        if (searchString === '') {
+            displayBooks([]);
+        }
     });
-    displayBooks(response['books']);
-    if (searchString === '') {
-        displayBooks([]);
-    }
-});
+}
 
 
 

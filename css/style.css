@@ -234,7 +234,6 @@ ul {
 .intro {
   display: flex;
   flex-direction: column;
-  background-image: url("../../img/bg.png");
   background-size: cover;
 }
 
@@ -258,7 +257,6 @@ ul {
 
 @media screen and (min-width: 769px) {
   .intro {
-    background-image: url("../../img/background-lg.png");
     background-position: center;
   }
   .intro__wrap {
@@ -677,5 +675,5 @@ ul {
 }
 
 .dark__label {
-  color: #fcfbfb;
+  color: #0C0C0C;
 }/*# sourceMappingURL=style.css.map */
