@@ -6,27 +6,25 @@ include "includes/_header.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
 
+$userConnected = isset($_SESSION['user_id']);
+$userId = $_SESSION['user_id'];
+var_dump($userConnected);
 
-if (array_key_exists('user_id', $_SESSION)) {
-    $query = $dbCo->prepare("SELECT `users`.`id_users`, `email`, `password`, `firstname`, `lastname`, `title_book`, `image_url`, `book`.`id_book` 
-                            FROM `users` 
-                            JOIN `copy` ON `copy`.`id_users` = `users`.`id_users`
-                            JOIN `book` ON `book`.`id_book` = `copy`.`id_book`
-                            WHERE `users`.`id_users` = :id_users");
-    $query->execute([
-        'id_users' => $_SESSION['user_id']
-    ]);
-    $user = $query->fetch();
-    $result = $query->fetchAll();
+if ($userConnected) {
+    $queryUser = $dbCo->prepare("SELECT *
+                        FROM `users`
+                        WHERE `users`.id_users = :id_users");
+    $queryUser->execute(['id_users' => $userId]);
+    $userData = $queryUser->fetch();
 
     $q = $dbCo->prepare("SELECT *
-                        FROM `copy`
-                        JOIN `book` ON `book`.`id_book` = `copy`.`id_book`
-                        WHERE id_users = :id_users
+                        FROM `book`
+                        JOIN `copy` ON `copy`.`id_book` = `book`.`id_book`
+                        JOIN `users` ON `copy`.`id_users` = `users`.`id_users`
+                        WHERE `users`.id_users = :id_users
                         GROUP BY id_copy");
-    $q->execute(['id_users' => $_SESSION['user_id']]);
+    $q->execute(['id_users' => $userId]);
     $copiesArray = $q->fetchAll();
-    // var_dump($copiesArray);
 
 
 ?>
@@ -40,15 +38,15 @@ if (array_key_exists('user_id', $_SESSION)) {
     <form class="form__spacing form-js" method="POST" action="">
         <h2 class="txt__ttl">Votre profil</h2>
         <div class="form-floating mb-3">
-            <input type="firstname" class="form-control" id="floatingInput" value="<?= $user['firstname'] ?>" name="firstname">
+            <input type="firstname" class="form-control" id="floatingInput" value="<?= is_array($userData) ? $userData['firstname'] : "" ?>" name="firstname">
             <label for="floatingInput">Votre prénom</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="lastname" class="form-control" id="floatingInput" value="<?= $user['lastname'] ?>" name="lastname">
+            <input type="lastname" class="form-control" id="floatingInput" value="<?= is_array($userData) ? $userData['lastname'] : "" ?>" name="lastname">
             <label for="floatingInput">Votre nom</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" value="<?= $user['email'] ?>" name="email">
+            <input type="email" class="form-control" id="floatingInput" value="<?= is_array($userData) ? $userData['email'] : "" ?>" name="email">
             <label for="floatingInput">Votre email</label>
         </div>
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
@@ -56,10 +54,11 @@ if (array_key_exists('user_id', $_SESSION)) {
         <a class="txt__little txt__center txt__link" href="logout.php">Déconnexion</a>
     </form>
 
-<?php } else if (!array_key_exists('user_id', $_SESSION)) { ?>
+<?php } else if (!$userConnected) { ?>
 
 
-    <p class="txt__center txt__spacing">Connectez vous pour accéder à votre profil</p>
+
+    <p class="txt__center txt__spacing"><a href="http://localhost/booklub/connexion.php">  Connectez vous </a>pour accéder à votre profil</p>
 
 
 <?php } ?>

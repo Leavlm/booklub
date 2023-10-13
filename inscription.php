@@ -1,13 +1,13 @@
 <?php 
 require "includes/_database.php";
-require "includes/_functions.php"; 
+// require "includes/_functions.php"; 
 include "includes/_head.php";
 require "includes/_header.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 ?>
 
 <main>
-    <form class="form__spacing" action="addUser.php" method="POST"> 
+    <form class="form__spacing form-js" action="addUser.php" method="POST"> 
         <h2 class="txt__ttl">Inscrivez-vous</h2>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingFirstname" placeholder="Maurice" name="firstname">
