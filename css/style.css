@@ -99,7 +99,6 @@ ul {
 
 .search__label {
   display: block;
-  color: #123F34;
   padding-bottom: 0.5rem;
   font-weight: 600;
   font-size: 1.2rem;
@@ -233,42 +232,51 @@ ul {
 /* INTRO  */
 .intro {
   display: flex;
-  flex-direction: column;
-  background-size: cover;
+  gap: 3rem;
+  justify-content: center;
+  padding-left: 2rem;
 }
 
 .intro__wrap {
-  padding-top: 10rem;
-  padding-left: 2rem;
+  padding-top: 5rem;
   padding-bottom: 2rem;
 }
 
 .intro__ttl {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
 }
 
 .intro__txt {
-  font-family: "Merriweather";
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0 0 1rem 0;
+}
+
+.intro__img {
+  width: 10rem;
+  padding-right: 1rem;
 }
 
 @media screen and (min-width: 769px) {
   .intro {
-    background-position: center;
+    gap: 5rem;
   }
   .intro__wrap {
-    padding-left: 4rem;
+    padding-left: 3rem;
     padding-bottom: 4rem;
+    padding-top: 7rem;
   }
   .intro__ttl {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
   .intro__txt {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 3rem;
+  }
+  .intro__img {
+    width: 20rem;
+    padding-right: 3rem;
   }
 }
 /* HEADER  */
@@ -426,10 +434,10 @@ ul {
 
 .cta__txt {
   background-color: #D04826;
-  padding: 0.8rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #fff;
   border: none;
 }
@@ -675,5 +683,5 @@ ul {
 }
 
 .dark__label {
-  color: #0C0C0C;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

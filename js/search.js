@@ -11,6 +11,7 @@ const catalogElements = document.querySelectorAll('.catalog-js');
 const cardElements = document.querySelectorAll('.card-js');
 const formElement = document.querySelector('.form-js');
 const labelElements = document.querySelectorAll('.label-js');
+const imgElement = document.querySelector('.img-js');
 
 //Stocking dark mode into localstorage
 function setDarkModePreference(isDarkMode) {
@@ -51,6 +52,8 @@ function toggleDarkMode(isDarkMode) {
         formElement.classList.toggle('dark__form', isDarkMode);
 
     }
+    
+    imgElement.setAttribute('src', isDarkMode ? "./img/couple-lightmode.png" : "./img/couple-darkmode.png" );
 }
 
 // Add event listener for the dark mode toggle
@@ -174,31 +177,31 @@ if (searchInput){
 function displayBooks(books) {
     const htmlString = books.map((book) => {
         return `
-            <li class="card__wrap">
-            <a class="card__lnk" href="product-page.php?id=${book.id_book}">
-            <img class="card__img" src="${book.image_url}">
-            <h3 class="card__ttl">${book.title_book}</h3>
-            <p class="card__txt">${book.author_name}</p>
-                    </a>
-                    </li>
+        <li class="card__wrap card-js ${isDarkMode ? 'light__card' : 'dark__card'}">
+        <a class="card__lnk" href="product-page.php?id=${book.id_book}">
+        <img class="card__img" src="${book.image_url}">
+        <h3 class="card__ttl limited-characters-js ${isDarkMode ? 'dark__label' : 'light__label'}">${book.title_book}</h3>
+        <p class="card__txt">${book.author_name}</p>
+        </a>
+        </li>
                     `;
     })
         .join('');
 
     const ulElement = document.createElement('ul');
-    ulElement.classList.add('catalog__lst', 'catalog__lst--spacing');
+    ulElement.classList.add('catalog__lst', 'catalog__lst--spacing', 'catalog-js');
     ulElement.innerHTML = htmlString;
 
     catalog.innerHTML = '';
     catalog.appendChild(ulElement);
-    if (books.length == 0 && searchInput.value !== ""){
+    if (books.length == 0 && searchInput.value !== "") {
         ulElement.innerHTML = '<p>Aucun livre trouvé.</p>';
         const cta = document.createElement('div');
         catalog.appendChild(cta);
         cta.classList.add('cta', 'cta__position');
-        cta.innerHTML =  '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
+        cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
     }
-    if (searchInput.value === ""){
+    if (searchInput.value === "") {
         catalog.removeChild(catalog.firstChild)
     }
 

@@ -35,11 +35,14 @@ $books = $query->fetchAll();
     <section class="intro">
         <article class="intro__wrap">
             <h1 class="intro__ttl">Booklub</h1>
-            <p class="intro__txt">Vous en avez marre de chercher <br>votre prochain livre ? <br></p>
+            <p class="intro__txt">Vous en avez marre de chercher votre prochain livre ? <br></p>
             <a class="cta" href="choose-product.php">
                 <p class="cta__txt">Aidez moi à choisir</p>
             </a>
         </article>
+        <div class="intro__wrap">
+            <img class="intro__img img-js" src="./img/couple-darkmode.png" alt="illustration of a boy reading, standing on a pile of giant books">
+        </div>
     </section>
 
     <section class="catalog-parent-js">
