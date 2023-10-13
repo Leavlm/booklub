@@ -1,16 +1,15 @@
 <?php
 require "includes/_database.php";
-include "includes/_functions.php";
 include "includes/_head.php";
 include "includes/_header.php";
 
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
-?>
+
 ?>
 
 <main>
-    <form class="form__spacing" action="sell.php" method="POST">
+    <form class="form__spacing form-js" action="sell.php" method="POST">
         <h2 class="txt__ttl">Vendez votre livre</h2>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingFirstname" placeholder="Titre" name="title">
@@ -38,6 +37,11 @@ echo getMsg($msgArray);
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta cta__position cta__txt">Mettre en vente</button>
     </form>
+<br>
+<br>
+<br>
+<br>
+<br>
 
     <h2 class="txt__ttl">Votre livre n'existe pas ?</h2>
 
@@ -98,7 +102,7 @@ echo getMsg($msgArray);
             <input type="checkbox" class="btn-check" id="btn-check-9" autocomplete="off" value="Romance" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-9">Romance</label>
 
-            <input type="checkbox" class="btn-check" id="btn-check-8" autocomplete="off" value="Dystopie" name="genre[]">
+            <input type="checkbox" class="btn-check" id="btn-check-10" autocomplete="off" value="Dystopie" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-8">Dystopie</label>
         </div>
 
@@ -110,3 +114,6 @@ echo getMsg($msgArray);
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta__txt--little form__btn">Ajouter</button>
     </form>
+
+<?php require "includes/_footer.php" ?>
+    

@@ -10,7 +10,7 @@
             </a>
         </li>
         <li class="form-check form-switch header__switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle">
+            <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle" style="background-color: #D04826; border-color: #D04826;">
             <label class="form-check-label " for="dark-mode-toggle"><i class="fa-solid fa-moon toggle-icon-js"></i></label>
         </li>
         <li class="header__nav hidden" id="header">

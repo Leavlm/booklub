@@ -31,7 +31,7 @@ $books = $query->fetchAll();
 
 <main>
     <?=getMsg($msgArray);
-    var_dump($_SESSION)?>
+    // var_dump($_SESSION)?>
     <section class="intro">
         <article class="intro__wrap">
             <h1 class="intro__ttl">Booklub</h1>

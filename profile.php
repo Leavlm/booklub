@@ -1,6 +1,5 @@
 <?php
 require "includes/_database.php";
-include "includes/_functions.php";
 include "includes/_head.php";
 include "includes/_header.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
@@ -27,7 +26,7 @@ if (array_key_exists('user_id', $_SESSION)) {
     <?php getCatalog($result)?>
     <button class="cta cta__position cta__txt--little cta__position--margin"><a href="sellCopy.php">Vendre un livre</a></button>
 
-    <form class="form__spacing" method="POST" action="">
+    <form class="form__spacing form-js" method="POST" action="">
         <h2 class="txt__ttl">Votre profil</h2>
         <div class="form-floating mb-3">
             <input type="firstname" class="form-control" id="floatingInput" value="<?= $user['firstname'] ?>" name="firstname">
