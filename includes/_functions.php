@@ -18,13 +18,23 @@ function getCatalog(array $array): string
                 }
                 return $html;
             }
-            
-            // <p class="card__txt">' . $book['author_name'] . '</p>
+
+// <p class="card__txt">' . $book['author_name'] . '</p>
 // <picture>
 // <source srcset="' . $book['image_url'] . '" media="(min-width: 769px)">
 // </picture>
 
 
+function getTheBooksYoureSelling(array $array) :string {
+    $html = '';
+    foreach ($array as $book) {
+        $html .= '<li class="card__wrap card-js light__card">
+                    <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
+                    <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
+                    </li>';
+                }
+                return $html;
+}
 
 
 

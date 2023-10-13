@@ -1,20 +1,17 @@
 <?php
 require "includes/_database.php";
-include "includes/_functions.php";
 include "includes/_head.php";
 include "includes/_header.php";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $titleReceived = strip_tags($_POST['title']);
     $q = $dbCo->prepare("SELECT id_book FROM book WHERE title_book = :title");
-    $isOk2 = $q->execute(["title" => $titleReceived]);
+    $isOk2 = $q->execute(["title" => strip_tags($_POST['title'])]);
     $ttl = $q->fetch(PDO::FETCH_ASSOC);
 
-    $authorName = strip_tags($_POST['author']);
     $q1 = $dbCo->prepare("SELECT id_author FROM author WHERE author_name = :authorName");
-    $isOk3 = $q1->execute(["authorName" => $authorName]);
+    $isOk3 = $q1->execute(["authorName" => strip_tags($_POST['author'])]);
     $author = $q1->fetch(PDO::FETCH_ASSOC);
 
 
