@@ -361,17 +361,12 @@ ul {
   }
 }
 /* FOOTER  */
-.footer {
-  margin-top: 3rem;
-}
-
 .footer__lst {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 1rem;
 }
-
 .footer__socials {
   display: flex;
   justify-content: flex-end;
@@ -694,4 +689,30 @@ ul {
 .dark__nav {
   background-color: #303030;
   color: #fff;
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid;
+}
+.list__author {
+  font-size: 1.2rem;
+}
+.list__ttl {
+  font-size: 1.2rem;
+}
+.list__wrap {
+  border: 1px solid;
+  border-top: none;
+  border-radius: 0 0 1rem 1rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: -1rem;
+}
+
+.list:hover {
+  background-color: #D04826;
 }/*# sourceMappingURL=style.css.map */

@@ -3,6 +3,27 @@ require "includes/_database.php";
 include "includes/_head.php";
 include "includes/_header.php";
 
+// $query = $dbCo->prepare("SELECT `title_book`, `author_name`, `image_url`, `book`.`id_book`
+//                         FROM `book`
+//                         LEFT JOIN `author` ON `book`.`id_author` = `author`.`id_author`
+//                         LEFT JOIN `own` ON `book`.`id_book` = `own`.`id_book`
+//                         LEFT JOIN `genre` ON `own`.`id_genre` = `genre`.`id_genre`");
+// $query->execute();
+// $books = $query->fetchAll();
+
+
+$bookId = isset($_GET['bookId']) ? $_GET['bookId'] : null;
+
+if (isset($_GET['bookId'])){
+
+    $query = $dbCo->prepare("SELECT `title_book`, `author_name`, `image_url`, `book`.`id_book`
+                             FROM `book`
+                             LEFT JOIN `author` ON `book`.`id_author` = `author`.`id_author`
+                            WHERE `id_book` =  $bookId");
+    $query->execute();
+    $book = $query->fetch();
+}
+
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
 
@@ -12,11 +33,15 @@ echo getMsg($msgArray);
     <form class="form__spacing form-js" action="sell.php" method="POST">
         <h2 class="txt__ttl">Vendez votre livre</h2>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingFirstname" placeholder="Titre" name="title">
+            <input type="text" class="form-control search-js" id="floatingFirstname" placeholder="Titre" name="title" value="<?= $bookId ? $book['title_book'] : "" ?>">
             <label for="floatingFirstname">Titre</label>
         </div>
+
+        <section class="catalog-dyn">
+        </section>
+
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingLastname" placeholder="Auteur" name="author">
+            <input type="text" class="form-control" id="floatingLastname" placeholder="Auteur" name="author" value="<?= $bookId ? $book['author_name'] : "" ?>">
             <label for="floatingLastname">Auteur</label>
         </div>
         <div class="form-floating mb-3">
@@ -37,12 +62,12 @@ echo getMsg($msgArray);
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta cta__position cta__txt">Mettre en vente</button>
     </form>
-<br>
-<br>
-<br>
-<br>
-<br>
 
+    <br>
+    <br>
+    <br>
+
+<!-- 
     <h2 class="txt__ttl">Votre livre n'existe pas ?</h2>
 
     <form action="add.php" method="POST" class="form form-js form__radius" enctype="multipart/form-data">
@@ -113,7 +138,6 @@ echo getMsg($msgArray);
 
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
         <button class="cta__txt--little form__btn">Ajouter</button>
-    </form>
+    </form> -->
 
-<?php require "includes/_footer.php" ?>
-    
+    <?php require "includes/_footer.php" ?>

@@ -219,4 +219,61 @@ function displayBooks(books) {
 }
 
 
+//  -------------------------
+// SEARCHBAR ON ADD COPY PAGE
+//  -------------------------
+
+
+const searchInputDyn = document.querySelector('.search-js');
+// const catalogListDyn = document.querySelector('.catalog__lst');
+const catalogDyn = document.querySelector('.catalog-dyn')
+
+// Searching in the API if there's a match with the searchString
+
+if (searchInputDyn){
+    searchInputDyn.addEventListener('keyup', async (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const response = await callApi('post', {
+            action: 'search',
+            request: searchString
+        });
+        getBookTitleDyn(response['books']);
+        if (searchString === '') {
+            getBookTitleDyn([]);
+        }
+    });
+}
+
+function getBookTitleDyn(books){
+        const htmlString = books.map((book) => {
+            return `
+            <div class="list">
+            <a href="sellCopy.php?bookId=${book.id_book}">
+            <h3 class="list__ttl limited-characters-js ${isDarkMode ? 'dark__label' : 'light__label'}">${book.title_book}</h3>
+            <p class="list__author">${book.author_name}</p>
+            </a>
+            </div>
+                        `;
+        })
+            .join('');
+    
+        const ulElement = document.createElement('ul');
+        ulElement.classList.add('list__wrap');
+        ulElement.innerHTML = htmlString;
+    
+        catalogDyn.innerHTML = '';
+        catalogDyn.appendChild(ulElement);
+        if (books.length == 0 && searchInputDyn.value !== "") {
+            ulElement.innerHTML = '<p>Aucun livre trouvé.</p>';
+            const cta = document.createElement('div');
+            catalogDyn.appendChild(cta);
+            cta.classList.add('cta', 'cta__position');
+            cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
+        }
+        if (searchInputDyn.value === "") {
+            catalogDyn.removeChild(catalogDyn.firstChild)
+        }
+    
+    }
+
 

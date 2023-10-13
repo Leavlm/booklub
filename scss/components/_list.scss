@@ -1,0 +1,25 @@
+.list{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid;
+    &__author{
+        font-size: 1.2rem;
+    }
+    &__ttl{
+        font-size: 1.2rem;
+    }
+    &__wrap{
+        border: 1px solid;
+        border-top: none;
+        border-radius: 0 0 1rem 1rem;
+        padding: 1rem;
+        margin-bottom: .5rem;
+        margin-top: -1rem;
+    }
+}
+
+.list:hover{
+    background-color: $lightPop;
+}
