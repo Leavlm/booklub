@@ -17,9 +17,9 @@
             <i class="fa-solid fa-bars header__icn"></i>
         </li>
     </ul>
-    <nav class="nav hide light__nav" id="nav">
-        <i class="hidden fa-solid fa-xmark header__icn nav__icn " id="nav__close"></i>
-        <ul class="nav__lst light__nav">
+    <nav class="nav hide nav-js" id="nav">
+        <i class="hidden fa-solid fa-xmark header__icn nav__icn cross-js" id="nav__close"></i>
+        <ul class="nav__lst">
             <li class="nav__itm"><a href="index.php">Accueil</a></li>
             <li class="nav__itm"><a href="new-book.php">Ajouter un livre</a></li>
             <!-- <li class="nav__itm">Boite à livres</li> -->

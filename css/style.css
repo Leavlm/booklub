@@ -209,7 +209,6 @@ ul {
   .nav__itm {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #0C0C0C;
     text-align: center;
     padding: 1.1rem;
   }
@@ -234,6 +233,7 @@ ul {
   display: flex;
   gap: 3rem;
   justify-content: center;
+  align-items: center;
   padding-left: 2rem;
 }
 
@@ -272,7 +272,7 @@ ul {
   }
   .intro__txt {
     font-size: 1.5rem;
-    line-height: 3rem;
+    line-height: 2rem;
   }
   .intro__img {
     width: 20rem;
@@ -683,5 +683,15 @@ ul {
 }
 
 .dark__label {
+  color: #fff;
+}
+
+.light__nav {
+  background-color: #fff;
+  color: #0C0C0C;
+}
+
+.dark__nav {
+  background-color: #303030;
   color: #fff;
 }/*# sourceMappingURL=style.css.map */

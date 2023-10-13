@@ -12,6 +12,8 @@ const cardElements = document.querySelectorAll('.card-js');
 const formElement = document.querySelector('.form-js');
 const labelElements = document.querySelectorAll('.label-js');
 const imgElement = document.querySelector('.img-js');
+const navElement = document.querySelector('.nav-js');
+const crossIcn = document.querySelector('.cross-js');
 
 //Stocking dark mode into localstorage
 function setDarkModePreference(isDarkMode) {
@@ -30,7 +32,16 @@ function toggleDarkMode(isDarkMode) {
     document.querySelector('.header').classList.toggle('dark', isDarkMode);
 
     iconElement.classList.toggle('fa-moon', !isDarkMode);
+    iconElement.classList.toggle('fa-sun', isDarkMode);
+
     logoElement.setAttribute('src', isDarkMode ? 'img/logo-lg.png' : 'img/petit-logo-blk.png');
+
+    navElement.classList.toggle('light__nav', !isDarkMode);
+    navElement.classList.toggle('dark__nav', isDarkMode);
+    
+    crossIcn.classList.toggle('light__nav', !isDarkMode);
+    crossIcn.classList.toggle('dark__nav', isDarkMode);
+
 
     catalogElements.forEach(element => {
         element.classList.toggle('dark__catalog', isDarkMode);

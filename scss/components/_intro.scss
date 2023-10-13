@@ -4,6 +4,7 @@
     display: flex;
     gap: 3rem;
     justify-content: center;
+    align-items: center;
     padding-left: 2rem;
     
 }
@@ -49,7 +50,7 @@
 
     .intro__txt {
         font-size: 1.5rem;
-        line-height: 3rem;
+        line-height: 2rem;
     }
     .intro__img{
         width: 20rem;
