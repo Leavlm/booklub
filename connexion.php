@@ -7,8 +7,8 @@ echo getMsg($msgArray);
 ?>
 
 <main>
-    <form class="form__spacing  form-js" method="POST" action="connectUser.php">
-        <h2 class="txt__ttl">Connectez-vous</h2>
+    <form class="form__center form-js" method="POST" action="connectUser.php">
+        <h2 class="form__ttl ttl-js">Connectez-vous</h2>
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
             <label for="floatingInput">Email</label>

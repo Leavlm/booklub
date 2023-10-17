@@ -14,6 +14,7 @@ const labelElements = document.querySelectorAll('.label-js');
 const imgElement = document.querySelector('.img-js');
 const navElement = document.querySelector('.nav-js');
 const crossIcn = document.querySelector('.cross-js');
+const ttlElement = document.querySelector('.ttl-js');
 
 //Stocking dark mode into localstorage
 function setDarkModePreference(isDarkMode) {
@@ -41,7 +42,9 @@ function toggleDarkMode(isDarkMode) {
     
     crossIcn.classList.toggle('light__nav', !isDarkMode);
     crossIcn.classList.toggle('dark__nav', isDarkMode);
-
+    
+    ttlElement.classList.toggle('light__ttl', isDarkMode);
+    ttlElement.classList.toggle('dark__ttl', !isDarkMode);
 
     catalogElements.forEach(element => {
         element.classList.toggle('dark__catalog', isDarkMode);

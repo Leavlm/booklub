@@ -41,12 +41,10 @@
     &__ttl {
         display: flex;
         justify-content: center;
-        // color: $black;
         padding: 2rem 0 2rem 0;
         font-weight: 700;
-        width: 50%;
+        // width: 50%;
         margin: 2rem auto 0 auto;
-        // background-color: $grey;
         border-radius: 1rem 1rem 0 0;
     }
 
@@ -69,7 +67,12 @@
     }
 
     &__spacing{
-        padding: 5rem 5rem 0rem 5rem;
+       padding: 5rem 5rem 0rem 5rem;
+    }
+
+    &__center{
+        width: 50%;
+        margin: 0 auto;
     }
 
 }

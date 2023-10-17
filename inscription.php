@@ -7,8 +7,8 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 ?>
 
 <main>
-    <form class="form__spacing form-js" action="addUser.php" method="POST"> 
-        <h2 class="txt__ttl">Inscrivez-vous</h2>
+    <form class="form__center form-js" action="addUser.php" method="POST"> 
+        <h2 class="form__ttl ttl-js">Inscrivez-vous</h2>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingFirstname" placeholder="Maurice" name="firstname">
             <label for="floatingFirstname">Prénom</label>

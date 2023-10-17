@@ -611,7 +611,6 @@ ul {
   justify-content: center;
   padding: 2rem 0 2rem 0;
   font-weight: 700;
-  width: 50%;
   margin: 2rem auto 0 auto;
   border-radius: 1rem 1rem 0 0;
 }
@@ -631,6 +630,10 @@ ul {
 }
 .form__spacing {
   padding: 5rem 5rem 0rem 5rem;
+}
+.form__center {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .btn__spacing {
@@ -689,6 +692,14 @@ ul {
 .dark__nav {
   background-color: #303030;
   color: #fff;
+}
+
+.light__ttl {
+  color: #fff;
+}
+
+.dark__ttl {
+  color: #0C0C0C;
 }
 
 .list {

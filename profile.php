@@ -8,7 +8,6 @@ echo getMsg($msgArray);
 
 $userConnected = isset($_SESSION['user_id']);
 $userId = $_SESSION['user_id'];
-var_dump($userConnected);
 
 if ($userConnected) {
     $queryUser = $dbCo->prepare("SELECT *
@@ -31,11 +30,11 @@ if ($userConnected) {
 
     <h2 class="txt__ttl txt__spacing">Vos ventes</h2>
     <ul class="catalog__lst">
-        <?= getCatalog($copiesArray) ?>
+        <?= getTheBooksYoureSelling($copiesArray) ?>
     </ul>
     <button class="cta cta__position cta__txt--little cta__position--margin"><a href="sellCopy.php">Vendre un livre</a></button>
 
-    <form class="form__spacing form-js" method="POST" action="">
+    <form class="form__center form__spacing form-js" method="POST" action="">
         <h2 class="txt__ttl">Votre profil</h2>
         <div class="form-floating mb-3">
             <input type="firstname" class="form-control" id="floatingInput" value="<?= is_array($userData) ? $userData['firstname'] : "" ?>" name="firstname">
