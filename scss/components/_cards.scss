@@ -39,8 +39,18 @@
     width: 6rem;
     height: 10rem;
     margin-top: 1.5rem;
-
 }
+
+.card__icn{
+    display: flex;
+    gap: 1.5rem;
+    background-color: $black;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: -2rem;
+}
+
+
 @media screen and (min-width: 769px){
     .card__wrap{
         width: calc(25% - 1rem);

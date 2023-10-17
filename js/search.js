@@ -15,6 +15,7 @@ const imgElement = document.querySelector('.img-js');
 const navElement = document.querySelector('.nav-js');
 const crossIcn = document.querySelector('.cross-js');
 const ttlElement = document.querySelector('.ttl-js');
+const listElement = document.querySelector('.list-js');
 
 //Stocking dark mode into localstorage
 function setDarkModePreference(isDarkMode) {
@@ -31,43 +32,66 @@ function loadDarkModePreference() {
 function toggleDarkMode(isDarkMode) {
     document.body.classList.toggle('dark', isDarkMode);
     document.querySelector('.header').classList.toggle('dark', isDarkMode);
+    if (iconElement) {
+        iconElement.classList.toggle('fa-moon', !isDarkMode);
+        iconElement.classList.toggle('fa-sun', isDarkMode);
+    }
 
-    iconElement.classList.toggle('fa-moon', !isDarkMode);
-    iconElement.classList.toggle('fa-sun', isDarkMode);
-
-    logoElement.setAttribute('src', isDarkMode ? 'img/logo-lg.png' : 'img/petit-logo-blk.png');
-
-    navElement.classList.toggle('light__nav', !isDarkMode);
-    navElement.classList.toggle('dark__nav', isDarkMode);
-    
-    crossIcn.classList.toggle('light__nav', !isDarkMode);
-    crossIcn.classList.toggle('dark__nav', isDarkMode);
-    
-    ttlElement.classList.toggle('light__ttl', isDarkMode);
-    ttlElement.classList.toggle('dark__ttl', !isDarkMode);
-
-    catalogElements.forEach(element => {
-        element.classList.toggle('dark__catalog', isDarkMode);
-        element.classList.toggle('light__catalog', !isDarkMode);
-    });
-
-    cardElements.forEach(element => {
-        element.classList.toggle('dark__card', isDarkMode);
-        element.classList.toggle('light__card', !isDarkMode);
-    });
-
-    labelElements.forEach(element => {
-        element.classList.toggle('dark__label', isDarkMode);
-        element.classList.toggle('light__label', !isDarkMode);
-    });
-
-    if (formElement){
-        formElement.classList.toggle('light__form', !isDarkMode);
-        formElement.classList.toggle('dark__form', isDarkMode);
+    if (logoElement) {
+        logoElement.setAttribute('src', isDarkMode ? 'img/logo-lg.png' : 'img/petit-logo-blk.png');
 
     }
-    
-    imgElement.setAttribute('src', isDarkMode ? "./img/couple-lightmode.png" : "./img/couple-darkmode.png" );
+
+    if (navElement) {
+        navElement.classList.toggle('light__nav', !isDarkMode);
+        navElement.classList.toggle('dark__nav', isDarkMode);
+    }
+
+    if (crossIcn) {
+        crossIcn.classList.toggle('light__nav', !isDarkMode);
+        crossIcn.classList.toggle('dark__nav', isDarkMode);
+    }
+
+    if (ttlElement) {
+        ttlElement.classList.toggle('light__ttl', isDarkMode);
+        ttlElement.classList.toggle('dark__ttl', !isDarkMode);
+    }
+
+    if (listElement) {
+        listElement.classList.toggle('light__list', isDarkMode);
+        listElement.classList.toggle('dark__list', !isDarkMode);
+        console.log(isDarkMode);
+    }
+
+    if (catalogElements) {
+        catalogElements.forEach(element => {
+            element.classList.toggle('dark__catalog', isDarkMode);
+            element.classList.toggle('light__catalog', !isDarkMode);
+        });
+    }
+
+    if (cardElements) {
+        cardElements.forEach(element => {
+            element.classList.toggle('dark__card', isDarkMode);
+            element.classList.toggle('light__card', !isDarkMode);
+        });
+    }
+
+    if (labelElements) {
+        labelElements.forEach(element => {
+            element.classList.toggle('dark__label', isDarkMode);
+            element.classList.toggle('light__label', !isDarkMode);
+        });
+    }
+
+    if (formElement) {
+        formElement.classList.toggle('light__form', !isDarkMode);
+        formElement.classList.toggle('dark__form', isDarkMode);
+    }
+
+    if (imgElement) {
+        imgElement.setAttribute('src', isDarkMode ? "./img/couple-lightmode.png" : "./img/couple-darkmode.png");
+    }
 }
 
 // Add event listener for the dark mode toggle
@@ -164,7 +188,7 @@ async function callApi(method, data) {
 
 // Searching in the API if there's a match with the searchString
 
-if (searchInput){
+if (searchInput) {
     searchInput.addEventListener('keyup', async (e) => {
         const searchString = e.target.value.toLowerCase();
         const response = await callApi('post', {
@@ -233,7 +257,7 @@ const catalogDyn = document.querySelector('.catalog-dyn')
 
 // Searching in the API if there's a match with the searchString
 
-if (searchInputDyn){
+if (searchInputDyn) {
     searchInputDyn.addEventListener('keyup', async (e) => {
         const searchString = e.target.value.toLowerCase();
         const response = await callApi('post', {
@@ -247,36 +271,59 @@ if (searchInputDyn){
     });
 }
 
-function getBookTitleDyn(books){
-        const htmlString = books.map((book) => {
-            return `
-            <div class="list">
+function getBookTitleDyn(books) {
+    const htmlString = books.map((book) => {
+        return `
+            <li class="list">
             <a href="sellCopy.php?bookId=${book.id_book}">
             <h3 class="list__ttl limited-characters-js ${isDarkMode ? 'dark__label' : 'light__label'}">${book.title_book}</h3>
             <p class="list__author">${book.author_name}</p>
             </a>
-            </div>
+            </li>
                         `;
-        })
-            .join('');
-    
-        const ulElement = document.createElement('ul');
-        ulElement.classList.add('list__wrap');
-        ulElement.innerHTML = htmlString;
-    
-        catalogDyn.innerHTML = '';
-        catalogDyn.appendChild(ulElement);
-        if (books.length == 0 && searchInputDyn.value !== "") {
-            ulElement.innerHTML = '<p>Aucun livre trouvé.</p>';
-            const cta = document.createElement('div');
-            catalogDyn.appendChild(cta);
-            cta.classList.add('cta', 'cta__position');
-            cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
-        }
-        if (searchInputDyn.value === "") {
-            catalogDyn.removeChild(catalogDyn.firstChild)
-        }
-    
-    }
+    })
+        .join('');
 
+    const ulElement = document.createElement('ul');
+    ulElement.classList.add('list__wrap');
+
+    ulElement.innerHTML = htmlString;
+
+    catalogDyn.innerHTML = '';
+    catalogDyn.appendChild(ulElement);
+    if (books.length == 0 && searchInputDyn.value !== "") {
+        ulElement.innerHTML = '<p>Aucun livre trouvé.</p>';
+        const cta = document.createElement('div');
+        catalogDyn.appendChild(cta);
+        cta.classList.add('cta', 'cta__position');
+        cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
+    }
+    if (searchInputDyn.value === "") {
+        catalogDyn.removeChild(catalogDyn.firstChild)
+    }
+    // if (searchInputDyn.value != "") {
+    //     // Créez un élément pour l'icône de croix
+    //     const clearIcon = document.createElement('i');
+    //     clearIcon.classList.add('fa-solid', 'fa-xmark', 'list__cross'); // Définissez une classe pour l'icône (à styliser en CSS)
+    //     // clearIcon.innerHTML = 'X'; // Utilisez un caractère ou une icône pour l'icône de croix
+
+    //     // Ajoutez l'icône de croix à côté de searchInputDyn
+    //     searchInputDyn.insertAdjacentElement('afterend', clearIcon);
+
+    //     // Ajoutez un gestionnaire d'événements pour réinitialiser la valeur de l'entrée au clic sur l'icône
+    //     clearIcon.addEventListener('click', () => {
+    //         searchInputDyn.value = ''; // Réinitialise la valeur de l'entrée
+    //     });
+
+    //     // Vous pouvez également masquer l'icône de croix lorsque l'entrée est vide
+    //     searchInputDyn.addEventListener('input', () => {
+    //         if (searchInputDyn.value === '') {
+    //             clearIcon.style.display = 'none';
+    //         } else {
+    //             clearIcon.style.display = 'inline'; // Affiche l'icône quand il y a du texte dans l'entrée
+    //         }
+    //     });
+    // }
+
+}
 

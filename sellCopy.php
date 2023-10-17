@@ -30,8 +30,8 @@ echo getMsg($msgArray);
 ?>
 
 <main>
-    <form class="form__spacing form-js" action="sell.php" method="POST">
-        <h2 class="txt__ttl">Vendez votre livre</h2>
+    <form class="form__center form__spacing form-js" action="sell.php" method="POST">
+        <h2 class="txt__ttl ttl-js">Vendez votre livre</h2>
         <div class="form-floating mb-3">
             <input type="text" class="form-control search-js" id="floatingFirstname" placeholder="Titre" name="title" value="<?= $bookId ? $book['title_book'] : "" ?>">
             <label for="floatingFirstname">Titre</label>

@@ -46,8 +46,8 @@ $books = $query->fetchAll();
     </section>
 
     <section class="catalog-parent-js">
-        <article class="catalog catalog-js light__catalog">
-            <h2 class="catalog__title">Notre catalogue</h2>
+        <article class="catalog catalog-js">
+            <h2 class="catalog__title ttl-js">Notre catalogue</h2>
             <ul class="catalog__lst">
     <?= getCatalog($books)?>
             </ul>

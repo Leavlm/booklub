@@ -56,7 +56,6 @@ if ($userConnected) {
 <?php } else if (!$userConnected) { ?>
 
 
-
     <p class="txt__center txt__spacing"><a href="http://localhost/booklub/connexion.php">  Connectez vous </a>pour accéder à votre profil</p>
 
 

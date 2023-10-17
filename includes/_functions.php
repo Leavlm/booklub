@@ -25,15 +25,32 @@ function getCatalog(array $array): string
 // </picture>
 
 
-function getTheBooksYoureSelling(array $array) :string {
+function getTheBooksYoureSelling(array $array): string
+{
+    $html = '';
+    foreach ($array as $book) {
+        $html .= '<li class="card__wrap card-js light__card card__lnk">
+        <div class="card__icn">
+        <button class="card__btn"><a href="modifyCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-pen"></i></a></button>
+        <button class="card__btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+                    <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
+                    <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
+                    </li>';
+    }
+    return $html;
+}
+
+function getYourCopy(array $array): string
+{
     $html = '';
     foreach ($array as $book) {
         $html .= '<li class="card__wrap card-js light__card card__lnk">
                     <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
                     <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
                     </li>';
-                }
-                return $html;
+    }
+    return $html;
 }
 
 

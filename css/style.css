@@ -415,7 +415,7 @@ ul {
 
 .cta__position {
   justify-content: center;
-  margin: 1rem auto;
+  margin: 2rem auto;
   padding-top: 1rem;
 }
 
@@ -524,6 +524,15 @@ ul {
   width: 6rem;
   height: 10rem;
   margin-top: 1.5rem;
+}
+
+.card__icn {
+  display: flex;
+  gap: 1.5rem;
+  background-color: #0C0C0C;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: -2rem;
 }
 
 @media screen and (min-width: 769px) {
@@ -702,12 +711,21 @@ ul {
   color: #0C0C0C;
 }
 
+.light__list {
+  color: #fff;
+}
+
+.dark__list {
+  color: #303030;
+}
+
 .list {
   display: flex;
   gap: 2rem;
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid;
+  padding: 0.5rem;
 }
 .list__author {
   font-size: 1.2rem;
@@ -721,7 +739,12 @@ ul {
   border-radius: 0 0 1rem 1rem;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  margin-top: -1rem;
+  margin-top: -1.5rem;
+}
+.list__cross {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .list:hover {

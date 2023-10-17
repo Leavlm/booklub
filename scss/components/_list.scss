@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: flex-start;
     border-bottom: 1px solid;
+    padding: .5rem;
     &__author{
         font-size: 1.2rem;
     }
@@ -16,7 +17,12 @@
         border-radius: 0 0 1rem 1rem;
         padding: 1rem;
         margin-bottom: .5rem;
-        margin-top: -1rem;
+        margin-top: -1.5rem;
+    }
+    &__cross{
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 }
 
