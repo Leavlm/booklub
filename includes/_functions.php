@@ -82,7 +82,9 @@ $msgArray = [
     'userAlreadyExists' => 'Vous possédez déjà un compte',
     'logout' => 'Vous êtes déconnecté',
     'bookInStore' => 'Votre livre est désormais en vente',
-    'bookNotInStore' => 'Votre livre n\'a pas pu être mis en vente'
+    'bookNotInStore' => 'Votre livre n\'a pas pu être mis en vente',
+    'copyNotModified' => 'Votre exemplaire n\'a pas pu être modifiée',
+    'copyModified' => 'Votre exemplaire a bien été modifié'
 ];
 
 

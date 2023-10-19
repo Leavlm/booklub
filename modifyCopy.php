@@ -46,7 +46,7 @@ if ($userConnected) {
         <?= getYourCopy($copyArray) ?>
     </ul>
 
-    <form class="form__center form__spacing form-js" action="sell.php" method="POST">
+    <form class="form__center form__spacing form-js" action="action.php?copyId=<?= $copyArray[0]['id_copy']?>&bookId=<?= $copyArray[0]['id_book'] ?>" method="POST">
         <div class="form-floating mb-3">
             <input type="text" class="form-control search-js" id="floatingFirstname" placeholder="Titre" name="title" value="<?= $copyArray[0]['title_book'] ?>">
             <label for="floatingFirstname">Titre</label>
@@ -73,10 +73,9 @@ if ($userConnected) {
             </select>
             <label for="floatingSelect">Etat du livre</label>
         </div>
-
-
+        <input type="hidden" name="action" value="updateCopy">
         <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-        <button class="cta cta__position cta__txt">Mettre en vente</button>
+        <button class="cta cta__position cta__txt">Modifier</button>
     </form>
 
 
