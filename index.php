@@ -7,7 +7,8 @@ $query = $dbCo->prepare("SELECT `title_book`, `author_name`, `image_url`, `book`
                         FROM `book`
                         LEFT JOIN `author` ON `book`.`id_author` = `author`.`id_author`
                         LEFT JOIN `own` ON `book`.`id_book` = `own`.`id_book`
-                        LEFT JOIN `genre` ON `own`.`id_genre` = `genre`.`id_genre`");
+                        LEFT JOIN `genre` ON `own`.`id_genre` = `genre`.`id_genre`
+                        GROUP BY `book`.`id_book`");
 $query->execute();
 $books = $query->fetchAll();
 

@@ -64,14 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 "date" => strip_tags($_POST['date']),
                 "synopsis" => htmlspecialchars($_POST['synopsis'])
             ]);
+
+            if ($isOk1) {
+                $bookId = $dbCo->lastInsertId();
+            }
         }
     }
+    
 
 
-
-    if ($isOk1) {
-        $bookId = $dbCo->lastInsertId();
-    }
 
     // Récupérer les valeurs des cases à cocher cochées à partir du formulaire
     if (isset($_POST['genre']) && is_array($_POST['genre'])) {

@@ -2,7 +2,6 @@
 require "includes/_head.php";
 require "includes/_header.php";
 require "includes/_database.php";
-require "includes/_functions.php";
 
 // ------------------------
 // GETTING THE BOOK CLICKED

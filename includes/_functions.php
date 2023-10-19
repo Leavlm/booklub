@@ -32,7 +32,7 @@ function getTheBooksYoureSelling(array $array): string
         $html .= '<li class="card__wrap card-js light__card card__lnk">
         <div class="card__icn">
         <button class="card__btn"><a href="modifyCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-pen"></i></a></button>
-        <button class="card__btn"><i class="fa-solid fa-xmark"></i></button>
+        <button class="card__btn"><a href="deleteCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-xmark"></i></a></button>
         </div>
                     <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
                     <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
@@ -84,7 +84,9 @@ $msgArray = [
     'bookInStore' => 'Votre livre est désormais en vente',
     'bookNotInStore' => 'Votre livre n\'a pas pu être mis en vente',
     'copyNotModified' => 'Votre exemplaire n\'a pas pu être modifiée',
-    'copyModified' => 'Votre exemplaire a bien été modifié'
+    'copyModified' => 'Votre exemplaire a bien été modifié',
+    'copyDeleted' => 'Votre exemplaire a bien été supprimé',
+    'copyNotDeleted' => 'Votre exemplaire n\'a pas pu être supprimé'
 ];
 
 
