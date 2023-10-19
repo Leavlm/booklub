@@ -45,7 +45,7 @@ function getYourCopy(array $array): string
 {
     $html = '';
     foreach ($array as $book) {
-        $html .= '<li class="card__wrap card-js light__card card__lnk">
+        $html .= '<li class="card__wrap card-js-black card__lnk">
                     <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
                     <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
                     </li>';

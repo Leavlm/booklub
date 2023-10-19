@@ -29,13 +29,20 @@ if ($userConnected) {
     $copyArray = $q->fetchAll();}
 ?>
 
+<div class="spacing__everywhere spacing__bottom">
 <h2 class="txt__ttl txt__spacing">Vos ventes</h2>
 <ul class="catalog__lst">
     <?= getYourCopy($copyArray) ?>
 </ul>
 
-<form class="form__center form__spacing form-js" action="action.php?copyId=<?= $copyArray[0]['id_copy'] ?>&bookId=<?= $copyArray[0]['id_book'] ?>" method="POST">
-    <h2 class="txt__ttl txt__spacing">Etes vous sûr de vouloir supprimer cette copie ?</h2>
-    <button class="cta cta__position cta__txt">Oui</button>
+<form class=" form-js" action="action.php?copyId=<?= $copyArray[0]['id_copy'] ?>&bookId=<?= $copyArray[0]['id_book'] ?>" method="POST">
+    <h3 class="txt__medium txt__center txt__spacing ttl-js">Etes vous sûr de vouloir supprimer cet exemplaire ?</h2>
+    <div class="cta cta__position--gap">
+    <button class="cta cta__disabled">Oui</button>
+    <button class="cta cta__txt--little">Annuler</button>
     <input type="hidden" name="action" value="deleteCopy">
+    </div>
 </form>
+</div>
+
+<?php require "includes/_footer.php" ?>

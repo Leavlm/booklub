@@ -16,6 +16,9 @@ const navElement = document.querySelector('.nav-js');
 const crossIcn = document.querySelector('.cross-js');
 const ttlElement = document.querySelector('.ttl-js');
 const listElement = document.querySelector('.list-js');
+const cardElementDark = document.querySelectorAll('.card-js-black');
+
+console.log(cardElementDark);
 
 //Stocking dark mode into localstorage
 function setDarkModePreference(isDarkMode) {
@@ -73,6 +76,13 @@ function toggleDarkMode(isDarkMode) {
     if (cardElements) {
         cardElements.forEach(element => {
             element.classList.toggle('dark__card', isDarkMode);
+            element.classList.toggle('light__card', !isDarkMode);
+        });
+    }
+
+    if(cardElementDark) {
+        cardElementDark.forEach(element => {
+            element.classList.toggle('black__card', isDarkMode);
             element.classList.toggle('light__card', !isDarkMode);
         });
     }

@@ -10,6 +10,13 @@
     padding-top: 1rem
 }
 
+.cta__position--gap{
+    justify-content: center;
+    padding-top: 1rem;
+    gap: 1rem;
+}
+
+
 .cta__wrap{
     padding-bottom: 2rem;
 }
@@ -27,6 +34,16 @@
     font-size: .8rem;
     color: $white;
     border: none;
+}
+
+.cta__disabled{
+    background-color: $grey;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    font-size: .8rem;
+    border: 1px solid $lightPop;
+    align-items: center;
 }
 
 .cta__txt--little{

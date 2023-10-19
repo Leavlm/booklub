@@ -25,6 +25,10 @@ if($_POST['action'] == "updateCopy"){
         
 }
 
+//----------------------------
+// CRUD DELETE COPY OF A BOOK
+//----------------------------
+
 if ($_POST['action'] == "deleteCopy") {
     $idCopy = strip_tags($_GET['copyId']);
 
