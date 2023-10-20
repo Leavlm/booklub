@@ -1,0 +1,27 @@
+.listingCopies{
+    &__txt{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    &__ttl{
+        font-size: 1.5rem;
+        justify-content: center;
+        // margin: 1rem auto;
+        font-weight: 600;
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+    }
+    &__wrap{
+        background-color: $black;
+        margin: 0 10rem;
+        padding: 1rem;
+        border-radius: 1rem;
+
+    }
+}

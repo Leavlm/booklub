@@ -26,7 +26,6 @@ h6 {
 }
 
 body {
-  font-family: "Merriweather", serif;
   font-family: "Poppins", sans-serif;
 }
 
@@ -39,9 +38,6 @@ ul {
 }
 
 /* TEXTE */
-.txt {
-  font-family: "Merriweather";
-}
 .txt__ttl {
   font-weight: 500;
   padding-bottom: 2rem;
@@ -149,21 +145,18 @@ ul {
 }
 /* RATING */
 .rating__wrap {
-  margin: 5rem 7.6rem;
+  margin: 5rem 0;
   display: flex;
   justify-content: center;
   position: relative;
 }
-
 .rating__img {
   position: relative;
   width: 15rem;
 }
-
 .rating__icn {
   position: absolute;
-  right: -2rem;
-  top: -2rem;
+  top: -6.5rem;
   width: 5rem;
 }
 
@@ -385,30 +378,28 @@ ul {
   flex-direction: column;
   gap: 2rem;
 }
-
 .description__wrap {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 0.4rem;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 0 10rem 0 10rem;
 }
-
 .description__ttl {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
 }
-
 .description__icn {
   display: flex;
   margin: 0 auto;
   width: 4rem;
 }
-
 .description__txt {
   padding: 0 1rem;
   font-size: 1.1rem;
-  text-align: center;
+  text-align: justify;
+  margin: 0 5rem;
 }
 
 /* CTA  */
@@ -780,4 +771,25 @@ ul {
 }
 .spacing__bottom {
   margin-bottom: 2rem;
+}
+
+.listingCopies__txt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.listingCopies__ttl {
+  font-size: 1.5rem;
+  justify-content: center;
+  font-weight: 600;
+}
+.listingCopies__list {
+  display: flex;
+  flex-direction: row;
+}
+.listingCopies__wrap {
+  background-color: #0C0C0C;
+  margin: 0 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
 }/*# sourceMappingURL=style.css.map */

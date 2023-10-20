@@ -7,9 +7,9 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 echo getMsg($msgArray);
 
 $userConnected = isset($_SESSION['user_id']);
-$userId = $_SESSION['user_id'];
 
 if ($userConnected) {
+    $userId = $_SESSION['user_id'];
     $queryUser = $dbCo->prepare("SELECT *
                         FROM `users`
                         WHERE `users`.id_users = :id_users");
@@ -56,7 +56,8 @@ if ($userConnected) {
 <?php } else if (!$userConnected) { ?>
 
 
-    <p class="txt__center txt__spacing"><a href="http://localhost/booklub/connexion.php">  Connectez vous </a>pour accéder à votre profil</p>
+    <p class="txt__center txt__spacing"><a href="http://localhost/booklub/connexion.php" class="txt__center txt__spacing">  Connectez-vous</a>pour accéder à votre profil</p>
+
 
 
 <?php } ?>

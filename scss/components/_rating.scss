@@ -1,21 +1,21 @@
 /* RATING */
-.rating__wrap{
-    margin: 5rem 7.6rem;
-    display: flex;
-    justify-content: center;
 
-    position: relative;
-   }
-   
-   .rating__img{
-       position: relative;
-       width: 15rem;
-    //    margin: 0 auto;
-   }
-   
-   .rating__icn{  
-       position: absolute;
-       right: -2rem;
-       top: -2rem;
-       width: 5rem;
-   }
+.rating{
+    &__wrap{
+        margin: 5rem 0 ;
+        display: flex;
+        justify-content: center;
+        position: relative;
+       }
+       
+       &__img{
+           position: relative;
+           width: 15rem;
+       }
+       
+       &__icn{  
+           position: absolute;
+           top: -6.5rem;
+           width: 5rem;
+       }
+}

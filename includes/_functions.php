@@ -53,6 +53,19 @@ function getYourCopy(array $array): string
     return $html;
 }
 
+function getCopiesByUser(array $array) :string
+{
+    $html = '';
+    foreach ($array as $book) {
+        $html .= '<li><a href="market.php"  class="listingCopies__txt">
+                    <p class="limited-characters-js">' . $book['firstname'] . '</p>
+                    <p class="limited-characters-js">' . $book['price'] . '€</p>
+                    <p class="limited-characters-js">' . $book['state'] . '</p>
+                    </a></li>';
+    }
+    return $html;
+}
+
 
 
 function getSuggestions(array $array): string

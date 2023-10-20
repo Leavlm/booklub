@@ -30,6 +30,27 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 $query2 = $dbCo->prepare("SELECT `image_url` FROM `book`");
 $query2->execute();
 $books = $query2->fetchAll();
+
+
+//------------------------
+// GETTING COPY BY BOOK ID 
+//------------------------
+
+$idBook = $_GET['id'];
+// var_dump($idBook);
+
+
+$queryCopyData = $dbCo->prepare("SELECT *
+                                FROM `book`
+                                JOIN `copy` ON `copy`.`id_book` = `book`.`id_book`
+                                JOIN `users` ON `users`.`id_users` = `copy`.`id_users`
+                                WHERE `book`.`id_book` = :idBook");
+$queryCopyData->execute([
+    'idBook' => $idBook
+]);
+$copyDataArray = $queryCopyData->fetchAll();
+// var_dump($copyDataArray);
+
 ?>
 
 
@@ -38,18 +59,33 @@ $books = $query2->fetchAll();
     <section>
         <div class="rating__wrap">
             <img class="rating__img" src="<?= $book['image_url'] ?>" alt="Couverture du livre <?= $book['title_book'] ?>">
-            <img class="rating__icn" src="img/etoile.png" alt="note du livre">
+            <div class="rating__wrap">
+                <img class="rating__icn" src="img/etoile.png" alt="note du livre">
+            </div>
         </div>
 
         <article class="description">
             <div class="description__wrap">
-                <h1 class="description__ttl"><?= $book['title_book'] ?></h1>
+                <h2 class="description__ttl"><?= $book['title_book'] ?></h1>
                 <img class="description__icn" src="img/coeur.png" alt="coeur cliquable">
             </div>
-            <p class="txt"><?= $book['synopsis'] ?></p>
+            <p class="description__txt"><?= $book['synopsis'] ?></p>
+        </article>
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <article class="listingCopies__wrap">
+            <h3 class="txt__ttl">Get yours</h2>
+            <ul class="listingCopies___list">
+            <?= getCopiesByUser($copyDataArray) ?>
+            </ul>
         </article>
     </section>
 
+    <br>
+    <br>
 
     <aside class="suggestions">
         <h2 class="suggestions__ttl">Suggestions</h2>
