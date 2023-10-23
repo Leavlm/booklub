@@ -1,4 +1,3 @@
-@charset "UTF-8";
 a:link {
   text-decoration: none;
   color: var(--primary);
@@ -402,6 +401,11 @@ ul {
   margin: 0 5rem;
 }
 
+@media screen and (max-width: 769px) {
+  .description__txt {
+    margin: 0 1rem;
+  }
+}
 /* CTA  */
 .cta {
   display: flex;
@@ -655,6 +659,11 @@ ul {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 769px) {
+  .form__center {
+    width: 80%;
+  }
+}
 .btn__spacing {
   margin: 0.2rem;
 }
@@ -774,7 +783,9 @@ ul {
 }
 
 .listingCopies {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .listingCopies__wrap {
   background-color: #0C0C0C;
@@ -782,12 +793,22 @@ ul {
   padding: 1rem;
   border-radius: 1rem;
 }
+.listingCopies__wrap--txt {
+  grid-column: 3/5;
+}
 .listingCopies__list {
   display: grid;
-  grid-template-columns: repeat(3, 30%); /* Trois colonnes */
+  grid-template-columns: repeat(3, 30%);
   grid-template-rows: repeat(2, auto); /* Deux lignes avec une hauteur automatique */
-  grid-gap: 1rem; /* Espacement entre les éléments */
+  grid-gap: 1rem;
   flex-direction: column;
+}
+.listingCopies__list--vertical {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  justify-self: center;
 }
 .listingCopies__txt {
   display: grid;
@@ -795,10 +816,23 @@ ul {
   justify-content: space-around;
   text-align: center;
 }
+.listingCopies__txt--vertical {
+  flex-direction: column;
+}
+.listingCopies__txt--horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .listingCopies__ttl {
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.listingCopies__ttl--vertical {
+  font-size: 1rem;
+  font-weight: 700;
 }
 .listingCopies__subttl {
   font-weight: 600;
@@ -808,4 +842,40 @@ ul {
 }
 .listingCopies__right {
   grid-column: 3;
+}
+.listingCopies__img {
+  width: 4rem;
+}
+.listingCopies__btn {
+  width: 2rem;
+  height: 2rem;
+}
+.listingCopies__centered {
+  justify-self: center;
+}
+
+@media screen and (max-width: 800px) {
+  .listingCopies__wrap {
+    margin: 0 5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .listingCopies__wrap {
+    margin: 0 2rem;
+  }
+  .listingCopies__img {
+    width: 3rem;
+  }
+  .listingCopies__txt--vertical {
+    font-size: 0.8rem;
+  }
+  .listingCopies__ttl--vertical {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 460px) {
+  .listingCopies__txt--horizontal {
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=style.css.map */

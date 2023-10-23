@@ -29,13 +29,13 @@ if ($userConnected) {
 ?>
 
     <h2 class="txt__ttl txt__spacing">Vos ventes</h2>
-    <ul class="catalog__lst">
+    <ul class="listingCopies">
         <?= getTheBooksYoureSelling($copiesArray) ?>
     </ul>
     <button class="cta cta__position cta__txt--little cta__position--margin"><a href="sellCopy.php">Vendre un livre</a></button>
 
     <form class="form__center form__spacing form-js" method="POST" action="">
-        <h2 class="txt__ttl">Votre profil</h2>
+        <h2 class="txt__ttl ttl-js">Votre profil</h2>
         <div class="form-floating mb-3">
             <input type="firstname" class="form-control" id="floatingInput" value="<?= is_array($userData) ? $userData['firstname'] : "" ?>" name="firstname">
             <label for="floatingInput">Votre prénom</label>

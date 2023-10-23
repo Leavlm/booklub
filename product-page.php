@@ -75,14 +75,19 @@ $copyDataArray = $queryCopyData->fetchAll();
     <br>
     <br>
 
-    <section>
-        <article class="listingCopies__wrap listingCopies">
-            <h3 class="listingCopies__ttl">Get yours</h2>
-            <ul class="">
-            <?= getCopiesByUser($copyDataArray) ?>
-            </ul>
-        </article>
-    </section>
+    <?php if (!empty($copyDataArray)){ ?>
+        <section>
+            <article class="listingCopies__wrap listingCopies">
+                <h3 class="listingCopies__ttl">Occasions</h2>
+                <ul class="">
+                <?= getCopiesByUser($copyDataArray) ?>
+                </ul>
+            </article>
+        </section>
+   <?php }
+   else{?>
+    <p class="txt__medium txt__center">Aucun exemplaire actuellement en vente.</p>
+  <?php } ?>
 
     <br>
     <br>

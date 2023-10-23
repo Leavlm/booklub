@@ -35,3 +35,11 @@
     }
 
 }
+
+@media screen and (max-width: 769px){
+    .description{
+        &__txt{
+            margin: 0 1rem;
+        }
+    }
+}

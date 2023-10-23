@@ -29,13 +29,17 @@ function getTheBooksYoureSelling(array $array): string
 {
     $html = '';
     foreach ($array as $book) {
-        $html .= '<li class="card__wrap card-js light__card card__lnk">
-        <div class="card__icn">
-        <button class="card__btn"><a href="modifyCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-pen"></i></a></button>
-        <button class="card__btn"><a href="deleteCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-xmark"></i></a></button>
+        $html .= '<li class="listingCopies__wrap listingCopies__list--vertical">
+        <button class="listingCopies__btn listingCopies__centered"><a href="modifyCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-pen"></i></a></button>
+        <img src="' . $book['image_url'] . '" class="listingCopies__img listingCopies__centered" alt="couverture de livre">
+        <div class="listingCopies__txt--vertical listingCopies__wrap--txt">
+        <h3 class="limited-characters-js listingCopies__ttl--vertical">' . $book['title_book'] . '</h3>
+        <div class="listingCopies__txt--horizontal">
+        <p>Etat: '.$book['state'].'</p>
+        <p>Prix: '.$book['price'].'€</p>
         </div>
-                    <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
-                    <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
+        </div>
+        <button class="listingCopies__btn listingCopies__centered"><a href="deleteCopy.php?bookId='. $book['id_book'].'&copyId='.$book['id_copy'].'"><i class="fa-solid fa-xmark"></i></a></button>
                     </li>';
     }
     return $html;

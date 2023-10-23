@@ -54,7 +54,7 @@ echo getMsg($msgArray);
                 <option selected>Sélectionnez l'état</option>
                 <option value="Parfait">Parfait</option>
                 <option value="Moyen">Moyen</option>
-                <option value="Nul">Nul</option>
+                <option value="Mauvais">Mauvais</option>
             </select>
             <label for="floatingSelect">Etat du livre</label>
         </div>
