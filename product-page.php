@@ -76,9 +76,9 @@ $copyDataArray = $queryCopyData->fetchAll();
     <br>
 
     <section>
-        <article class="listingCopies__wrap">
-            <h3 class="txt__ttl">Get yours</h2>
-            <ul class="listingCopies___list">
+        <article class="listingCopies__wrap listingCopies">
+            <h3 class="listingCopies__ttl">Get yours</h2>
+            <ul class="">
             <?= getCopiesByUser($copyDataArray) ?>
             </ul>
         </article>
@@ -100,5 +100,3 @@ $copyDataArray = $queryCopyData->fetchAll();
 
 <?php require "includes/_footer.php" ?>
 
-
-</html>

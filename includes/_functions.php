@@ -55,12 +55,16 @@ function getYourCopy(array $array): string
 
 function getCopiesByUser(array $array) :string
 {
-    $html = '';
+    $html = '<li class="listingCopies__txt listingCopies__list">
+    <p class="limited-characters-js listingCopies__subttl">Utilisateur</p>
+    <p class="limited-characters-js listingCopies__subttl listingCopies__middle">Prix</p>
+    <p class="limited-characters-js listingCopies__subttl listingCopies__right">Etat</p>
+    </li>';
     foreach ($array as $book) {
-        $html .= '<li><a href="market.php"  class="listingCopies__txt">
+        $html .= '<li><a href="market.php"  class="listingCopies__txt listingCopies__list">
                     <p class="limited-characters-js">' . $book['firstname'] . '</p>
-                    <p class="limited-characters-js">' . $book['price'] . '€</p>
-                    <p class="limited-characters-js">' . $book['state'] . '</p>
+                    <p class="limited-characters-js listingCopies__middle">' . $book['price'] . '€</p>
+                    <p class="limited-characters-js listingCopies__right">' . $book['state'] . '</p>
                     </a></li>';
     }
     return $html;

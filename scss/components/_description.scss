@@ -9,7 +9,7 @@
     &__wrap {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         gap: 3rem;
         margin: 0 10rem 0 10rem;
     }
@@ -23,8 +23,8 @@
 
     &__icn {
         display: flex;
-        margin: 0 auto;
-        width: 4rem;
+        // margin: 0 auto;
+        width: 3rem;
     }
 
     &__txt {
@@ -33,6 +33,5 @@
         text-align: justify;
         margin: 0 5rem;
     }
-
 
 }

@@ -1,27 +1,85 @@
-.listingCopies{
-    &__txt{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
+// .listingCopies{
+//     &__wrap{
+//         background-color: $black;
+//         margin: 0 10rem;
+//         padding: 1rem;
+//         border-radius: 1rem;
+//     }
+//     &__list{
+//         display: flex;
+//         flex-direction: column;
+//         // justify-content: center;
+//     }
+//     &__txt{
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-around;
+//         text-align: center;
+//     }
 
-    &__ttl{
-        font-size: 1.5rem;
-        justify-content: center;
-        // margin: 1rem auto;
-        font-weight: 600;
-    }
+//     &__ttl{
+//         display: flex;
+//         justify-content: space-around;
+//         font-weight: 600;
+//         margin-bottom: 1rem;
+//     }
+//     &__subttl{
+//         font-weight: 600;
 
-    &__list{
-        display: flex;
-        flex-direction: row;
-        // justify-content: center;
-    }
-    &__wrap{
+//     }
+
+// }
+
+.listingCopies {
+    display: grid;
+    &__wrap {
         background-color: $black;
         margin: 0 10rem;
         padding: 1rem;
         border-radius: 1rem;
-
     }
+    
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 30%); /* Trois colonnes */
+        grid-template-rows: repeat(2, auto); /* Deux lignes avec une hauteur automatique */
+        grid-gap: 1rem; /* Espacement entre les éléments */
+        // display: flex;
+        flex-direction: column;
+        // grid-row: 2;
+    }
+
+    &__txt {
+        display: grid;
+        // display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    &__ttl {
+        // display: flex;
+        justify-content: space-around;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        // grid-column:2;
+    }
+
+    &__subttl {
+        font-weight: 600;
+    }
+
+    &__middle{
+        grid-column: 2;
+    }
+
+    &__right{
+        grid-column: 3;
+    }
+}
+
+
+@media screen and (min-width: 769px){
+   
+
 }
