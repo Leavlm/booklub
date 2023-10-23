@@ -15,15 +15,26 @@ function getCatalog(array $array): string
                     <h3 class="card__ttl limited-characters-js">' . $book['title_book'] . '</h3>
                     </a>
                     </li>';
-                }
-                return $html;
-            }
+    }
+    return $html;
+}
 
 // <p class="card__txt">' . $book['author_name'] . '</p>
 // <picture>
 // <source srcset="' . $book['image_url'] . '" media="(min-width: 769px)">
 // </picture>
 
+function getHorizontalCatalog(array $array): string
+{
+    $html = '';
+    foreach ($array as $book) {
+        $html .= '<li class="card-js card__listItem js-list-item">
+                    <img src="' . $book['image_url'] . '" class="card__img" alt="couverture de livre">
+                    <h3 class="card__txt limited-characters-js">' . $book['title_book'] . '</h3>
+                    </li>';
+    }
+    return $html;
+}
 
 function getTheBooksYoureSelling(array $array): string
 {

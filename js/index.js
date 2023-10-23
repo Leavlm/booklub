@@ -14,7 +14,7 @@ const labelElements = document.querySelectorAll('.label-js');
 const imgElement = document.querySelector('.img-js');
 const navElement = document.querySelector('.nav-js');
 const crossIcn = document.querySelector('.cross-js');
-const ttlElement = document.querySelector('.ttl-js');
+const ttlElements = document.querySelectorAll('.ttl-js');
 const listElement = document.querySelector('.list-js');
 const cardElementDark = document.querySelectorAll('.card-js-black');
 
@@ -55,15 +55,16 @@ function toggleDarkMode(isDarkMode) {
         crossIcn.classList.toggle('dark__nav', isDarkMode);
     }
 
-    if (ttlElement) {
-        ttlElement.classList.toggle('light__ttl', isDarkMode);
-        ttlElement.classList.toggle('dark__ttl', !isDarkMode);
+    if (ttlElements) {
+        ttlElements.forEach(element => {
+            element.classList.toggle('light__ttl', isDarkMode);
+            element.classList.toggle('dark__ttl', !isDarkMode);
+        })
     }
 
     if (listElement) {
         listElement.classList.toggle('light__list', isDarkMode);
         listElement.classList.toggle('dark__list', !isDarkMode);
-        console.log(isDarkMode);
     }
 
     if (catalogElements) {
@@ -125,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const h3Elements = document.querySelectorAll(".limited-characters-js");
 
     h3Elements.forEach(function (h3) {
-        const maxCharacters = 40;
+        const maxCharacters = 25;
         const text = h3.textContent;
 
         if (text.length > maxCharacters) {
@@ -196,20 +197,36 @@ async function callApi(method, data) {
 }
 
 
-// Searching in the API if there's a match with the searchString
-
-if (searchInput) {
-    searchInput.addEventListener('keyup', async (e) => {
+function searchInApi(input, fnName, url = "", element = ""){
+    input.addEventListener('keyup', async (e) => {
         const searchString = e.target.value.toLowerCase();
         const response = await callApi('post', {
             action: 'search',
             request: searchString
         });
-        displayBooks(response['books']);
+        fnName(response['books'], url, element);
         if (searchString === '') {
-            displayBooks([]);
+            fnName([]);
         }
     });
+}
+
+
+// Searching in the API if there's a match with the searchString
+
+if (searchInput) {
+    searchInApi(searchInput, displayBooks);
+    // searchInput.addEventListener('keyup', async (e) => {
+    //     const searchString = e.target.value.toLowerCase();
+    //     const response = await callApi('post', {
+    //         action: 'search',
+    //         request: searchString
+    //     });
+    //     displayBooks(response['books']);
+    //     if (searchString === '') {
+    //         displayBooks([]);
+    //     }
+    // });
 }
 
 
@@ -267,25 +284,28 @@ const catalogDyn = document.querySelector('.catalog-dyn')
 
 // Searching in the API if there's a match with the searchString
 
+
+
 if (searchInputDyn) {
-    searchInputDyn.addEventListener('keyup', async (e) => {
-        const searchString = e.target.value.toLowerCase();
-        const response = await callApi('post', {
-            action: 'search',
-            request: searchString
-        });
-        getBookTitleDyn(response['books']);
-        if (searchString === '') {
-            getBookTitleDyn([]);
-        }
-    });
+    searchInApi(searchInputDyn, getBookTitleDyn, "sellCopy.php", searchInputDyn);
+    // searchInputDyn.addEventListener('keyup', async (e) => {
+    //     const searchString = e.target.value.toLowerCase();
+    //     const response = await callApi('post', {
+    //         action: 'search',
+    //         request: searchString
+    //     });
+    //     getBookTitleDyn(response['books']);
+    //     if (searchString === '') {
+    //         getBookTitleDyn([]);
+    //     }
+    // });
 }
 
-function getBookTitleDyn(books) {
+function getBookTitleDyn(books, url, element) {
     const htmlString = books.map((book) => {
         return `
             <li class="list">
-            <a href="sellCopy.php?bookId=${book.id_book}">
+            <a href="${url}?bookId=${book.id_book}">
             <h3 class="list__ttl limited-characters-js ${isDarkMode ? 'dark__label' : 'light__label'}">${book.title_book}</h3>
             <p class="list__author">${book.author_name}</p>
             </a>
@@ -308,32 +328,88 @@ function getBookTitleDyn(books) {
         cta.classList.add('cta', 'cta__position');
         cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
     }
-    if (searchInputDyn.value === "") {
+    if (element.value === "") {
         catalogDyn.removeChild(catalogDyn.firstChild)
     }
-    // if (searchInputDyn.value != "") {
-    //     // Créez un élément pour l'icône de croix
-    //     const clearIcon = document.createElement('i');
-    //     clearIcon.classList.add('fa-solid', 'fa-xmark', 'list__cross'); // Définissez une classe pour l'icône (à styliser en CSS)
-    //     // clearIcon.innerHTML = 'X'; // Utilisez un caractère ou une icône pour l'icône de croix
-
-    //     // Ajoutez l'icône de croix à côté de searchInputDyn
-    //     searchInputDyn.insertAdjacentElement('afterend', clearIcon);
-
-    //     // Ajoutez un gestionnaire d'événements pour réinitialiser la valeur de l'entrée au clic sur l'icône
-    //     clearIcon.addEventListener('click', () => {
-    //         searchInputDyn.value = ''; // Réinitialise la valeur de l'entrée
-    //     });
-
-    //     // Vous pouvez également masquer l'icône de croix lorsque l'entrée est vide
-    //     searchInputDyn.addEventListener('input', () => {
-    //         if (searchInputDyn.value === '') {
-    //             clearIcon.style.display = 'none';
-    //         } else {
-    //             clearIcon.style.display = 'inline'; // Affiche l'icône quand il y a du texte dans l'entrée
-    //         }
-    //     });
-    // }
 
 }
 
+
+//----------------------
+// HORIZONTAL SCROLL 
+//----------------------
+
+const cardWrap = document.querySelector('.card-wrap-js');
+
+cardWrap.addEventListener('wheel', (e) => {
+  const scrollSpeed = 1; // Ajustez la vitesse de défilement selon vos préférences
+  if (e.deltaY !== 0) {
+      cardWrap.scrollLeft += e.deltaY * scrollSpeed;
+      e.preventDefault(); // Empêche le défilement vertical par défaut
+    }
+});
+
+
+//-------------
+// SELECT BOOK 
+//-------------
+
+const listItems = document.querySelectorAll('.js-list-item');
+// console.log(result);
+
+function selectElement(element){
+    if(!element.classList.contains("card__listItem--selected")){
+        element.classList.toggle("card__listItem--selected")
+    }
+}
+
+listItems.forEach(function(listItem) {
+    listItem.addEventListener('click', function() {
+        selectElement(listItem);
+    });
+});
+
+
+
+//----------------------------------
+// SEARCHBAR ON SUBSCRIPTION PAGE
+//----------------------------------
+
+// const searchInputSub = document.querySelector('.search-taste-js');
+
+// if (searchInputSub){
+//     searchInApi(searchInputSub, getBookTitleDyn, "inscription.php", searchInputSub);
+// }
+
+
+// function getLittleCardDyn(books, url, element){
+//     const htmlString = books.map((book) => {
+//         return `
+//             <li class="list">
+//             <a href="${url}?bookId=${book.id_book}">
+//             <h3 class="list__ttl limited-characters-js ${isDarkMode ? 'dark__label' : 'light__label'}">${book.title_book}</h3>
+//             <p class="list__author">${book.author_name}</p>
+//             </a>
+//             </li>
+//                         `;
+//     })
+//         .join('');
+
+//     const ulElement = document.createElement('ul');
+//     ulElement.classList.add('list__wrap');
+
+//     ulElement.innerHTML = htmlString;
+
+//     catalogDyn.innerHTML = '';
+//     catalogDyn.appendChild(ulElement);
+//     if (books.length == 0 && searchInputDyn.value !== "") {
+//         ulElement.innerHTML = '<p>Aucun livre trouvé.</p>';
+//         const cta = document.createElement('div');
+//         catalogDyn.appendChild(cta);
+//         cta.classList.add('cta', 'cta__position');
+//         cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
+//     }
+//     if (element.value === "") {
+//         catalogDyn.removeChild(catalogDyn.firstChild)
+//     } 
+// }

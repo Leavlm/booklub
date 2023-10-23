@@ -33,24 +33,24 @@ echo getMsg($msgArray);
     <form class="form__center form__spacing form-js" action="sell.php" method="POST">
         <h2 class="txt__ttl ttl-js">Vendez votre livre</h2>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control search-js" id="floatingFirstname" placeholder="Titre" name="title" value="<?= $bookId ? $book['title_book'] : "" ?>">
-            <label for="floatingFirstname">Titre</label>
+            <input type="text" class="form-control search-js" id="floatingTtl" placeholder="Titre" name="title" value="<?= $bookId ? $book['title_book'] : "" ?>" require>
+            <label for="floatingTtl">Titre</label>
         </div>
 
         <section class="catalog-dyn">
         </section>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingLastname" placeholder="Auteur" name="author" value="<?= $bookId ? $book['author_name'] : "" ?>">
-            <label for="floatingLastname">Auteur</label>
+            <input type="text" class="form-control" id="floatingAuthor" placeholder="Auteur" name="author" value="<?= $bookId ? $book['author_name'] : "" ?>"require>
+            <label for="floatingAuthor">Auteur</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingPrice" placeholder="Prix" name="price">
+            <input type="number" class="form-control" id="floatingPrice" placeholder="Prix" name="price" require>
             <label for="floatingPrice">Prix</label>
         </div>
 
         <div class="form-floating">
-            <select class="form-select" id="floatingSelect" aria-label="Sélectionnez l'état" name="state">
+            <select class="form-select" id="floatingSelect" aria-label="Sélectionnez l'état" name="state" require>
                 <option selected>Sélectionnez l'état</option>
                 <option value="Parfait">Parfait</option>
                 <option value="Moyen">Moyen</option>
