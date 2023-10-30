@@ -68,9 +68,11 @@
 }
 
 .light__list{
-    color: $white;
+    color: $dark;
+    background-color: $grey;
 }
 
 .dark__list{
-    color: $dark;
+    color: $white;
+    background-color: $black;
 }

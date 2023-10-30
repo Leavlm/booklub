@@ -754,11 +754,13 @@ ul {
 }
 
 .light__list {
-  color: #fff;
+  color: #303030;
+  background-color: #d0d0d0;
 }
 
 .dark__list {
-  color: #303030;
+  color: #fff;
+  background-color: #0C0C0C;
 }
 
 .list {
@@ -806,7 +808,6 @@ ul {
   gap: 2rem;
 }
 .listingCopies__wrap {
-  background-color: #0C0C0C;
   margin: 0 10rem;
   padding: 1rem;
   border-radius: 1rem;
