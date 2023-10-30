@@ -9,6 +9,7 @@ const iconElement = document.querySelector('.toggle-icon-js');
 const logoElement = document.querySelector('.logo-js');
 const catalogElements = document.querySelectorAll('.catalog-js');
 const cardElements = document.querySelectorAll('.card-js');
+const cardCatalogElements = document.querySelectorAll('.card-catalog-js');
 const formElement = document.querySelector('.form-js');
 const labelElements = document.querySelectorAll('.label-js');
 const imgElement = document.querySelector('.img-js');
@@ -76,6 +77,13 @@ function toggleDarkMode(isDarkMode) {
 
     if (cardElements) {
         cardElements.forEach(element => {
+            element.classList.toggle('dark__card', isDarkMode);
+            element.classList.toggle('light__card', !isDarkMode);
+        });
+    }
+    
+    if (cardCatalogElements) {
+        cardCatalogElements.forEach(element => {
             element.classList.toggle('dark__card', isDarkMode);
             element.classList.toggle('light__card', !isDarkMode);
         });

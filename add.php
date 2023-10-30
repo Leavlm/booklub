@@ -78,32 +78,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['genre']) && is_array($_POST['genre'])) {
         $selectedGenres = $_POST['genre'];
     } else {
-        // Gérer le cas où aucune case n'est cochée
-        $selectedGenres = []; // ou définir un comportement par défaut
+        $selectedGenres = [];
     }
-
-
 
     $genreName = $_POST['genre'];
     if (is_array($genreName)) {
-        // Tableau pour stocker les résultats
         $genreResults = [];
 
-        // Parcourir les éléments de $genreName
         foreach ($genreName as $genre) {
-            // Préparer la requête
             $queryGenre = $dbCo->prepare("SELECT id_genre FROM genre WHERE name_genre = :nameGenre");
 
-            // Exécuter la requête avec le nom de genre actuel
             $isOkGenre = $queryGenre->execute(["nameGenre" => $genre]);
 
-            // Récupérer les résultats pour le genre actuel
             $genres = $queryGenre->fetch(PDO::FETCH_ASSOC);
 
             if ($genres) {
                 $genreId = $genres['id_genre'];
             }
-
 
             $queryInsertOwn = $dbCo->prepare("INSERT INTO own (id_book, id_genre) VALUES (:idBook, :idGenre)");
             $isOwnInserted = $queryInsertOwn->execute(["idBook" => $bookId, "idGenre" => $genreId]);

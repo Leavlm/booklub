@@ -43,22 +43,22 @@ echo getMsg($msgArray);
 
             <input type="checkbox" class="btn-check" id="btn-check-2" autocomplete="off" value="Policier/Thriller" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-2">Policier/Thriller</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-3" autocomplete="off" value="Science-fiction" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-3">Science-fiction</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-4" autocomplete="off" value="Fantasy" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-4">Fantasy</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-5" autocomplete="off" value="Historique" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-5">Historique</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-6" autocomplete="off" value="Horreur" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-6">Horreur</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-7" autocomplete="off" value="Jeunesse" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-7">Jeunesse</label>
-            
+
             <input type="checkbox" class="btn-check" id="btn-check-8" autocomplete="off" value="Non-fiction" name="genre[]">
             <label class="btn btn-outline-secondary btn__spacing" for="btn-check-8">Non-fiction</label>
 
@@ -74,8 +74,10 @@ echo getMsg($msgArray);
             <input class="form-control" type="file" id="formFile" name="image" accept="image/*" placeholder="Couverture">
         </div>
 
-            <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-            <button class="cta__txt--little form__btn">Ajouter</button>
+        <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+        <input type="hidden" name="action" value="addBook">
+
+        <button class="cta__txt--little form__btn">Ajouter</button>
     </form>
     <!-- <form action="add.php" method="POST" class="form form-js" enctype="multipart/form-data">
         <div class=" form__wrap--grid">

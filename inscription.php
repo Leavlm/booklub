@@ -1,6 +1,5 @@
 <?php 
 require "includes/_database.php";
-// require "includes/_functions.php"; 
 include "includes/_head.php";
 require "includes/_header.php";
 

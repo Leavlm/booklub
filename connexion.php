@@ -2,6 +2,7 @@
  include "includes/_head.php";
 require "includes/_header.php";
 $_SESSION['token'] = md5(uniqid(mt_rand(), true));
+// verifyToken();
 
 echo getMsg($msgArray);
 ?>

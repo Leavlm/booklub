@@ -1,8 +1,7 @@
 
 <?php include "includes/_head.php";
 require "includes/_header.php";
-require "includes/_database.php";
-require "includes/_functions.php"; ?>
+require "includes/_database.php";?>
 
 
 
@@ -20,10 +19,8 @@ require "includes/_functions.php"; ?>
                     <img class="description__icn" src="img/coeur.png" alt="coeur cliquable">
                     <img class="description__icn" src="img/pouce-haut" alt="pouce vers le haut">
                 </div>
-                    <h1 class="description__ttl">Titre du livre</h1>
-                <p class="txt description__txt">Lorem ipsum dolor sit amet consectetur. Non etiam arcu donec augue ornare pulvinar nunc. Pellentesque
-                    cum
-                    nisl vitae rutrum faucibus sit. Proin convallis lectus adipiscing enim viverra lorem aliquam.</p>
+                    <h1 class="description__ttl"></h1>
+                <p class="txt description__txt"></p>
             </article>
             <article class="seller">
                 <h2 class="seller__ttl">Exemplaires disponibles</h2>
@@ -40,5 +37,5 @@ require "includes/_functions.php"; ?>
 
 
 
-<?php require"footer.php" ?>
+<?php require "includes/_footer.php" ?>
 </html> 

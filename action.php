@@ -3,6 +3,8 @@ require "includes/_database.php";
 include "includes/_head.php";
 include "includes/_header.php";
 
+verifyToken();
+
 // -------------------------------------
 // CRUD UPDATE COPY OF A BOOK
 // -------------------------------------

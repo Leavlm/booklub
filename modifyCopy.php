@@ -27,7 +27,6 @@ if ($userConnected) {
         'id_copy' => $copyId
     ]);
     $copyArray = $q->fetchAll();
-    // var_dump($copyArray);
 
     if (is_array($copyArray)) {
         $idAuthor = $copyArray[0]['id_author'];
