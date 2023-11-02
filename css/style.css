@@ -52,7 +52,7 @@ ul {
   text-align: center;
 }
 .txt__spacing {
-  padding: 1rem;
+  padding: 2rem;
 }
 .txt__center {
   display: flex;
@@ -395,8 +395,7 @@ ul {
   text-align: center;
 }
 .description__icn {
-  display: flex;
-  width: 3rem;
+  font-size: 1.5rem;
 }
 .description__txt {
   padding: 0 1rem;
@@ -868,6 +867,8 @@ ul {
 .listingCopies__btn {
   width: 2rem;
   height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
 }
 .listingCopies__centered {
   justify-self: center;

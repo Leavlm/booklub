@@ -49,7 +49,45 @@ $queryCopyData->execute([
     'idBook' => $idBook
 ]);
 $copyDataArray = $queryCopyData->fetchAll();
-// var_dump($copyDataArray);
+
+
+//-------------------------------
+// GETTING USER ID IF CONNECTED
+//-------------------------------
+
+$userId = $_SESSION['user_id'];
+// var_dump($book);
+
+//-------------------
+// ADDING BOOK TO FAV
+//-------------------
+
+$queryFavorise = $dbCo->prepare("INSERT INTO favorise (id_book, id_users) VALUES (:idBook, :idUsers) ON DUPLICATE KEY UPDATE id_book = :idBook" );
+$queryFavorise->execute([
+    'idBook' => $idBook,
+    'idUsers' => $userId
+]);
+
+$queryCheckFavorites = $dbCo->prepare("SELECT id_book, id_users
+                                        FROM favorise
+                                        WHERE id_users = :idUsers");
+$queryCheckFavorites->execute([
+    'idUsers' => $userId
+]);
+$favoritesData = $queryCheckFavorites->fetchAll();
+
+foreach ($favoritesData as $favorite){
+    if ($favorite['id_users'] == $userId && $favorite['id_book'] == $idBook){
+        $filledHeart = 'fa-solid';
+    }
+    else{
+        $filledHeart = 'fa-regular';
+    }
+}
+
+
+
+
 
 ?>
 
@@ -67,7 +105,10 @@ $copyDataArray = $queryCopyData->fetchAll();
         <article class="description">
             <div class="description__wrap">
                 <h2 class="description__ttl"><?= $book['title_book'] ?></h1>
-                <img class="description__icn" src="img/coeur.png" alt="coeur cliquable">
+                <!-- <img class="description__icn" src="img/coeur.png" alt="coeur cliquable"> -->
+                <form class="description__icn js-form ">
+                <button><i class="<?= $filledHeart ?> fa-heart empty-heart-js"></i></button>
+                </form>
             </div>
             <p class="description__txt"><?= $book['synopsis'] ?></p>
         </article>
@@ -92,10 +133,10 @@ $copyDataArray = $queryCopyData->fetchAll();
     <br>
     <br>
 
-    <aside class="suggestions">
+    <!-- <aside class="suggestions">
         <h2 class="suggestions__ttl">Suggestions</h2>
         <?= getSuggestions($books) ?>
-    </aside>
+    </aside> -->
 
 </main>
 

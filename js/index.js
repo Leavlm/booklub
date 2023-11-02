@@ -19,7 +19,6 @@ const ttlElements = document.querySelectorAll('.ttl-js');
 const listElements = document.querySelectorAll('.list-js');
 const cardElementDark = document.querySelectorAll('.card-js-black');
 
-console.log(cardElementDark);
 
 //Stocking dark mode into localstorage
 function setDarkModePreference(isDarkMode) {
@@ -253,7 +252,7 @@ if (searchInput) {
 function displayBooks(books) {
     const htmlString = books.map((book) => {
         return `
-        <li class="card__wrap card-js ${isDarkMode ? 'light__card' : 'dark__card'}">
+        <li class="card__wrap card-js-black">
         <a class="card__lnk" href="product-page.php?id=${book.id_book}">
         <img class="card__img" src="${book.image_url}">
         <h3 class="card__ttl limited-characters-js ${isDarkMode ? 'dark__label' : 'light__label'}">${book.title_book}</h3>
@@ -345,6 +344,48 @@ function getBookTitleDyn(books, url, element) {
 
 }
 
+//--------------
+// AJAX LIKE BTN
+//--------------
+
+const addBookButton = document.querySelector('.empty-heart-js');
+const form = document.querySelector('.js-form');
+
+form.addEventListener('submit', e=> {
+    e.preventDefault();
+    const bookId = '<?= $idBook ?>'; 
+    const userId = '<?= $userId ?>';
+    if (addBookButton.classList.contains('fa-solid')){
+                addBookToFavorite(bookId, userId)
+                .then(response => {
+                    if (response.success){
+                        window.location.href = 'product-page.php';
+                    }
+                })
+    }
+})
+
+function addBookToFavorite(bookId, userId) {
+    const data = {
+        action: 'add',
+        id_book: bookId,
+        id_users: userId
+    };
+
+    return fetch('product-page.php', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json());
+
+}
+
+
+
+
 
 //----------------------
 // HORIZONTAL SCROLL 
@@ -352,13 +393,15 @@ function getBookTitleDyn(books, url, element) {
 
 const cardWrap = document.querySelector('.card-wrap-js');
 
-cardWrap.addEventListener('wheel', (e) => {
-  const scrollSpeed = 1; // Ajustez la vitesse de défilement selon vos préférences
-  if (e.deltaY !== 0) {
-      cardWrap.scrollLeft += e.deltaY * scrollSpeed;
-      e.preventDefault(); // Empêche le défilement vertical par défaut
-    }
-});
+if (cardWrap){
+    cardWrap.addEventListener('wheel', (e) => {
+      const scrollSpeed = 1; // Ajustez la vitesse de défilement selon vos préférences
+      if (e.deltaY !== 0) {
+          cardWrap.scrollLeft += e.deltaY * scrollSpeed;
+          e.preventDefault(); // Empêche le défilement vertical par défaut
+        }
+    });
+}
 
 
 //-------------
