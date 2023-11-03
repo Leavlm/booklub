@@ -3,6 +3,8 @@ require "includes/_head.php";
 require "includes/_header.php";
 require "includes/_database.php";
 
+// header('Content-Type: application/json');
+
 // ------------------------
 // GETTING THE BOOK CLICKED
 // ------------------------
@@ -70,29 +72,27 @@ $queryFavorise->execute([
 
 $queryCheckFavorites = $dbCo->prepare("SELECT id_book, id_users
                                         FROM favorise
-                                        WHERE id_users = :idUsers");
+                                        WHERE id_users = :idUsers AND id_book = :idBook");
 $queryCheckFavorites->execute([
-    'idUsers' => $userId
+    'idUsers' => $userId,
+    'idBook'  => $idBook
 ]);
 $favoritesData = $queryCheckFavorites->fetchAll();
 
-foreach ($favoritesData as $favorite){
-    if ($favorite['id_users'] == $userId && $favorite['id_book'] == $idBook){
+    if ( $favoritesData[0]['id_book'] == $idBook && $favoritesData[0]['id_users'] == $userId ){
         $filledHeart = 'fa-solid';
     }
     else{
         $filledHeart = 'fa-regular';
     }
-}
 
+var_dump($favoritesData[0]);
 
 
 
 
 ?>
 
-
-<main>
 
     <section>
         <div class="rating__wrap">

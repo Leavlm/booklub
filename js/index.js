@@ -351,19 +351,24 @@ function getBookTitleDyn(books, url, element) {
 const addBookButton = document.querySelector('.empty-heart-js');
 const form = document.querySelector('.js-form');
 
-form.addEventListener('submit', e=> {
-    e.preventDefault();
-    const bookId = '<?= $idBook ?>'; 
-    const userId = '<?= $userId ?>';
-    if (addBookButton.classList.contains('fa-solid')){
-                addBookToFavorite(bookId, userId)
-                .then(response => {
-                    if (response.success){
-                        window.location.href = 'product-page.php';
-                    }
-                })
-    }
-})
+if(form){
+    form.addEventListener('submit', e=> {
+        e.preventDefault();
+        const bookId = '<?= $idBook ?>'; 
+        const userId = '<?= $userId ?>';
+        if (addBookButton.classList.contains('fa-solid')){
+            console.log('hello');
+            addBookToFavorite(bookId, userId)
+                    .then(response => {
+                        if (response.success){
+                            window.location.href = 'product-page.php';
+                        }
+                    })
+        }
+    })
+
+
+}
 
 function addBookToFavorite(bookId, userId) {
     const data = {
@@ -383,7 +388,22 @@ function addBookToFavorite(bookId, userId) {
 
 }
 
+function removeBookFromFavorite(bookId, userId) {
+    const data = {
+        action: 'remove',
+        id_book: bookId,
+        id_users: userId
+    };
 
+    return fetch('product-page.php', {
+        method: 'DELETE',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json());
+}
 
 
 
