@@ -3,7 +3,8 @@ require "includes/_head.php";
 require "includes/_header.php";
 require "includes/_database.php";
 
-// header('Content-Type: application/json');
+$_SESSION['token'] = md5(uniqid(mt_rand(), true));
+echo getMsg($msgArray);
 
 // ------------------------
 // GETTING THE BOOK CLICKED
@@ -64,11 +65,11 @@ $userId = $_SESSION['user_id'];
 // ADDING BOOK TO FAV
 //-------------------
 
-$queryFavorise = $dbCo->prepare("INSERT INTO favorise (id_book, id_users) VALUES (:idBook, :idUsers) ON DUPLICATE KEY UPDATE id_book = :idBook" );
-$queryFavorise->execute([
-    'idBook' => $idBook,
-    'idUsers' => $userId
-]);
+// $queryFavorise = $dbCo->prepare("INSERT INTO favorise (id_book, id_users) VALUES (:idBook, :idUsers) ON DUPLICATE KEY UPDATE id_book = :idBook" );
+// $queryFavorise->execute([
+//     'idBook' => $idBook,
+//     'idUsers' => $userId
+// ]);
 
 $queryCheckFavorites = $dbCo->prepare("SELECT id_book, id_users
                                         FROM favorise
@@ -79,14 +80,13 @@ $queryCheckFavorites->execute([
 ]);
 $favoritesData = $queryCheckFavorites->fetchAll();
 
-    if ( $favoritesData[0]['id_book'] == $idBook && $favoritesData[0]['id_users'] == $userId ){
+    if (!empty($favoritesData) && $favoritesData[0]['id_book'] == $idBook && $favoritesData[0]['id_users'] == $userId ){
         $filledHeart = 'fa-solid';
     }
     else{
         $filledHeart = 'fa-regular';
     }
 
-var_dump($favoritesData[0]);
 
 
 
@@ -104,10 +104,19 @@ var_dump($favoritesData[0]);
 
         <article class="description">
             <div class="description__wrap">
-                <h2 class="description__ttl"><?= $book['title_book'] ?></h1>
-                <!-- <img class="description__icn" src="img/coeur.png" alt="coeur cliquable"> -->
-                <form class="description__icn js-form ">
-                <button><i class="<?= $filledHeart ?> fa-heart empty-heart-js"></i></button>
+                <h2 class="description__ttl"><?= $book['title_book'] ?></h2>
+                <?php if (!empty($favoritesData)){
+                echo '<form method="POST" action="action.php" class="description__icn js-fav-form">
+                <button><i class="fa-solid fa-heart empty-heart-js"></i></button>
+                <input type="hidden" name="action" value="deleteFav">
+        ';}
+                else{
+                    echo '<form method="POST" action="action.php" class="description__icn js-fav-form ">
+                    <button><i class="fa-regular fa-heart empty-heart-js"></i></button>
+                    <input type="hidden" name="action" value="addFav">';
+                }?>
+                <input type="hidden" name="token" value="<?= $_SESSION['token']?>"> 
+                <input type="hidden" name="idBook" value="<?= $_GET['id']?>"> 
                 </form>
             </div>
             <p class="description__txt"><?= $book['synopsis'] ?></p>
