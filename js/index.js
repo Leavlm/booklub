@@ -18,6 +18,7 @@ const crossIcn = document.querySelector('.cross-js');
 const ttlElements = document.querySelectorAll('.ttl-js');
 const listElements = document.querySelectorAll('.list-js');
 const cardElementDark = document.querySelectorAll('.card-js-black');
+const btnElement = document.querySelectorAll('.btn-js');
 
 
 //Stocking dark mode into localstorage
@@ -112,6 +113,13 @@ function toggleDarkMode(isDarkMode) {
 
     if (imgElement) {
         imgElement.setAttribute('src', isDarkMode ? "./img/couple-lightmode.png" : "./img/couple-darkmode.png");
+    }
+
+    if (btnElement){
+        btnElement.forEach(element=> {
+            element.classList.toggle('dark__btn', isDarkMode);
+            element.classList.toggle('light__btn', !isDarkMode);
+        })
     }
 }
 

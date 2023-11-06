@@ -25,6 +25,14 @@ if ($userConnected) {
     $q->execute(['id_users' => $userId]);
     $copiesArray = $q->fetchAll();
 
+    $queryFavorite = $dbCo->prepare("SELECT `favorise`.`id_book`, `favorise`.`id_users`, `title_book`, `image_url`
+                                    FROM `favorise`
+                                    JOIN `book` ON `favorise`.`id_book` = `book`.`id_book`
+                                    WHERE `favorise`.`id_users` = :idUser");
+    $queryFavorite->execute(['idUser' => $userId]);
+    $favoriteByUser = $queryFavorite->fetchAll();
+
+
 
 ?>
 
@@ -52,6 +60,14 @@ if ($userConnected) {
         <button class="cta cta__position cta__txt cta__position--margin">Modifier</button>
         <a class="txt__little txt__center txt__link" href="logout.php">Déconnexion</a>
     </form>
+
+    <br>
+    <br>
+
+    <h2 class="txt__ttl ttl-js">Vos favoris</h2>
+    <ul class="catalog__lst">
+        <?=  getCatalog($favoriteByUser)?>
+    </ul>
 
 <?php } else if (!$userConnected) { ?>
 

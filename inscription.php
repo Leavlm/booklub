@@ -41,7 +41,7 @@ echo getMsg($msgArray);
             <label for="floatingPassword">Mot de passe</label>
         </div>
         
-
+<!-- 
         <h2 class="form__ttl ttl-js">Vos goûts</h2>
         <p class="txt__subttl ttl-js">Tes livres favoris</p>
         <ul class="card__wrap--horizontal card-wrap-js">
@@ -51,7 +51,7 @@ echo getMsg($msgArray);
         </section>
         <p class="txt__subttl ttl-js">Tes genres favoris</p>
 
-        <p class="txt__subttl ttl-js">Tu n'aimes pas</p>
+        <p class="txt__subttl ttl-js">Tu n'aimes pas</p> -->
 
 
         

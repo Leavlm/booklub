@@ -361,6 +361,9 @@ ul {
   }
 }
 /* FOOTER  */
+.footer {
+  margin-top: 5rem;
+}
 .footer__lst {
   display: flex;
   flex-direction: column;
@@ -684,6 +687,10 @@ ul {
 .btn__spacing {
   margin: 0.2rem;
 }
+.btn__reset {
+  background: none;
+  border: none;
+}
 
 .dark {
   background-color: #303030;
@@ -760,6 +767,14 @@ ul {
 .dark__list {
   color: #fff;
   background-color: #0C0C0C;
+}
+
+.dark__btn {
+  color: #fff;
+}
+
+.light__btn {
+  color: #303030;
 }
 
 .list {

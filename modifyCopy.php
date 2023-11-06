@@ -47,7 +47,7 @@ if ($userConnected) {
 
     <form class="form__center form__spacing form-js" action="action.php?copyId=<?= $copyArray[0]['id_copy']?>&bookId=<?= $copyArray[0]['id_book'] ?>" method="POST">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control search-js" id="floatingFirstname" placeholder="Titre" name="title" value="<?= $copyArray[0]['title_book'] ?>">
+            <input type="text" class="form-control search-js" id="floatingFirstname" placeholder="Titre" name="title" value="<?= $copyArray[0]['title_book'] ?>" disabled>
             <label for="floatingFirstname">Titre</label>
         </div>
 
@@ -55,7 +55,7 @@ if ($userConnected) {
         </section>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingLastname" placeholder="Auteur" name="author" value="<?= $authorData['author_name'] ?>">
+            <input type="text" class="form-control" id="floatingLastname" placeholder="Auteur" name="author" value="<?= $authorData['author_name'] ?>" disabled>
             <label for="floatingLastname">Auteur</label>
         </div>
         <div class="form-floating mb-3">

@@ -98,7 +98,7 @@ $favoritesData = $queryCheckFavorites->fetchAll();
         <div class="rating__wrap">
             <img class="rating__img" src="<?= $book['image_url'] ?>" alt="Couverture du livre <?= $book['title_book'] ?>">
             <div class="rating__wrap">
-                <img class="rating__icn" src="img/etoile.png" alt="note du livre">
+                <a href="review.php?id=<?= $idBook ?>"><img class="rating__icn" src="img/etoile.png" alt="note du livre"></a>
             </div>
         </div>
 
@@ -107,12 +107,12 @@ $favoritesData = $queryCheckFavorites->fetchAll();
                 <h2 class="description__ttl"><?= $book['title_book'] ?></h2>
                 <?php if (!empty($favoritesData)){
                 echo '<form method="POST" action="action.php" class="description__icn js-fav-form">
-                <button><i class="fa-solid fa-heart empty-heart-js"></i></button>
+                <button class="btn__reset"><i class="fa-solid btn-js fa-heart empty-heart-js "></i></button>
                 <input type="hidden" name="action" value="deleteFav">
         ';}
                 else{
                     echo '<form method="POST" action="action.php" class="description__icn js-fav-form ">
-                    <button><i class="fa-regular fa-heart empty-heart-js"></i></button>
+                    <button class="btn__reset"><i class="fa-regular btn-js fa-heart empty-heart-js "></i></button>
                     <input type="hidden" name="action" value="addFav">';
                 }?>
                 <input type="hidden" name="token" value="<?= $_SESSION['token']?>"> 

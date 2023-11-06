@@ -56,6 +56,8 @@ function getTheBooksYoureSelling(array $array): string
     return $html;
 }
 
+
+
 function getYourCopy(array $array): string
 {
     $html = '';
