@@ -97,6 +97,25 @@ function getSuggestions(array $array): string
     }
     return $html .= '</ul>';
 }
+
+function displayReview(array $array) :string
+{
+    $html = '<ul class="">';
+    foreach ($array as $book){
+        $html .= '<li class="">
+        <h3>'.$book['title_ranking'].'</h3>
+        <img src="img/'.$book['note'].'-star.png">
+        <p>'.$book['comment_ranking'].'</p>';
+    }
+    return $html .= '</ul>';
+}
+
+function avgReview(array $array) :string
+{
+
+}
+
+
 // -----------------------------
 //   GET VALIDATION OR FAIL MSG 
 // -----------------------------
@@ -120,7 +139,9 @@ $msgArray = [
     'copyNotModified' => 'Votre exemplaire n\'a pas pu être modifiée',
     'copyModified' => 'Votre exemplaire a bien été modifié',
     'copyDeleted' => 'Votre exemplaire a bien été supprimé',
-    'copyNotDeleted' => 'Votre exemplaire n\'a pas pu être supprimé'
+    'copyNotDeleted' => 'Votre exemplaire n\'a pas pu être supprimé',
+    'reviewAdded' => 'Votre avis a été ajouté',
+    'reviewError' => 'Une erreur s\'est produite, veuillez réessayer.'
 ];
 
 

@@ -1,25 +1,23 @@
 /* RATING */
 
-.rating{
-    &__wrap{
-        margin: 5rem 0 ;
+.rating {
+    &__wrap {
+        margin: 5rem 0;
         display: flex;
         justify-content: center;
         position: relative;
-       }
-       
-       &__img{
-           position: relative;
-           width: 15rem;
-       }
-       
-       &__icn{  
-           position: absolute;
-           top: -6.5rem;
-           width: 5rem;
-       }
+    }
+
+    &__img {
+        position: relative;
+        width: 15rem;
+    }
+
+    &__icn {
+        position: absolute;
+        top: -6.5rem;
+        width: 5rem;
+    }
 }
 
-@media screen and (max-width: 769px){
-    
-}
+@media screen and (max-width: 769px) {}

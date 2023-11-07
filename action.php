@@ -44,14 +44,11 @@ if ($_POST['action'] == "deleteCopy") {
 
 
 //-----------------
-//CRUD ADD FAVORITE
+//ADD FAVORITE
 //-----------------
 
 $idBook = $_POST['idBook'];
 $userId = $_SESSION['user_id'];
-
-// var_dump($idBook, $userId);
-// exit;
 
 
 if ($_POST['action'] == 'addFav'){
@@ -71,5 +68,28 @@ if ($_POST['action'] == 'deleteFav'){
     'idBook'  => $idBook
 ]);
     header("Location: product-page.php?id=" . $idBook);
+    exit;
+}
+
+
+//------------
+// ADD REVIEW
+//------------
+
+// RAPPEL: la variable idBook est initiée dans ADD FAVORITE 
+$id_users = $_SESSION['user_id'];
+$date = date('Y-m-d');
+
+if ($_POST['action'] == 'addReview'){
+    $queryAddReview = $dbCo->prepare("INSERT INTO `ranking` (id_book, id_users, note, comment_ranking, title_ranking, date_ranking) VALUES (:id_book, :id_users, :note, :comment_ranking, :title_ranking, :date_ranking)");
+    $isOk = $queryAddReview->execute([
+        'id_book' => $idBook,
+        'id_users' => $id_users,
+        'note' => $_POST['note'],
+        'comment_ranking' => htmlspecialchars($_POST['comment_ranking']),
+        'title_ranking' => htmlspecialchars($_POST['title_ranking']),
+        'date_ranking' => $date
+    ]);
+    header("Location: review.php?id=" . $idBook . "&msg=" . ($isOk ? 'reviewAdded' : 'reviewError'));
     exit;
 }

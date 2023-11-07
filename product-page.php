@@ -87,7 +87,18 @@ $favoritesData = $queryCheckFavorites->fetchAll();
         $filledHeart = 'fa-regular';
     }
 
+//------------------------    
+// GETTING REVIEWS BY BOOK
+//------------------------
 
+$queryReviews = $dbCo->prepare("SELECT AVG(ranking.note)
+                                FROM `ranking`
+                                JOIN `book` ON `book`.`id_book` = `ranking`.`id_book`
+                                WHERE `ranking`.`id_book` = :idBook");
+$queryReviews->bindParam(":idBook", $idBook, PDO::PARAM_INT);
+$queryReviews->execute();
+$avgRating = $queryReviews->fetchColumn();
+$avgWithoutDecimal = ceil($avgRating);
 
 
 
@@ -98,10 +109,13 @@ $favoritesData = $queryCheckFavorites->fetchAll();
         <div class="rating__wrap">
             <img class="rating__img" src="<?= $book['image_url'] ?>" alt="Couverture du livre <?= $book['title_book'] ?>">
             <div class="rating__wrap">
-                <a href="review.php?id=<?= $idBook ?>"><img class="rating__icn" src="img/etoile.png" alt="note du livre"></a>
+                <?php if($avgWithoutDecimal){ ?>
+                <a href="review.php?id=<?= $idBook ?>"><img class="rating__icn" src="img/<?= $avgWithoutDecimal ?>-star.png" alt="note du livre"></a>
+                <?php } ?>
             </div>
         </div>
 
+        
         <article class="description">
             <div class="description__wrap">
                 <h2 class="description__ttl"><?= $book['title_book'] ?></h2>
@@ -110,7 +124,7 @@ $favoritesData = $queryCheckFavorites->fetchAll();
                 <button class="btn__reset"><i class="fa-solid btn-js fa-heart empty-heart-js "></i></button>
                 <input type="hidden" name="action" value="deleteFav">
         ';}
-                else{
+        else{
                     echo '<form method="POST" action="action.php" class="description__icn js-fav-form ">
                     <button class="btn__reset"><i class="fa-regular btn-js fa-heart empty-heart-js "></i></button>
                     <input type="hidden" name="action" value="addFav">';
@@ -130,18 +144,21 @@ $favoritesData = $queryCheckFavorites->fetchAll();
             <article class="listingCopies__wrap listingCopies">
                 <h3 class="listingCopies__ttl">Occasions</h2>
                 <ul class="">
-                <?= getCopiesByUser($copyDataArray) ?>
+                    <?= getCopiesByUser($copyDataArray) ?>
                 </ul>
             </article>
         </section>
-   <?php }
+        <?php }
    else{?>
     <p class="txt__medium txt__center">Aucun exemplaire actuellement en vente.</p>
-  <?php } ?>
-
+    <?php } ?>
+    
     <br>
     <br>
-
+    
+    <?php if (!$avgWithoutDecimal){ ?>
+    <button class="cta__txt--little"> <a href="review.php?id=<?= $idBook ?>">Noter le livre</a></button>
+    <?php } ?>
     <!-- <aside class="suggestions">
         <h2 class="suggestions__ttl">Suggestions</h2>
         <?= getSuggestions($books) ?>

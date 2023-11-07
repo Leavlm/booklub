@@ -665,9 +665,6 @@ ul {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-.form__wrap {
-  margin-bottom: 20px;
-}
 .form__textarea {
   width: calc(100% - 1rem);
 }
