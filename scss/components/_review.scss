@@ -1,0 +1,14 @@
+.review{
+    &__wrap{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+    
+    &__arrow{
+        position: absolute;
+        left: 2rem;
+        font-size: 2rem;
+    }
+}

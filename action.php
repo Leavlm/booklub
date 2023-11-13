@@ -9,11 +9,11 @@ verifyToken();
 // CRUD UPDATE COPY OF A BOOK
 // -------------------------------------
 
-if($_POST['action'] == "updateCopy"){
+if($_POST['action'] == "updateCopy" && isset($_GET['copyId']) && is_numeric($_GET['copyId'])){
     $_SESSION['token'] = md5(uniqid(mt_rand(), true));
     echo getMsg($msgArray);
     
-        $idCopy= strip_tags($_GET['copyId']);
+        $idCopy= intval(strip_tags($_GET['copyId']));
     
         $queryUpdate = $dbCo->prepare("UPDATE `copy` SET `state` = :state, `price` = :price WHERE id_copy = :idCopy ");
         $isOk = $queryUpdate->execute([
@@ -31,8 +31,8 @@ if($_POST['action'] == "updateCopy"){
 // CRUD DELETE COPY OF A BOOK
 //----------------------------
 
-if ($_POST['action'] == "deleteCopy") {
-    $idCopy = strip_tags($_GET['copyId']);
+if ($_POST['action'] == "deleteCopy" && isset($_GET['copyId']) && is_numeric($_GET['copyId'])) {
+    $idCopy = intval(strip_tags($_GET['copyId']));
 
     $queryDelete = $dbCo->prepare("DELETE FROM `copy` WHERE `id_copy` = :idCopy");
     $isOk = $queryDelete->execute([
@@ -47,11 +47,11 @@ if ($_POST['action'] == "deleteCopy") {
 //ADD FAVORITE
 //-----------------
 
-$idBook = $_POST['idBook'];
-$userId = $_SESSION['user_id'];
+$idBook = intval(htmlspecialchars($_POST['idBook']));
+$userId = intval(htmlspecialchars($_SESSION['user_id']));
 
 
-if ($_POST['action'] == 'addFav'){
+if ($_POST['action'] == 'addFav' && is_numeric($idBook) && is_numeric($userId)) {
     $queryFavorise = $dbCo->prepare("INSERT INTO favorise (id_book, id_users) VALUES (:idBook, :idUsers) ON DUPLICATE KEY UPDATE id_book = :idBook" );
     $queryFavorise->execute([
             'idBook' => $idBook,

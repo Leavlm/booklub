@@ -214,7 +214,14 @@ async function callApi(method, data) {
 
 }
 
-
+/**
+ * 
+ * @param {string} input the place where you want your event listener to listen
+ * @param {function} fnName the callback to display the datas obtained
+ * @param {string} url where you want your redirection
+ * @param {string} element where you listened
+ * @returns a cb using the data found 
+ */
 function searchInApi(input, fnName, url = "", element = ""){
     input.addEventListener('keyup', async (e) => {
         const searchString = e.target.value.toLowerCase();
@@ -246,9 +253,6 @@ if (searchInput) {
     //     }
     // });
 }
-
-
-
 
 /**
  * Function displaying books 
@@ -297,26 +301,12 @@ function displayBooks(books) {
 
 
 const searchInputDyn = document.querySelector('.search-js');
-// const catalogListDyn = document.querySelector('.catalog__lst');
 const catalogDyn = document.querySelector('.catalog-dyn')
 
 // Searching in the API if there's a match with the searchString
 
-
-
 if (searchInputDyn) {
     searchInApi(searchInputDyn, getBookTitleDyn, "sellCopy.php", searchInputDyn);
-    // searchInputDyn.addEventListener('keyup', async (e) => {
-    //     const searchString = e.target.value.toLowerCase();
-    //     const response = await callApi('post', {
-    //         action: 'search',
-    //         request: searchString
-    //     });
-    //     getBookTitleDyn(response['books']);
-    //     if (searchString === '') {
-    //         getBookTitleDyn([]);
-    //     }
-    // });
 }
 
 function getBookTitleDyn(books, url, element) {
@@ -344,7 +334,7 @@ function getBookTitleDyn(books, url, element) {
         const cta = document.createElement('div');
         catalogDyn.appendChild(cta);
         cta.classList.add('cta', 'cta__position');
-        cta.innerHTML = '<a href="new-book.php" class="cta__txt--little">Ajouter un livre</a>'
+        cta.innerHTML = '<a href="new-book.php" class="cta__txt--little cta__txt--white">Ajouter un livre</a>'
     }
     if (element.value === "") {
         catalogDyn.removeChild(catalogDyn.firstChild)

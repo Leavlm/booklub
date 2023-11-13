@@ -36,6 +36,10 @@
     border: none;
 }
 
+.cta__txt--white{
+    color: $white !important;
+}
+
 .cta__disabled{
     background-color: $grey;
     padding: .5rem 1rem;

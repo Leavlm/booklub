@@ -157,7 +157,7 @@ $avgWithoutDecimal = ceil($avgRating);
     <br>
     
     <?php if (!$avgWithoutDecimal){ ?>
-    <button class="cta__txt--little"> <a href="review.php?id=<?= $idBook ?>">Noter le livre</a></button>
+    <button class="cta cta__txt--little cta__position"> <a href="review.php?id=<?= $idBook ?>">Noter le livre</a></button>
     <?php } ?>
     <!-- <aside class="suggestions">
         <h2 class="suggestions__ttl">Suggestions</h2>

@@ -36,7 +36,7 @@ if ($userConnected) {
 </ul>
 
 <form class=" form-js" action="action.php?copyId=<?= $copyArray[0]['id_copy'] ?>&bookId=<?= $copyArray[0]['id_book'] ?>" method="POST">
-    <h3 class="txt__medium txt__center txt__spacing ttl-js">Etes vous sûr de vouloir supprimer cet exemplaire ?</h2>
+    <h3 class="txt__medium txt__center txt__spacing ttl-js">Etes vous sûr de vouloir supprimer cet exemplaire de la vente ?</h2>
     <div class="cta cta__position--gap">
     <button class="cta cta__disabled">Oui</button>
     <button class="cta cta__txt--little">Annuler</button>

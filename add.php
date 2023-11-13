@@ -10,23 +10,25 @@ verifyToken();
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //insert author in author table
+    if (isset($_POST['author']) && !empty($_POST['author'])) {
 
-    $authorName = strip_tags($_POST['author']);
-    $query = $dbCo->prepare("SELECT id_author FROM author WHERE author_name = :authorName");
-    $isOk2 = $query->execute(["authorName" => $authorName]);
-    $author = $query->fetch(PDO::FETCH_ASSOC);
+        $authorName = htmlspecialchars(strip_tags($_POST['author']));
+        $query = $dbCo->prepare("SELECT id_author FROM author WHERE author_name = :authorName");
+        $isOk2 = $query->execute(["authorName" => $authorName]);
+        $author = $query->fetch(PDO::FETCH_ASSOC);
 
-    if ($author) {
-        // If the author already exist, take the same id 
-        $authorId = $author['id_author'];
-    } else {
-        // If he doesn't exist, you can add him
-        $query = $dbCo->prepare("INSERT INTO author (author_name) VALUES (:author)");
-        $isOk2 = $query->execute([
-            "author" => $authorName
-        ]);
+        if ($author) {
+            // If the author already exist, take the same id 
+            $authorId = intval($author['id_author']);
+        } else {
+            // If he doesn't exist, you can add him
+            $query = $dbCo->prepare("INSERT INTO author (author_name) VALUES (:author)");
+            $isOk2 = $query->execute([
+                "author" => $authorName
+            ]);
 
-        $authorId = $dbCo->lastInsertId();
+            $authorId = $dbCo->lastInsertId();
+        }
     }
 
     if ($isOk2 && ($author && $author['id_author'] == $authorId)) {
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $isOk1 = $query->execute([
                 "title" => strip_tags($_POST['title']),
                 "pages" => intval(strip_tags($_POST['pages'])),
-                "authorId" => $authorId,
+                "authorId" => intval($authorId),
                 "imageUrl" => $imageUrl,
                 "date" => strip_tags($_POST['date']),
                 "synopsis" => htmlspecialchars($_POST['synopsis'])
@@ -70,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     }
-    
+
 
 
 

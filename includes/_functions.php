@@ -162,10 +162,21 @@ function getMsg(array $array): string
 //   VERIFY TOKEN 
 //---------------
 
+// function verifyToken()
+// {
+//     if (!array_key_exists('token', $_SESSION) || !array_key_exists('token', $_REQUEST) || $_SESSION['token'] !== $_REQUEST['token']) {
+//         header('location: index.php?msg=wrongToken');
+//         exit;
+//     }
+// }
+
 function verifyToken()
 {
-    if (!array_key_exists('token', $_SESSION) || !array_key_exists('token', $_REQUEST) || $_SESSION['token'] !== $_REQUEST['token']) {
-        header('location: index.php?msg=wrongToken');
+    $sessionToken = $_SESSION['token'] ?? null;
+    $requestToken = $_REQUEST['token'] ?? null;
+    
+    if (!$sessionToken || $sessionToken !== $requestToken) {
+        header('Location: index.php?msg=wrongToken');
         exit;
     }
 }
